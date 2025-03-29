@@ -119,6 +119,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27289244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 759669829281588929, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 1834880093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &187807586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9058342731726438968, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 1834880093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &500497078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5439784477301667278, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 1834880093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &894134031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4342224575495229418, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 1834880093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783572213
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +179,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 759669829836766332, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 905229015085933311, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_FacingExited.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -167,6 +191,10 @@ PrefabInstance:
       propertyPath: m_FacingEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1815769734162705513, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2243020122175513880, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -299,6 +327,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2866641795433771071, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2866641795526442430, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -334,10 +366,42 @@ PrefabInstance:
     - target: {fileID: 2866641795784557641, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786212232707725458, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: affordanceCalloutMove
+      value: 
+      objectReference: {fileID: 27289244}
+    - target: {fileID: 3786212232707725458, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: affordanceCalloutTurn
+      value: 
+      objectReference: {fileID: 500497078}
+    - target: {fileID: 3786212232707725458, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: joystickAffordancesMove
+      value: 
+      objectReference: {fileID: 894134031}
+    - target: {fileID: 3786212232707725458, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: joystickAffordancesTurn
+      value: 
+      objectReference: {fileID: 187807586}
+    - target: {fileID: 4363764012580741661, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5363608809951140776, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474989056021947054, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_FacingExited.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474989056021947054, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_FacingEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989719140442012432, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7367685580836290929, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
       propertyPath: m_SizeDelta.x
