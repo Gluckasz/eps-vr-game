@@ -33,10 +33,12 @@ public class LocomotionDisabler : MonoBehaviour
     {
         for (int i = 0; i < parent.transform.childCount; i++)
         {
-            parent.transform.GetChild(i).gameObject.SetActive(active);
+            GameObject child = parent.transform.GetChild(i).gameObject;
+            if (active && !child.activeInHierarchy && child.name == "Curve")
+            {
+                continue;
+            }
+            child.SetActive(active);
         }
-
-        parent.GetComponent<Callout>().enabled = active;
-
     }
 }
