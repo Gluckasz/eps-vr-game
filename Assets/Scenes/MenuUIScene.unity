@@ -594,6 +594,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+--- !u!4 &2065217457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7277802327414017193, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 1834880093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102629066
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +839,26 @@ PrefabInstance:
     - target: {fileID: 7160327394882159283, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
       propertyPath: m_Name
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019695784023632064, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 2065217457}
+    - target: {fileID: 8019695784023632064, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
+      propertyPath: m_TargetOffset.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019695784023632064, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
+      propertyPath: m_TargetOffset.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019695784023632064, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019695784023632064, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
+      propertyPath: m_RotationFollowMode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8159957320661924545, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
       propertyPath: m_AnchorMax.y
