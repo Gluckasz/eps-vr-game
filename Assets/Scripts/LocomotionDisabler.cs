@@ -22,14 +22,14 @@ public class LocomotionDisabler : MonoBehaviour
         move.SetActive(enableMovement);
         turn.SetActive(enableTurning);
 
-        SetGameObjectInvisible(joystickAffordancesMove, enableMovement);
-        SetGameObjectInvisible(joystickAffordancesTurn, enableTurning);
+        SetChildrenInactive(joystickAffordancesMove, enableMovement);
+        SetChildrenInactive(joystickAffordancesTurn, enableTurning);
 
-        SetGameObjectInvisible(affordanceCalloutMove, enableMovement);
-        SetGameObjectInvisible(affordanceCalloutTurn, enableTurning);
+        SetChildrenInactive(affordanceCalloutMove, enableMovement);
+        SetChildrenInactive(affordanceCalloutTurn, enableTurning);
     }
 
-    private void SetGameObjectInvisible(GameObject parent, bool active)
+    private void SetChildrenInactive(GameObject parent, bool active)
     {
         for (int i = 0; i < parent.transform.childCount; i++)
         {
