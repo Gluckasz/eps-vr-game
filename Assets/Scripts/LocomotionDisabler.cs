@@ -19,6 +19,8 @@ public class LocomotionDisabler : MonoBehaviour
 
     void Update()
     {
+        affordanceCalloutMove.GetComponent<Callout>().enabled = enableMovement;
+        affordanceCalloutTurn.GetComponent<Callout>().enabled = enableTurning;
         move.SetActive(enableMovement);
         turn.SetActive(enableTurning);
 
