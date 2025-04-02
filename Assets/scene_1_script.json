@@ -7,7 +7,7 @@
             "audio": "Assets/AIVoiceAudio/intro_narration.wav"
         }
     ],
-    "scene_1" : [
+    "scene" : [
         {
             "id": "entry",
             "character": "Father",
