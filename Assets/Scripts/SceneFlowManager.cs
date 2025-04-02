@@ -4,6 +4,7 @@ using UnityEngine;
 public class SceneFlowManager : MonoBehaviour
 {
     public DialogueData dialogueData;
+    public string scriptPath = "scene_1_script.json";
 
     void Start()
     {
@@ -12,7 +13,7 @@ public class SceneFlowManager : MonoBehaviour
 
     void LoadDialogueData()
     {
-        string filePath = Path.Combine(Application.dataPath, "scene_1_script.json");
+        string filePath = Path.Combine(Application.dataPath, scriptPath);
 
         if (File.Exists(filePath))
         {
