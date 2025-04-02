@@ -3,15 +3,28 @@ using UnityEngine;
 
 public class SceneFlowManager : MonoBehaviour
 {
+    private static DialogueDisplayManager dialogueDisplayManagerScript;
+
     public DialogueData dialogueData;
     public string scriptPath = "scene_1_script.json";
+    public GameObject dialogueDisplayer;
 
-    void Start()
+    public static GameObject dialogueDisplayerInstance;
+
+
+    private void Start()
     {
         LoadDialogueData();
+
+        dialogueDisplayerInstance = Instantiate(dialogueDisplayer);
+        dialogueDisplayerInstance.SetActive(false);
+
+        dialogueDisplayManagerScript = dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
+
+        StartScene();
     }
 
-    void LoadDialogueData()
+    private void LoadDialogueData()
     {
         string filePath = Path.Combine(Application.dataPath, scriptPath);
 
@@ -31,5 +44,14 @@ public class SceneFlowManager : MonoBehaviour
         {
             Debug.LogError("Could not find JSON file at path: " + filePath);
         }
+    }
+
+    public void StartScene()
+    {
+        dialogueDisplayManagerScript.UpdateText(dialogueData.scene[0].text);
+
+        dialogueDisplayManagerScript.AddOptionsFromChoices(dialogueData.scene[0].choices);
+
+        dialogueDisplayerInstance.SetActive(true);
     }
 }

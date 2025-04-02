@@ -2086,17 +2086,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519374945009003388, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
+      propertyPath: dialogueDisplayer
+      value: 
+      objectReference: {fileID: 2353881410505947731, guid: 9e1423ae06f481b4fb9a857157c1381d, type: 3}
+    - target: {fileID: 519374945009003388, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
+      propertyPath: dialogueDisplayManager
+      value: 
+      objectReference: {fileID: 2353881410505947731, guid: 9e1423ae06f481b4fb9a857157c1381d, type: 3}
     - target: {fileID: 2492541232855515384, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.362289
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492541232855515384, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3869598
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492541232855515384, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7882817
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2492541232855515384, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_LocalRotation.w
