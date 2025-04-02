@@ -10,8 +10,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryUI; // The inventory UI panel
     public Transform player; // Reference to the player
     public TMP_Dropdown itemDropdown; // The dropdown UI for items
-    public Transform itemSpawnPoint; // Where retrieved items appear
     public Button spawnButton; // Reference to the spawn button
+    public float spawnDistance = 0.5f; // How far in front of the player to spawn items
 
     public InputActionProperty toggleInventoryAction;
 
@@ -57,11 +57,22 @@ public class InventoryManager : MonoBehaviour
         }
         wasButtonPressed = isButtonPressed;
 
-        // Keep inventory near the player
+        // Update inventory position only when it's visible
         if (isInventoryVisible)
         {
-            inventoryUI.transform.position = player.position + player.forward * 0.5f;
-            inventoryUI.transform.rotation = Quaternion.LookRotation(player.forward);
+            // Calculate position in front of player's view
+            Vector3 headPosition = player.position;
+            Vector3 forward = player.forward;
+
+            // Ensure the UI is positioned at a fixed distance in front of the player
+            Vector3 targetPosition = headPosition + forward * 0.5f;
+
+            // Use smoothing to prevent jittering
+            inventoryUI.transform.position = Vector3.Lerp(inventoryUI.transform.position, targetPosition, Time.deltaTime * 10f);
+
+            // Calculate rotation to face the player directly
+            Quaternion targetRotation = Quaternion.LookRotation(forward);
+            inventoryUI.transform.rotation = Quaternion.Slerp(inventoryUI.transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
     }
 
@@ -69,9 +80,19 @@ public class InventoryManager : MonoBehaviour
     {
         isInventoryVisible = !isInventoryVisible;
         inventoryUI.SetActive(isInventoryVisible);
+
+        // If we're showing the inventory, immediately position it correctly
+        if (isInventoryVisible)
+        {
+            // Set initial position and rotation
+            Vector3 headPosition = player.position;
+            Vector3 forward = player.forward;
+
+            inventoryUI.transform.position = headPosition + forward * 0.5f;
+            inventoryUI.transform.rotation = Quaternion.LookRotation(forward);
+        }
     }
 
-    // Your existing methods...
     public void AddItemToInventory(GameObject item)
     {
         string itemName = item.name;
@@ -86,12 +107,42 @@ public class InventoryManager : MonoBehaviour
 
     public void RetrieveItem()
     {
+        // Check if there are any items in the dropdown
+        if (itemDropdown.options.Count == 0)
+            return;
+
         string selectedItem = itemDropdown.options[itemDropdown.value].text;
         if (inventoryItems.ContainsKey(selectedItem))
         {
             GameObject item = inventoryItems[selectedItem];
             item.SetActive(true);
-            item.transform.position = itemSpawnPoint.position;
+
+            // Calculate spawn position in front of the player
+            Vector3 spawnPosition = player.position + player.forward * spawnDistance;
+
+            // Set the item's position
+            item.transform.position = spawnPosition;
+
+            // Set the item's rotation to match the player's view
+            item.transform.rotation = player.rotation;
+
+            // Remove the item from the inventory dictionary
+            inventoryItems.Remove(selectedItem);
+
+            // Remove the item from the dropdown
+            int currentIndex = itemDropdown.value;
+            itemDropdown.options.RemoveAt(currentIndex);
+
+            // Update the dropdown selection
+            if (itemDropdown.options.Count > 0)
+            {
+                // Select the next item, or the last item if we were at the end
+                int newIndex = currentIndex < itemDropdown.options.Count ? currentIndex : itemDropdown.options.Count - 1;
+                itemDropdown.value = newIndex;
+            }
+
+            // Refresh the dropdown display
+            itemDropdown.RefreshShownValue();
         }
     }
 }
