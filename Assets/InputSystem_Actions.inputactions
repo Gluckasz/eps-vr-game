@@ -27,7 +27,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -986,6 +986,34 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "XR",
+            "id": "24c3fac3-64db-462f-8ed1-2bcceae42711",
+            "actions": [
+                {
+                    "name": "ToggleInventory",
+                    "type": "Button",
+                    "id": "44e541df-6fc4-4019-9ae3-0db07982d331",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2f445d77-7bad-4904-aabd-a6bca2d79891",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";XR;Keyboard&Mouse",
+                    "action": "ToggleInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
