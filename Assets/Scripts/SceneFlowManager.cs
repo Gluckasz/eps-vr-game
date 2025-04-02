@@ -1,9 +1,14 @@
+using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SceneFlowManager : MonoBehaviour
 {
-    private static DialogueDisplayManager dialogueDisplayManagerScript;
+    private AudioSource audioSource;
+    private bool introAudioPlayed = false;
+
+    private DialogueDisplayManager dialogueDisplayManagerScript;
 
     public DialogueData dialogueData;
     public string scriptPath = "scene_1_script.json";
@@ -11,17 +16,19 @@ public class SceneFlowManager : MonoBehaviour
 
     public static GameObject dialogueDisplayerInstance;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
-        LoadDialogueData();
-
         dialogueDisplayerInstance = Instantiate(dialogueDisplayer);
         dialogueDisplayerInstance.SetActive(false);
 
         dialogueDisplayManagerScript = dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
 
-        StartScene();
+        LoadDialogueData();
     }
 
     private void LoadDialogueData()
@@ -37,13 +44,44 @@ public class SceneFlowManager : MonoBehaviour
             Debug.Log("Dialogue loaded successfully!");
             if (dialogueData.intro.Count > 0)
             {
-                Debug.Log("First node text: " + dialogueData.intro[0].text);
+                Debug.Log("Playing intro audio");
+                PlayIntroAudio();
             }
         }
         else
         {
             Debug.LogError("Could not find JSON file at path: " + filePath);
         }
+    }
+
+    private void PlayIntroAudio()
+    {
+        string audioPath = dialogueData.intro[0].audio;
+
+        string resourcePath = audioPath.Replace("Assets/", "").Replace(".wav", "");
+
+        AudioClip introClip = Resources.Load<AudioClip>(resourcePath);
+
+        if (introClip != null)
+        {
+            dialogueDisplayerInstance.SetActive(true);
+            dialogueDisplayManagerScript.UpdateText(dialogueData.intro[0].text);
+
+            audioSource.clip = introClip;
+            audioSource.Play();
+
+            StartCoroutine(WaitForAudioToFinish(introClip.length));
+        }
+        else
+        {
+            Debug.LogError("Could not load audio clip from: " + resourcePath);
+        }
+    }
+
+    private IEnumerator WaitForAudioToFinish(float delay)
+    {
+        yield return new WaitForSeconds(delay + 0.5f); // Small buffer after audio ends
+        StartScene();
     }
 
     public void StartScene()
