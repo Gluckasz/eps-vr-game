@@ -1,0 +1,41 @@
+{
+    "intro": [
+        {
+            "id": "entry",
+            "character": "Narrator",
+            "text": "Welcome to \"Breaking the Silence\", a VR narrative experience where words have power, and conversations shape your story. In this game, you step into the role of a social worker student. Tonight, you are attending a family dinner where difficult discussions will arise. When your father makes a racist remark, you must decide how to respond. \n\nEvery choice has consequences, shown through pop up feedbacks. Explore the apartment to find interactive objects, a newspaper, a family photo or your phone, that might help you build your argument.\n\nThis game is not about winning, it is about understanding how a conversation can create change over time.",
+            "audio": "Assets/AIVoiceAudio/intro_narration.wav"
+        }
+    ],
+    "scene_1" : [
+        {
+            "id": "entry",
+            "character": "Father",
+            "text": "You know they showed a report about immigrant people and they just don`t work as hard as the rest of us. Thats why they struggle and can´t afford anything",
+            "choices": [
+                {
+                    "shortText": "State facts",
+                    "text": "Actually, that is not true. Studies show that there is discrimination in hiring and also a big economic gab between or social classes.",
+                    "nextId": "2.1",
+                    "item": "newspaper"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Dad, remember when our neighbour Amir struggled to find a job despite being highly qualified? I am sure you know as well as me that that was not because he did not work hard enough",
+                    "nextId": "2.2",
+                    "item": "photo_with_neighbors"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "You know, that’s actually a really ignorant thing to say, it sounds kinda racist and feeds into harmful stereotypes.",
+                    "nextId": "2.3"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Wow did you get that straight from a Facebook post?",
+                    "nextId": "2.4"
+                }
+            ]
+          }
+    ]
+  }
