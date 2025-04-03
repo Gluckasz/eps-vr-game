@@ -10,10 +10,21 @@ public class DialogueDisplayManager : MonoBehaviour
     private Dictionary<string, DialogueNode> dialogueNodes = new Dictionary<string, DialogueNode>();
     private string playerName = "You";
     private string nextId_;
+    private GameOptions gameOptionsScript;
 
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
     public Button nextButton;
+    public GameObject gameOptionsManager;
+    public GameObject textDisplay;
+
+
+    private void Start()
+    {
+        gameOptionsScript = gameOptionsManager.GetComponent<GameOptions>();
+
+        textDisplay.SetActive(gameOptionsScript.ShowDialogueText);
+    }
 
     private string ConstructDialogueText(DialogueNode node)
     {
