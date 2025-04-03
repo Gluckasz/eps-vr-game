@@ -35,6 +35,7 @@ public class DialogueDisplayManager : MonoBehaviour
         dialogueText.text = text;
     }
 
+    // Max 50 characters to dropdown option
     public void AddOptionToDropdown(DialogueChoice choice)
     {
         TMP_Dropdown.OptionData newOption = new();
