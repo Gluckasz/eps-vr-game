@@ -14,7 +14,7 @@
             "text": "You know they showed a report about immigrant people and they just don`t work as hard as the rest of us. Thats why they struggle and can´t afford anything",
             "choices": [
                 {
-                    "shortText": "State facts",
+                    "shortText": "State the facts",
                     "text": "Actually, that is not true. Studies show that there is discrimination in hiring and also a big economic gab between or social classes.",
                     "nextId": "2.1",
                     "item": "newspaper"
@@ -48,7 +48,7 @@
                     "nextId": "3.1"
                 },
                 {
-                    "shortText": "State facts",
+                    "shortText": "State the facts",
                     "text": "It is not about playing the victim. Enough studies have shown that applicants with immigrant-sounding names get up to 50% fewer callbacks for jobs.",
                     "nextId": "2.4",
                     "item": "newspaper"
@@ -62,6 +62,508 @@
                     "shortText": "Personalize the issue",
                     "text": "Dad how would you feel being called lazy just based on where you are from?",
                     "nextId": "3.2"
+                }
+            ]
+        },
+        {
+            "id": "2.2",
+            "character": "Father",
+            "text": "Well okay, but do you not think that some of those people take advantage of the system?",
+            "choices": [
+                {
+                    "shortText": "State the facts",
+                    "text": "So, when struggling locals get help, it’s fair. But when an immigrant needs the same help, they’re ‘taking advantage’? Why the difference?",
+                    "nextId": "3.4"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "How is it 'taking advantage' of the system when the system was  designed to help people in need? Isn't that just using it as intended?",
+                    "nextId": "3.1",
+                    "item": "brochure"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Yeah, because I’m sure Amir’s big dream was to move here and deal with endless bureaucracy just to get a couple of bucks in benefits.",
+                    "nextId": "3.5"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "How would it feel if you worked hard and still faced constant rejection just because of who you are?",
+                    "nextId": "3.3"
+                }
+            ]
+        },
+        {
+            "id": "2.3",
+            "character": "Father",
+            "text": "Oh now I cannot even have an opinion?",
+            "choices": [
+                {
+                    "shortText": "Confront directly",
+                    "text": "Just because something is an opinion doesn’t mean it’s correct. A racist opinion remains racist.",
+                    "nextId": "3.1"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "I respect everyone’s right to have an opinion, but if it dismisses real struggles or promotes harmful ideas, it’s worth reconsidering.",
+                    "nextId": "3.4"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "You always taught me to treat people with respect, if someone said something like that about our family, you wouldn't just brush it off as 'an opinion' right?",
+                    "nextId": "3.3",
+                    "item": "old_diary"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Ah yes, the great tragedy of our time, white cis men struggling to be heard.",
+                    "nextId": "3.5"
+                }
+            ]
+        },
+        {
+            "id": "2.4",
+            "character": "Father",
+            "text": "It’s not like I’m making this stuff up. You know, some of those posts show that people who were born here and have lived their whole lifes here have it harder now than immigrants.",
+            "choices": [
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Just because someone has a harder life doesn't mean others don't face their own struggles.",
+                    "nextId": "2.2"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Okay, but a Facebook post isn't exactly a reliable source. Do you know how many fake news stories are on there? Real research shows that discrimination exists, and it affects people in ways we don’t  see.",
+                    "nextId": "3.4"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "Oh you mean because learning a new language, working twice as hard and being treated like an outsider is 'having it easier'?",
+                    "nextId": "3.5"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Yeah because leaving everything behind and having to start a completely new life sounds like vacation to me.",
+                    "nextId": "2.1",
+                    "item": "suitcase"
+                }
+            ]
+        },
+        {
+            "id": "3.1",
+            "character": "Father",
+            "text": "You’re twisting my words. I’m just saying some people know how to play the system, that doesn’t mean I think no one deserves help.",
+            "choices": [
+                {
+                    "shortText": "Confront directly",
+                    "text": "Then why do your words sound like you’re accusing all of them? If you know some people really need help, why focus on the few who abuse the system instead of the many who rely on it to survive?",
+                    "nextId": "4.1"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Did grandpa ‘play the system’ when he got government support after the war? Or was that just ‘help’ because it was our family?",
+                    "nextId": "4.2",
+                    "item": "letter"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Right, because only immigrants ever ‘play the system.’ I guess politicians just forget to pay taxes by accident!",
+                    "nextId": "4.5",
+                    "item": "newspaper_fraud_scandal"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Actually, social benefits fraud is far more common among citizens than immigrants. But people rarely talk about that because blaming outsiders is just easier.",
+                    "nextId": "4.3"
+                }
+            ]
+        },
+        {
+            "id": "3.2",
+            "character": "Father",
+            "text": "Okay, maybe the problem is not what country this person is from, but still some people just don’t seem interested in fitting in or respecting how things work here.",
+            "choices": [
+                {
+                    "shortText": "Confront directly",
+                    "text": "What about your father? He came to a foreign country with no money, no language, no connections. And what, he had to be sent back too, because the locals didn't like him being a “stranger”?",
+                    "nextId": "4.1",
+                    "item": "grandpa_passport"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "If it were about your friend, would you talk the same way?",
+                    "nextId": "4.2"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Right, let’s build a society where everyone gets judged by how well they follow unwritten rules. How exactly are they supposed to follow the handbook if no one ever gave them one?",
+                    "nextId": "4.2"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "There you go! You say yourself that it's not about everyone. But when you speak in generalities, you also offend those who work, pay taxes, and save lives.",
+                    "nextId": "4.1"
+                }
+            ]
+        },
+        {
+            "id": "3.3",
+            "character": "Father",
+            "text": "I don’t know, maybe it’s not everyone, but it feels like some people don’t respect how things work here. So why should we respect them?",
+            "choices": [
+                {
+                    "shortText": "Confront directly",
+                    "text": "What about your father? He came to a foreign country with no money, no language, no connections. And what, he had to be sent back too, because the locals didn't like him being a “stranger”?",
+                    "nextId": "4.1",
+                    "item": "grandpa_passport"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "If it were about your friend, would you talk the same way?",
+                    "nextId": "4.2"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Right, let’s build a society where everyone gets judged by how well they follow unwritten rules. How exactly are they supposed to follow the handbook if no one ever gave them one?",
+                    "nextId": "4.2"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "There you go! You say yourself that it's not about everyone. But when you speak in generalities, you also offend those who work, pay taxes, and save lives.",
+                    "nextId": "4.1"
+                }
+            ]
+        },
+        {
+            "id": "3.4",
+            "character": "Father",
+            "text": "Okay, I get that there are studies and numbers, but sometimes it feels like all the focus is on helping others. Isn’t there a point where fairness goes both ways",
+            "choices": [
+                {
+                    "shortText": "Confront directly",
+                    "text": "So you think fairness means helping only some people while ignoring others? That’s not fairness, that’s favoritism.",
+                    "nextId": "4.5"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Imagine if you lost your job and had to move to another country to support your family. Wouldn’t you hope people treated you fairly instead of seeing you as a burden?",
+                    "nextId": "4.4",
+                    "item": "fridge_drawing"
+                },
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Ah yes, the great injustice of being kind to people. Truly, society is crumbling under the weight of basic compassion!",
+                    "nextId": "4.5"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "But fairness doesn’t mean choosing one over the other. The need is real, people are fleeing war, persecution, and extreme poverty. That’s not getting special treatment, that’s survival",
+                    "nextId": "4.2"
+                }
+            ]
+        },
+        {
+            "id": "3.5",
+            "character": "Father",
+            "text": "Alright, alright, I get it, you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Right, because life is just that simple! Next time someone’s house is on fire, I’ll be sure to tell them, ‘Well, maybe you shouldn’t have lived there in the first place.’",
+                    "nextId": "4.5"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "But they are already here. They work, they pay taxes. If we make their lives unbearable, who will benefit? We will force them to quit their jobs, leave gaps in the economy and suffer from it ourselves.",
+                    "nextId": "4.3",
+                    "item": "enconomics_book_newspaper"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Let's imagine that tomorrow our country will be in crisis and you will have to leave. How would you feel if you were greeted the same way you are talking about them now?",
+                    "nextId": "4.3"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "I get that you think it’s a choice, but for many, it’s really not. If staying meant danger, poverty, or no future for their kids, wouldn’t you try to find a better place too?",
+                    "nextId": "4.5"
+                }
+            ]
+        },
+        {
+            "id": "4.1",
+            "character": "Father",
+            "text": "You’re right, generalizing is unfair. I know not everyone’s the same. It just gets frustrating when it feels like the few bad examples are the ones you always see. Maybe I’m letting that cloud my view",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Sure, some take advantage but if that’s the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
+                    "nextId": "5.1"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
+                    "nextId": "5.2",
+                    "item": "enconomics_book_newspaper"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "So you admit generalizing is unfair, then why keep doing it? You’re choosing to focus on a few bad cases instead of the reality that most people are doing their best",
+                    "nextId": "5.3"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Just like you did, they’re doing their best to build a good life for themselves and their family, often with no support. Why should they be seen any differently?",
+                    "nextId": "5.1"
+                }
+            ]
+        },
+        {
+            "id": "4.2",
+            "character": "Father",
+            "text": "It depends, back then, the need was obvious. I’m not against helping people now either, but sometimes it’s hard to tell who really needs support and who isn’t even trying to show basic respect.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Yeah, figuring out who truly needs help can be tricky. Maybe we should hand out ‘Certified in Struggling’ badges to make it easier?",
+                    "nextId": "5.1"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Most people who seek asylum or work permits go through background checks and strict procedures. If they were just here to take advantage, they wouldn’t make it past step one.",
+                    "nextId": "5.2"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "Fairness does go both ways. That’s exactly why we need to help those who’ve been left behind, so the system isn’t just fair for the lucky ones.",
+                    "nextId": "5.3"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Most immigrants work hard and contribute more in taxes than they receive in aid. That café down the street you like? It’s run by an immigrant family. Should we assume they’re not trying either?",
+                    "nextId": "5.1",
+                    "item": "immigrant_business_flyer"
+                }
+            ]
+        },
+        {
+            "id": "4.3",
+            "character": "Father",
+            "text": "I don’t know, maybe there’s some truth to that and i also know that not all locals do everything right either. Sure, some contribute but they take far more?",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "If this is what ‘taking more’ looks like, then I must’ve misunderstood the word, because most of them seem to be working harder than most people I know.",
+                    "nextId": "5.4"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "It is true that some people abuse the system, but judging everyone for that isn’t fair. Most immigrants contribute more than they take. If we focus only on the exceptions, we ignore the reality and hurt those who are actually helping.",
+                    "nextId": "5.3"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "Taking? Do you know how much paperwork and bureaucracy they have to deal with just to get basic support? Some barely speak the language, how exactly would they fill out these forms?",
+                    "nextId": "5.4",
+                    "item": "photocopied_documents"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "But you said it yourself, not all locals do everything right either. We’ve seen people here cheat the system too, but no one says 'Austrians take too much.",
+                    "nextId": "5.2"
+                }
+            ]
+        },
+        {
+            "id": "4.4",
+            "character": "Father",
+            "text": "I kind of see your point. Fairness isn’t just about treating everyone the same, but helping those that are in need of it. But there needs to be a balance.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Sure, some take advantage but if that’s the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
+                    "nextId": "5.1"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
+                    "nextId": "5.2",
+                    "item": "enconomics_book_newspaper"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "So you admit generalizing is unfair, then why keep doing it? You’re choosing to focus on a few bad cases instead of the reality that most people are doing their best",
+                    "nextId": "5.3"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Just like you did, they’re doing their best to build a good life for themselves and their family, often with no support. Why should they be seen any differently?",
+                    "nextId": "5.1"
+                }
+            ]
+        },
+        {
+            "id": "4.5",
+            "character": "Father",
+            "text": "Oh sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn’t mean they belong here. If their country’s a mess, they should fix it instead of running here expecting handouts. This isn’t a charity.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Oh, yes, because fixing the problems in the country is as simple as changing a light bulb. If it were that simple, don't you think they would have figured it out by now?",
+                    "nextId": "5.1"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Actually, many immigrants work in sectors with severe labor shortages, like healthcare, logistics, and construction. In Austria, over 30% of cleaning staff and nearly 20% of nurses have a migration background. We should acknowledge how essential they are to daily life.",
+                    "nextId": "5.2",
+                    "item": "magazine_article"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "So you think people should just 'fix' war, corruption, or economic collapse by themselves? That’s not how the world works. If your house was on fire, would you sit inside and try to fix it, or would you run outside to save yourself and your family?",
+                    "nextId": "5.3"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "What if our relatives who went abroad could not find a place for themselves? My grandfather, when he left, was also looking for a better life. And if he had not been accepted, where do you think we would be now ?",
+                    "nextId": "5.1",
+                    "item": "grandpa_passport"
+                }
+            ]
+        },
+        {
+            "id": "5.1",
+            "character": "Father",
+            "text": "Alright, I hear you, not everyone’s here to take advantage, I’ll give you that but I still think we need to be careful. Good intentions don’t mean there aren’t real problems we can’t ignore.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war, character-building, right?",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Every generation has faced challenges, but blaming an entire group of people isn’t the solution. We should focus on policies that help everyone instead of assuming the worst.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "People don’t leave their homes, families, and everything they know just because it’s a bit tough. They leave because it’s unsafe, because staying could mean no future at all. That is not weakness it is survival.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "But that’s exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren’t either. That’s all I’ve been trying to get you to see.",
+                    "nextId": "end"
+                }
+            ]
+        },
+        {
+            "id": "5.2",
+            "character": "Father",
+            "text": "Alright, maybe I’ve been too focused on the worst cases. I can see that some people really do put in the effort, going through all the paperwork, working, trying to fit in. I just worry sometimes that the system isn’t built to handle all of it fairly. But yeah... I’ll admit, it’s not all black and white.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Thanks, Dad. I know these conversations aren’t easy, so… props for hanging in there with me.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Exactly. It’s not about picking sides,  it’s about understanding the gray areas too.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "That’s what I’ve been trying to tell you this whole time ,it’s not black and white. But every time we talk about this, you act like there’s only one truth.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "I just keep thinking, if it were someone in our family needing help in another country, we’d hope they’d be treated with patience and respect too. I know it’s complicated, but that’s all I’m really asking for, just a bit more understanding.",
+                    "nextId": "end"
+                }
+            ]
+        },
+        {
+            "id": "5.3",
+            "character": "Father",
+            "text": "Well, there might be something to it. I'm not saying they're all bad, but the world is not as simple as you think. It's good to help, but you can't expect everyone to start making as much effort as we do. People are different, and not everyone wants to change.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "And I’m thankful people are different, imagine if everyone was like our neighbour Mr. Gruber. The world would be boring, no languages, no new food, just complaints and boiled potatoes forever.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "You're right, people are different. But effort isn’t something only we’re capable of. Just because it doesn’t look the same, doesn’t mean it’s not there. Change takes time, and support makes it possible.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "People are different! But that difference doesn’t mean they’re not trying. We don’t all start with the same chances. I just want us to look a little closer before we decide who’s worth helping.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Many of them face language barriers, discrimination, and low-paying jobs. The problem is not that they do not want to change.",
+                    "nextId": "end"
+                }
+            ]
+        },
+        {
+            "id": "5.4",
+            "character": "Father",
+            "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems, you don’t see us running away from ours, do you?",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Well, Dad, if working hard guaranteed success, then teachers, nurses, and social workers would all be millionaires by now. But hey… maybe it’s not that simple after all.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "But the facts say otherwise. Many migrants work longer hours in harder jobs and still face more barriers than most. It’s not about excuses. That’s all I’m trying to get you to see.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "That’s not fair. Blaming struggling people for the challenges they face just ignores the real issues. You just don't wanna understand that huh?",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Remember when Uncle Peter lost his job while living abroad, and the government helped him get back on his feet? He didn’t run away from his problems, he tried to solve them. That’s all these people are trying to do too.",
+                    "nextId": "end",
+                    "item": "postcard"
+                }
+            ]
+        },
+        {
+            "id": "5.5",
+            "character": "Father",
+            "text": "Yes, I understand, but you know it's not quite the same. The history of our family is one thing, but now there are new conditions, new challenges.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war, character-building, right?",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "State the facts",
+                    "text": "Every generation has faced challenges, but blaming an entire group of people isn’t the solution. We should focus on policies that help everyone instead of assuming the worst.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "People don’t leave their homes, families, and everything they know just because it’s a bit tough. They leave because it’s unsafe, because staying could mean no future at all. That is not weakness it is survival.",
+                    "nextId": "end"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "But that’s exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren’t either. That’s all I’ve been trying to get you to see.",
+                    "nextId": "end"
                 }
             ]
         }
