@@ -36,6 +36,34 @@
                     "nextId": "2.4"
                 }
             ]
-          }
+        },
+        {
+            "id": "2.1",
+            "character": "Father",
+            "text": "Well, I just think people should stop playing the victim.",
+            "choices": [
+                {
+                    "shortText": "Counter with humor",
+                    "text": "Right! And the next time someone cheats on a game, I won't complain, I will just play harder and pretend the rules were fair.",
+                    "nextId": "3.1"
+                },
+                {
+                    "shortText": "State facts",
+                    "text": "It is not about playing the victim. Enough studies have shown that applicants with immigrant-sounding names get up to 50% fewer callbacks for jobs.",
+                    "nextId": "2.4",
+                    "item": "newspaper"
+                },
+                {
+                    "shortText": "Confront directly",
+                    "text": "That is exactly the kind of thinking that keeps racism alive.",
+                    "nextId": "2.3"
+                },
+                {
+                    "shortText": "Personalize the issue",
+                    "text": "Dad how would you feel being called lazy just based on where you are from?",
+                    "nextId": "3.2"
+                }
+            ]
+        }
     ]
   }

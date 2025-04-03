@@ -31,6 +31,11 @@ public class SceneFlowManager : MonoBehaviour
         LoadDialogueData();
     }
 
+    private string ConstructDialogueText(DialogueNode node)
+    {
+        return node.character + ": " + node.text;
+    }
+
     private void LoadDialogueData()
     {
         string filePath = Path.Combine(Application.dataPath, scriptPath);
@@ -65,7 +70,7 @@ public class SceneFlowManager : MonoBehaviour
         if (introClip != null)
         {
             dialogueDisplayerInstance.SetActive(true);
-            dialogueDisplayManagerScript.UpdateText(dialogueData.intro[0].text);
+            dialogueDisplayManagerScript.UpdateText(ConstructDialogueText(dialogueData.intro[0]));
 
             audioSource.clip = introClip;
             audioSource.Play();
@@ -86,10 +91,8 @@ public class SceneFlowManager : MonoBehaviour
 
     public void StartScene()
     {
-        dialogueDisplayManagerScript.UpdateText(dialogueData.scene[0].text);
-
-        dialogueDisplayManagerScript.AddOptionsFromChoices(dialogueData.scene[0].choices);
-
         dialogueDisplayerInstance.SetActive(true);
+
+        dialogueDisplayManagerScript.StartSceneDialogue(dialogueData);
     }
 }
