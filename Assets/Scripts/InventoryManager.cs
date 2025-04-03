@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     public Transform player; // Reference to the player
     public TMP_Dropdown itemDropdown; // The dropdown UI for items
     public Button spawnButton; // Reference to the spawn button
-    public float spawnDistance = 0.5f; // How far in front of the player to spawn items
+    public float spawnDistance = 1.0f; // How far in front of the player to spawn items
 
     public InputActionProperty toggleInventoryAction;
 
@@ -39,7 +39,6 @@ public class InventoryManager : MonoBehaviour
 
     void OnDestroy()
     {
-        // Clean up the listener when the object is destroyed
         if (spawnButton != null)
         {
             spawnButton.onClick.RemoveListener(RetrieveItem);
@@ -48,7 +47,6 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        // Check for button press (with state change detection to avoid toggling every frame)
         bool isButtonPressed = toggleInventoryAction.action.ReadValue<float>() > 0.5f;
 
         if (isButtonPressed && !wasButtonPressed)
@@ -57,23 +55,22 @@ public class InventoryManager : MonoBehaviour
         }
         wasButtonPressed = isButtonPressed;
 
-        // Update inventory position only when it's visible
         if (isInventoryVisible)
         {
-            // Calculate position in front of player's view
-            Vector3 headPosition = player.position;
-            Vector3 forward = player.forward;
-
-            // Ensure the UI is positioned at a fixed distance in front of the player
-            Vector3 targetPosition = headPosition + forward * 0.5f;
-
-            // Use smoothing to prevent jittering
-            inventoryUI.transform.position = Vector3.Lerp(inventoryUI.transform.position, targetPosition, Time.deltaTime * 10f);
-
-            // Calculate rotation to face the player directly
-            Quaternion targetRotation = Quaternion.LookRotation(forward);
-            inventoryUI.transform.rotation = Quaternion.Slerp(inventoryUI.transform.rotation, targetRotation, Time.deltaTime * 10f);
+            UpdateInventoryPosition();
         }
+    }
+
+    void UpdateInventoryPosition()
+    {
+        Vector3 headPosition = player.position;
+        Vector3 forward = player.forward;
+
+        
+        //Vector3 targetPosition = headPosition + forward * 0.6f - new Vector3(0, 0.2f, 0);
+
+        //inventoryUI.transform.position = Vector3.Lerp(inventoryUI.transform.position, targetPosition, Time.deltaTime * 10f);
+        //inventoryUI.transform.rotation = Quaternion.Slerp(inventoryUI.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 10f);
     }
 
     void ToggleInventory()
@@ -81,15 +78,9 @@ public class InventoryManager : MonoBehaviour
         isInventoryVisible = !isInventoryVisible;
         inventoryUI.SetActive(isInventoryVisible);
 
-        // If we're showing the inventory, immediately position it correctly
         if (isInventoryVisible)
         {
-            // Set initial position and rotation
-            Vector3 headPosition = player.position;
-            Vector3 forward = player.forward;
-
-            inventoryUI.transform.position = headPosition + forward * 0.5f;
-            inventoryUI.transform.rotation = Quaternion.LookRotation(forward);
+            UpdateInventoryPosition(); // Set position immediately
         }
     }
 
@@ -107,7 +98,6 @@ public class InventoryManager : MonoBehaviour
 
     public void RetrieveItem()
     {
-        // Check if there are any items in the dropdown
         if (itemDropdown.options.Count == 0)
             return;
 
@@ -117,31 +107,24 @@ public class InventoryManager : MonoBehaviour
             GameObject item = inventoryItems[selectedItem];
             item.SetActive(true);
 
-            // Calculate spawn position in front of the player
+            // Calculate spawn position a bit further away
             Vector3 spawnPosition = player.position + player.forward * spawnDistance;
 
-            // Set the item's position
+            // Set position and add slight random rotation
             item.transform.position = spawnPosition;
+            item.transform.rotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), Random.Range(-10f, 10f));
 
-            // Set the item's rotation to match the player's view
-            item.transform.rotation = player.rotation;
-
-            // Remove the item from the inventory dictionary
+            // Remove the item from inventory
             inventoryItems.Remove(selectedItem);
+            itemDropdown.options.RemoveAt(itemDropdown.value);
 
-            // Remove the item from the dropdown
-            int currentIndex = itemDropdown.value;
-            itemDropdown.options.RemoveAt(currentIndex);
-
-            // Update the dropdown selection
+            // Update dropdown
             if (itemDropdown.options.Count > 0)
             {
-                // Select the next item, or the last item if we were at the end
-                int newIndex = currentIndex < itemDropdown.options.Count ? currentIndex : itemDropdown.options.Count - 1;
+                int newIndex = Mathf.Clamp(itemDropdown.value, 0, itemDropdown.options.Count - 1);
                 itemDropdown.value = newIndex;
             }
 
-            // Refresh the dropdown display
             itemDropdown.RefreshShownValue();
         }
     }
