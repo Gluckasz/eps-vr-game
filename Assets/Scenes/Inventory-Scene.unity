@@ -3862,7 +3862,7 @@ GameObject:
   - component: {fileID: 489081991}
   - component: {fileID: 489081990}
   - component: {fileID: 489081996}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cube Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
