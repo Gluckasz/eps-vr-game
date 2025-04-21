@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class VRCinematicPath : MonoBehaviour
 {
@@ -40,11 +40,17 @@ public class VRCinematicPath : MonoBehaviour
         timer += Time.deltaTime;
         float t = timer / segmentTime;
 
-        xrRig.position = Vector3.Lerp(
-            pathPoints[segmentIndex].position,
-            pathPoints[segmentIndex + 1].position,
-            t
-        );
+        float smoothT = Mathf.SmoothStep(0f, 1f, t);
+        Vector3 start = pathPoints[segmentIndex].position;
+        Vector3 end = pathPoints[segmentIndex + 1].position;
+        xrRig.position = Vector3.Lerp(start, end, smoothT);
+
+        Vector3 direction = end - start;
+        if (direction.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
+            xrRig.rotation = Quaternion.Slerp(xrRig.rotation, targetRotation, Time.deltaTime * 2f);
+        }
 
         if (t >= 1f)
         {
@@ -52,7 +58,6 @@ public class VRCinematicPath : MonoBehaviour
             timer = 0f;
         }
 
-        // Stop at the end
         if (segmentIndex + 1 >= pathPoints.Length)
         {
             isPlaying = false;
