@@ -2745,9 +2745,9 @@ MonoBehaviour:
   - {fileID: 2057740057}
   - {fileID: 1289169514}
   - {fileID: 1007552046}
-  xrRig: {fileID: 0}
+  xrRig: {fileID: 1991560475}
   moveDuration: 40
-  playOnStart: 0
+  playOnStart: 1
 --- !u!4 &1210413018
 Transform:
   m_ObjectHideFlags: 0
@@ -3485,9 +3485,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1690900843}
     m_Modifications:
+    - target: {fileID: 1965902170429181015, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3329016017986432674, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
       propertyPath: m_Name
       value: Photocopied Documents
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174012538139407722, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703996113819698175, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8452784940457229618, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
       propertyPath: m_LocalScale.x
