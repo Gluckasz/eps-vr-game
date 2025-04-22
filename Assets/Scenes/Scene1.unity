@@ -971,6 +971,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1690900843}
     m_Modifications:
+    - target: {fileID: -4711329851348082108, guid: 70c6738815ec1194cb1cf899c6938ff2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2810541797233322058, guid: 70c6738815ec1194cb1cf899c6938ff2, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -2747,7 +2751,7 @@ MonoBehaviour:
   - {fileID: 1007552046}
   xrRig: {fileID: 1991560475}
   moveDuration: 40
-  playOnStart: 1
+  playOnStart: 0
 --- !u!4 &1210413018
 Transform:
   m_ObjectHideFlags: 0
@@ -6767,6 +6771,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 519374945009003388, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519374945009003388, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: dialogueDisplayer
       value: 
       objectReference: {fileID: 2353881410505947731, guid: 9e1423ae06f481b4fb9a857157c1381d, type: 3}
@@ -6817,6 +6825,10 @@ PrefabInstance:
     - target: {fileID: 2857355964979893271, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_Name
       value: Scene Flow Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857355964979893271, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
