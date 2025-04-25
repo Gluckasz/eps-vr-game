@@ -23,6 +23,20 @@ namespace UnityEngine.XR.Interaction.Toolkit.Interactors
     [HelpURL(XRHelpURLConstants.k_NearFarInteractor)]
     public class NearFarInteractor : XRBaseInputInteractor, IXRRayProvider, IUIHoverInteractor, ICurveInteractionDataProvider
     {
+        [Space]
+        [SerializeField]
+        [Tooltip("Maximum distance in meters for far interactions. Objects beyond this distance cannot be grabbed.")]
+        float m_MaxGrabDistance = 3f;
+
+        /// <summary>
+        /// Maximum distance in meters for far interactions. Objects beyond this distance cannot be grabbed.
+        /// </summary>
+        public float maxGrabDistance
+        {
+            get => m_MaxGrabDistance;
+            set => m_MaxGrabDistance = Mathf.Max(0f, value);
+        }
+
         /// <summary>
         /// Enum used to keep track of whether the selection is currently occurring in the near-field or far-field region.
         /// </summary>
@@ -615,12 +629,17 @@ namespace UnityEngine.XR.Interaction.Toolkit.Interactors
                 bool hasInteractable = interactionManager.TryGetInteractableForCollider(targets[i], out var interactable, out var snapVolume);
                 bool isSnapVolume = snapVolume != null;
 
-                // Only add interactables that can be hovered
                 bool isHoverPossible = hasInteractable && interactionManager.IsHoverPossible(this, interactable as IXRHoverInteractable);
 
-                if (isHoverPossible)
+                bool isWithinRange = true;
+                if (isHoverPossible && m_FarRayCastHits.Count > i)
                 {
-                    // Mark the first found index
+                    float distanceToTarget = m_FarRayCastHits[i].distance;
+                    isWithinRange = distanceToTarget <= m_MaxGrabDistance;
+                }
+
+                if (isHoverPossible && isWithinRange)
+                {
                     if (!foundTarget)
                     {
                         firstRegisteredIndex = i;
@@ -636,9 +655,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Interactors
                         m_FarTargetToIndexMap.TryAdd(interactable, i);
                 }
 
-                // If there isn't a target filter, we want to early out if the first target is not a valid interactable.
-                // If the target we found is a snap volume for something we don't support, we should ignore it and try for the next target.
-                if (!hasTargetFilter && (isHoverPossible || !isSnapVolume))
+                if (!hasTargetFilter && ((isHoverPossible && isWithinRange) || !isSnapVolume))
                     break;
             }
 
