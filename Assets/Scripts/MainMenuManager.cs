@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -24,6 +25,14 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ContinueGame()
+    {
+        if (SaveManager.Instance.HasSaveData)
+        {
+            SaveManager.Instance.LoadGame();
+        }
     }
 
     public void ExitGame()
