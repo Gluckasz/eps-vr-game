@@ -1,62 +1,76 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemInspectionManager : MonoBehaviour
 {
-    public static ItemInspectionManager Instance;
+    public static ItemInspectionManager instance;
 
-    public GameObject inspectionCanvas; // assign in inspector
-    public TextMeshProUGUI descriptionText; // assign in inspector
-    public Button continueButton; // assign in inspector
-    public Transform playerTransform; // assign player transform here in inspector
+    public GameObject inspectionCanvas;
+    public Transform playerHead;
+    public Transform itemHolder; // Empty GameObject in canvas where item spawns
+    public TextMeshProUGUI descriptionText;
+    public Button continueButton;
 
     private GameObject currentItem;
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
 
         inspectionCanvas.SetActive(false);
+
+        continueButton.onClick.AddListener(CloseInspection);
     }
 
     public void StartInspection(GameObject item)
     {
-        currentItem = item;
-
-        // Move item in front of player
-        if (playerTransform != null)
+        InspectableItem inspectable = item.GetComponent<InspectableItem>();
+        if (inspectable == null)
         {
-            Vector3 spawnPosition = playerTransform.position + playerTransform.forward * 1.0f + Vector3.up * 0.5f;
-            currentItem.transform.position = spawnPosition;
-            currentItem.transform.rotation = Quaternion.LookRotation(playerTransform.forward);
+            Debug.LogError("Item has no InspectableItem script attached!");
+            return;
         }
 
-        currentItem.SetActive(true);
+        item.SetActive(false);
+
+        descriptionText.text = inspectable.description;
 
         inspectionCanvas.SetActive(true);
+        UpdateCanvasPosition();
 
-        descriptionText.text = "You found: " + currentItem.name + "!";
+        currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
+        Rigidbody rb = currentItem.GetComponent<Rigidbody>();
+        if (rb) rb.isKinematic = true; // Disable physics while inspecting
 
-        continueButton.onClick.RemoveAllListeners();
-        continueButton.onClick.AddListener(FinishInspection);
+        currentItem.transform.LookAt(playerHead);
+        currentItem.transform.Rotate(0f, 180f, 0f);
+
+        ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
 
-    private void FinishInspection()
+
+    private void Update()
     {
-        inspectionCanvas.SetActive(false);
-
-        if (currentItem != null)
+        if (inspectionCanvas.activeSelf)
         {
-            // You can here notify your inventory manager separately if you want!
-            Debug.Log("Item added to inventory: " + currentItem.name);
-
-            currentItem.SetActive(false);
+            UpdateCanvasPosition();
         }
+    }
 
-        currentItem = null;
+    void UpdateCanvasPosition()
+    {
+        Vector3 spawnPos = playerHead.position + playerHead.forward * 1.0f; // 1 meter in front
+        inspectionCanvas.transform.position = spawnPos;
+        inspectionCanvas.transform.rotation = Quaternion.LookRotation(playerHead.forward);
+    }
+
+    public void CloseInspection()
+    {
+        if (currentItem != null)
+            Destroy(currentItem);
+
+        inspectionCanvas.SetActive(false);
     }
 }

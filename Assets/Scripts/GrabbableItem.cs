@@ -1,42 +1,30 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GrabbableItem : MonoBehaviour
+public class GrabbableInspectable : MonoBehaviour
 {
-    private XRGrabInteractable grabInteractable;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab;
 
     private void Awake()
     {
-        grabInteractable = GetComponent<XRGrabInteractable>();
-
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectExited.AddListener(OnSelectExited);
-        }
-        else
-        {
-            Debug.LogError("No XRGrabInteractable component found on " + gameObject.name);
-        }
+        grab = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        if (grab)
+            grab.selectEntered.AddListener(OnGrabbed);
     }
 
     private void OnDestroy()
     {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectExited.RemoveListener(OnSelectExited);
-        }
+        if (grab)
+            grab.selectEntered.RemoveListener(OnGrabbed);
     }
 
-    private void OnSelectExited(SelectExitEventArgs args)
+    private void OnGrabbed(SelectEnterEventArgs args)
     {
-        if (ItemInspectionManager.Instance != null)
-        {
-            ItemInspectionManager.Instance.StartInspection(gameObject);
-        }
-        else
-        {
-            Debug.LogWarning("No ItemInspectionManager found in the scene");
-        }
+        // Start inspecting
+        ItemInspectionManager.instance.StartInspection(gameObject);
+
+        // Optionally, disable grabbing after discovery
+        grab.enabled = false;
+
     }
 }
