@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -35,8 +35,10 @@ public class ItemInspectionManager : MonoBehaviour
 
         item.SetActive(false);
 
+        // Set UI
         descriptionText.text = inspectable.description;
 
+        // Show canvas
         inspectionCanvas.SetActive(true);
         UpdateCanvasPosition();
 
@@ -47,6 +49,7 @@ public class ItemInspectionManager : MonoBehaviour
         currentItem.transform.LookAt(playerHead);
         currentItem.transform.Rotate(0f, 180f, 0f);
 
+        // Discover the item
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
 
