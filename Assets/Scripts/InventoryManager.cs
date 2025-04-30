@@ -1,131 +1,100 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.InputSystem;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.UI;
+//using TMPro;
+//using UnityEngine.XR.Interaction.Toolkit;
+//using UnityEngine.InputSystem;
 
-public class InventoryManager : MonoBehaviour
-{
-    public GameObject inventoryUI; // The inventory UI panel
-    public Transform player; // Reference to the player
-    public TMP_Dropdown itemDropdown; // The dropdown UI for items
-    public Button spawnButton; // Reference to the spawn button
-    public float spawnDistance = 1.0f; // How far in front of the player to spawn items
+//public class InventoryManager : MonoBehaviour
+//{
+//    public static InventoryManager Instance;
 
-    public InputActionProperty toggleInventoryAction;
+//    public GameObject inventoryUI;
+//    public Transform player;
+//    public TMP_Dropdown itemDropdown;
+//    public Button spawnButton;
+//    public float spawnDistance = 1.0f;
+//    public InputActionProperty toggleInventoryAction;
 
-    private Dictionary<string, GameObject> inventoryItems = new Dictionary<string, GameObject>();
-    private bool isInventoryVisible = false;
-    private bool wasButtonPressed = false;
+//    private Dictionary<string, GameObject> inventoryItems = new Dictionary<string, GameObject>();
+//    private bool isInventoryVisible = false;
+//    private bool wasButtonPressed = false;
+//    private GameObject itemToAddLater;
 
-    void Start()
-    {
-        inventoryUI.SetActive(false); // Hide inventory at start
+//    private void Awake()
+//    {
+//        Instance = this;
+//    }
 
-        // Enable the action
-        toggleInventoryAction.action.Enable();
+//    private void Start()
+//    {
+//        inventoryUI.SetActive(false);
+//        toggleInventoryAction.action.Enable();
 
-        // Connect the spawn button to the RetrieveItem method
-        if (spawnButton != null)
-        {
-            spawnButton.onClick.AddListener(RetrieveItem);
-        }
-        else
-        {
-            Debug.LogWarning("Spawn button reference is missing!");
-        }
-    }
+//        if (spawnButton != null)
+//        {
+//            spawnButton.onClick.AddListener(RetrieveItem);
+//        }
+//    }
 
-    void OnDestroy()
-    {
-        if (spawnButton != null)
-        {
-            spawnButton.onClick.RemoveListener(RetrieveItem);
-        }
-    }
+//    private void Update()
+//    {
+//        bool isButtonPressed = toggleInventoryAction.action.ReadValue<float>() > 0.5f;
 
-    void Update()
-    {
-        bool isButtonPressed = toggleInventoryAction.action.ReadValue<float>() > 0.5f;
+//        if (isButtonPressed && !wasButtonPressed)
+//        {
+//            ToggleInventory();
+//        }
+//        wasButtonPressed = isButtonPressed;
+//    }
 
-        if (isButtonPressed && !wasButtonPressed)
-        {
-            ToggleInventory();
-        }
-        wasButtonPressed = isButtonPressed;
+//    public void AddItemToInventory(GameObject item)
+//    {
+//        itemToAddLater = item;
+//        ItemInspectionManager.Instance.StartInspection(item);
+//    }
 
-        if (isInventoryVisible)
-        {
-            UpdateInventoryPosition();
-        }
-    }
+//    public void FinishAddingItem()
+//    {
+//        if (itemToAddLater == null)
+//            return;
 
-    void UpdateInventoryPosition()
-    {
-        Vector3 headPosition = player.position;
-        Vector3 forward = player.forward;
+//        string itemName = itemToAddLater.name;
+//        if (!inventoryItems.ContainsKey(itemName))
+//        {
+//            inventoryItems[itemName] = itemToAddLater;
+//            itemDropdown.options.Add(new TMP_Dropdown.OptionData(itemName));
+//            itemDropdown.RefreshShownValue();
+//        }
 
-        
-        //Vector3 targetPosition = headPosition + forward * 0.6f - new Vector3(0, 0.2f, 0);
+//        itemToAddLater.SetActive(false);
+//        itemToAddLater = null;
+//    }
 
-        //inventoryUI.transform.position = Vector3.Lerp(inventoryUI.transform.position, targetPosition, Time.deltaTime * 10f);
-        //inventoryUI.transform.rotation = Quaternion.Slerp(inventoryUI.transform.rotation, Quaternion.LookRotation(forward), Time.deltaTime * 10f);
-    }
+//    private void ToggleInventory()
+//    {
+//        isInventoryVisible = !isInventoryVisible;
+//        inventoryUI.SetActive(isInventoryVisible);
+//    }
 
-    void ToggleInventory()
-    {
-        isInventoryVisible = !isInventoryVisible;
-        inventoryUI.SetActive(isInventoryVisible);
+//    public void RetrieveItem()
+//    {
+//        if (itemDropdown.options.Count == 0)
+//            return;
 
-        if (isInventoryVisible)
-        {
-            UpdateInventoryPosition(); // Set position immediately
-        }
-    }
+//        string selectedItem = itemDropdown.options[itemDropdown.value].text;
+//        if (inventoryItems.ContainsKey(selectedItem))
+//        {
+//            GameObject item = inventoryItems[selectedItem];
+//            item.SetActive(true);
 
-    public void AddItemToInventory(GameObject item)
-    {
-        string itemName = item.name;
-        if (!inventoryItems.ContainsKey(itemName))
-        {
-            inventoryItems[itemName] = item;
-            itemDropdown.options.Add(new TMP_Dropdown.OptionData(itemName));
-            itemDropdown.RefreshShownValue();
-        }
-        item.SetActive(false); // Hide the item from the world
-    }
+//            Vector3 spawnPosition = player.position + player.forward * spawnDistance;
+//            item.transform.position = spawnPosition;
+//            item.transform.rotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), Random.Range(-10f, 10f));
 
-    public void RetrieveItem()
-    {
-        if (itemDropdown.options.Count == 0)
-            return;
-
-        string selectedItem = itemDropdown.options[itemDropdown.value].text;
-        if (inventoryItems.ContainsKey(selectedItem))
-        {
-            GameObject item = inventoryItems[selectedItem];
-            item.SetActive(true);
-
-            // Calculate spawn position a bit further away
-            Vector3 spawnPosition = player.position + player.forward * spawnDistance;
-
-            // Set position and add slight random rotation
-            item.transform.position = spawnPosition;
-            item.transform.rotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), Random.Range(-10f, 10f));
-
-            // Remove the item from inventory
-            inventoryItems.Remove(selectedItem);
-            itemDropdown.options.RemoveAt(itemDropdown.value);
-
-            // Update dropdown
-            if (itemDropdown.options.Count > 0)
-            {
-                int newIndex = Mathf.Clamp(itemDropdown.value, 0, itemDropdown.options.Count - 1);
-                itemDropdown.value = newIndex;
-            }
-
-            itemDropdown.RefreshShownValue();
-        }
-    }
-}
+//            inventoryItems.Remove(selectedItem);
+//            itemDropdown.options.RemoveAt(itemDropdown.value);
+//            itemDropdown.RefreshShownValue();
+//        }
+//    }
+//}

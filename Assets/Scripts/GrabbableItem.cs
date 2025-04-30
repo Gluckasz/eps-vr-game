@@ -1,49 +1,30 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GrabbableItem : MonoBehaviour
+public class GrabbableInspectable : MonoBehaviour
 {
-    private XRGrabInteractable grabInteractable;
-    private InventoryManager inventory;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab;
 
     private void Awake()
     {
-        // Find the inventory manager once at startup for better performance
-        inventory = FindFirstObjectByType<InventoryManager>();
-
-        // Get the XRGrabInteractable component
-        grabInteractable = GetComponent<XRGrabInteractable>();
-
-        // Subscribe to the select exited event
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectExited.AddListener(OnSelectExited);
-        }
-        else
-        {
-            Debug.LogError("No XRGrabInteractable component found on " + gameObject.name);
-        }
+        grab = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        if (grab)
+            grab.selectEntered.AddListener(OnGrabbed);
     }
 
     private void OnDestroy()
     {
-        // Always unsubscribe when the object is destroyed
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectExited.RemoveListener(OnSelectExited);
-        }
+        if (grab)
+            grab.selectEntered.RemoveListener(OnGrabbed);
     }
 
-    private void OnSelectExited(SelectExitEventArgs args)
+    private void OnGrabbed(SelectEnterEventArgs args)
     {
-        if (inventory != null)
-        {
-            inventory.AddItemToInventory(gameObject);
-        }
-        else
-        {
-            Debug.LogWarning("No InventoryManager found in the scene");
-        }
+        // Start inspecting
+        ItemInspectionManager.instance.StartInspection(gameObject);
+
+        // Optionally, disable grabbing after discovery
+        grab.enabled = false;
+
     }
 }
