@@ -49,7 +49,7 @@ MonoBehaviour:
     intro: []
     scene: []
   scriptPath: scene_1_script.json
-  dialogueDisplayer: {fileID: 0}
+  dialogueDisplayer: {fileID: 2353881410505947731, guid: 9e1423ae06f481b4fb9a857157c1381d, type: 3}
 --- !u!82 &6991313034982816487
 AudioSource:
   m_ObjectHideFlags: 0
