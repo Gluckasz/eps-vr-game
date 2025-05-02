@@ -11,6 +11,7 @@ public class ItemInspectionManager : MonoBehaviour
     public Transform itemHolder; // Empty GameObject in canvas where item spawns
     public TextMeshProUGUI descriptionText;
     public Button continueButton;
+    public Image itemImageUI;
 
     private GameObject currentItem;
 
@@ -20,7 +21,6 @@ public class ItemInspectionManager : MonoBehaviour
         else Destroy(gameObject);
 
         inspectionCanvas.SetActive(false);
-
         continueButton.onClick.AddListener(CloseInspection);
     }
 
@@ -38,13 +38,23 @@ public class ItemInspectionManager : MonoBehaviour
         // Set UI
         descriptionText.text = inspectable.description;
 
+        if (inspectable.itemImage != null)
+        {
+            itemImageUI.sprite = inspectable.itemImage;
+            itemImageUI.enabled = true;
+        }
+        else
+        {
+            itemImageUI.enabled = false;
+        }
+
         // Show canvas
         inspectionCanvas.SetActive(true);
         UpdateCanvasPosition();
 
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
-        if (rb) rb.isKinematic = true; // Disable physics while inspecting
+        if (rb) rb.isKinematic = true;
 
         currentItem.transform.LookAt(playerHead);
         currentItem.transform.Rotate(0f, 180f, 0f);
@@ -52,7 +62,6 @@ public class ItemInspectionManager : MonoBehaviour
         // Discover the item
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
-
 
     private void Update()
     {
@@ -64,7 +73,7 @@ public class ItemInspectionManager : MonoBehaviour
 
     void UpdateCanvasPosition()
     {
-        Vector3 spawnPos = playerHead.position + playerHead.forward * 1.0f; // 1 meter in front
+        Vector3 spawnPos = playerHead.position + playerHead.forward * 1.0f;
         inspectionCanvas.transform.position = spawnPos;
         inspectionCanvas.transform.rotation = Quaternion.LookRotation(playerHead.forward);
     }
