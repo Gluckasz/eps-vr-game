@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 4029457807151167642}
   - component: {fileID: 2383923738319638824}
   - component: {fileID: 125416178395469404}
+  - component: {fileID: 8737801034375319740}
   m_Layer: 5
   m_Name: Discription
   m_TagString: Untagged
@@ -711,7 +712,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6779601093859325020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 6.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -720,8 +721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 98.2, y: -11.5}
-  m_SizeDelta: {x: 55.01007, y: 48}
+  m_AnchoredPosition: {x: -25.6, y: -11.5}
+  m_SizeDelta: {x: -194.13998, y: 20.09}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2383923738319638824
 CanvasRenderer:
@@ -751,7 +752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Discription>
+  m_text: <Description>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
@@ -822,6 +823,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8737801034375319740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779601093859325020}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &6949824381930537608
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +888,7 @@ MonoBehaviour:
   descriptionText: {fileID: 4133490204861600222}
   continueButton: {fileID: 4412753180178658350}
   itemImageUI: {fileID: 8935590574831331927}
+  itemName: {fileID: 0}
 --- !u!1001 &2526230509654875333
 PrefabInstance:
   m_ObjectHideFlags: 0

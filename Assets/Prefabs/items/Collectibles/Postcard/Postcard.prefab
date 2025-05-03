@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8015612055954955872}
   - component: {fileID: 4423046741208227519}
   - component: {fileID: 3203378629493870484}
+  - component: {fileID: 4358141392452964934}
   m_Layer: 0
   m_Name: Postcard
   m_TagString: Untagged
@@ -109,3 +110,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4358141392452964934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534238717208330516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Postcard
+  description: Uncle Peter's Postcard
+  itemImage: {fileID: 21300000, guid: d153c2dce5e9eae42ac604c288504c7c, type: 3}

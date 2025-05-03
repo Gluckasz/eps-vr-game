@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 6615753286237478699}
   - component: {fileID: 7452613793339183205}
   - component: {fileID: 5532617681391679299}
+  - component: {fileID: -2813063830454027409}
   m_Layer: 0
   m_Name: Immigration Flyer
   m_TagString: Untagged
@@ -462,6 +463,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a699f7779e20984ca03d47618bb7212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2813063830454027409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641633852830952666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Social Program
+  description: "\"Social Programs: Support, Not Privilege\"\LThis Social programs
+    is designed for people who:\L\Lhave lost their jobs,\Lare fleeing war or persecution,\Lface
+    discrimination or illness.\L\LWhy is it important?\LThe assistance is temporary.\LMost
+    recipients work and pay taxes.\LAbuse is the exception, not the rule.\L\LSocial
+    support strengthens the economy and helps people become independent faster.\L\LBy
+    supporting others today, we build a safer society tomorrow."
+  itemImage: {fileID: 21300000, guid: 359422533b262ed448a5d13b8a37dae6, type: 3}
 --- !u!1 &6197260666957864608
 GameObject:
   m_ObjectHideFlags: 0

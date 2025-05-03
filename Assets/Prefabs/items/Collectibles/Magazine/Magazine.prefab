@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6094672131581093927}
   - component: {fileID: 1246467249784565098}
   - component: {fileID: 1860011146379871566}
+  - component: {fileID: -8888674835807263012}
   m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PermittedDisplacementAxes: 7
+  m_PermittedDisplacementAxes: -1
   m_ConstrainedAxisDisplacementMode: 1
   m_TwoHandedRotationMode: 1
   m_AllowOneHandedScaling: 1
@@ -319,3 +320,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0000002, z: 6.123235e-17}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8888674835807263012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995169896920063244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Flyer from an immigrant-owned business
+  description: "\"A Taste of New Traditions\"\L\U0001F958 Sunrise Caf\xE9\_\n\n Where
+    family recipes cross oceans and generations.\LInspired by our roots, made with
+    love, and shared with our new community.\L\L\u2728 Fresh, local ingredients\L\u2728
+    Recipes carried from our homeland, passed down with care\L\u2728 A cozy space
+    where everyone feels like family\L\L\U0001F4CD (Br\xFCckengasse 89, 7849 Innsbruck)\L\U0001F4DE
+    (+67390462444)\L\U0001F310 (Sunrise_Cafe)\L\LWe came here with dreams, stories,
+    and the flavors of home.\LSunrise Caf\xE9 is more than a place to eat, it\u2019s
+    our way of connecting cultures, celebrating tradition, and building new memories
+    with you.\LYour seat is ready and we can\u2019t wait to welcome you !"
+  itemImage: {fileID: 21300000, guid: 35c3666540cf10e46a8f3d584dc5b8ad, type: 3}
