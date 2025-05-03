@@ -12,6 +12,7 @@ public class ItemInspectionManager : MonoBehaviour
     public TextMeshProUGUI descriptionText;
     public Button continueButton;
     public Image itemImageUI;
+    public TextMeshProUGUI itemName;
 
     private GameObject currentItem;
 
@@ -37,6 +38,7 @@ public class ItemInspectionManager : MonoBehaviour
 
         // Set UI
         descriptionText.text = inspectable.description;
+        itemName.text = inspectable.itemName;
 
         if (inspectable.itemImage != null)
         {
