@@ -500,25 +500,25 @@
                     "responseType": "Counter with humor",
                     "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war, character-building, right?",
                     "shortText": "Would you stay in a crisis?",
-                    "nextId": "end"
+                    "nextId": "end4"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "Every generation has faced challenges, but blaming an entire group of people isn’t the solution. We should focus on policies that help everyone instead of assuming the worst.",
                     "shortText": "Focus on helpful policies, not blame",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "Leaving one’s home and loved ones isn’t about avoiding hardship - it’s about escaping real danger. It’s not a sign of giving up, but a desperate step toward survival.",
                     "shortText": "Migration is about survival, not weakness",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "But that’s exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren’t either. That’s all I’ve been trying to get you to see.",
                     "shortText": "Compare to Grandpa's post-war migration",
-                    "nextId": "end"
+                    "nextId": "end2"
                 }
             ]
         },
@@ -531,25 +531,25 @@
                     "responseType": "Counter with humor",
                     "text": "Thanks, Dad. I know these conversations aren’t easy, so… props for hanging in there with me.",
                     "shortText": "Thank him for the conversation",
-                    "nextId": "end"
+                    "nextId": "end1"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "Exactly. It’s not about picking sides,  it’s about understanding the gray areas too.",
                     "shortText": "It's about understanding gray areas",
-                    "nextId": "end"
+                    "nextId": "end1"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "That’s what I’ve been trying to tell you this whole time ,it’s not black and white. But every time we talk about this, you act like there’s only one truth.",
                     "shortText": "You always act like there's one truth",
-                    "nextId": "end"
+                    "nextId": "end2"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "I just keep thinking, if it were someone in our family needing help in another country, we’d hope they’d be treated with patience and respect too. I know it’s complicated, but that’s all I’m really asking for, just a bit more understanding.",
                     "shortText": "Hope for respect if roles were reversed",
-                    "nextId": "end"
+                    "nextId": "end2"
                 }
             ]
         },
@@ -562,25 +562,25 @@
                     "responseType": "Counter with humor",
                     "text": "And I’m thankful people are different, imagine if everyone was like my teacher Mr. Gruber. The world would be boring, no languages, no new food, just complaints, forever.",
                     "shortText": "Imagine if everyone was like Mr. Gruber",
-                    "nextId": "end"
+                    "nextId": "end2"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "You're right, people are different. But effort isn’t something only we’re capable of. Just because it doesn’t look the same, doesn’t mean it’s not there. Change takes time, and support makes it possible.",
                     "shortText": "Effort looks different for different people",
-                    "nextId": "end"
+                    "nextId": "end1"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "People are different! But that difference doesn’t mean they’re not trying. We don’t all start with the same chances. I just want us to look a little closer before we decide who’s worth helping.",
                     "shortText": "We don't all start with equal chances",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "Many of them face language barriers, discrimination, and low-paying jobs. The problem is not that they do not want to change.",
                     "shortText": "They face barriers, not a lack of will",
-                    "nextId": "end"
+                    "nextId": "end2"
                 }
             ]
         },
@@ -593,25 +593,25 @@
                     "responseType": "Counter with humor",
                     "text": "Well, Dad, if working hard guaranteed success, then teachers, nurses, and social workers would all be millionaires by now. But hey… maybe it’s not that simple after all.",
                     "shortText": "Hard work doesn't guarantee success",
-                    "nextId": "end"
+                    "nextId": "end4"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "But the facts say otherwise. Many migrants work longer hours in harder jobs and still face more barriers than most. It’s not about excuses. That’s all I’m trying to get you to see.",
                     "shortText": "Migrants face more barriers despite effort",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "That’s not fair. Blaming struggling people for the challenges they face just ignores the real issues. You just don't wanna understand that huh?",
                     "shortText": "You're blaming victims of circumstance",
-                    "nextId": "end"
+                    "nextId": "end4"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "Remember when Uncle Peter lost his job while living abroad, and the government helped him get back on his feet? He didn’t run away from his problems, he tried to solve them. That’s all these people are trying to do too.",
                     "shortText": "Remind him about Uncle Peter's experience",
-                    "nextId": "end",
+                    "nextId": "end3",
                     "item": "postcard"
                 }
             ]
@@ -625,25 +625,25 @@
                     "responseType": "Counter with humor",
                     "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should've told Grandpa to stick it out after the war, character-building, right?",
                     "shortText": "Would you stay during a crisis?",
-                    "nextId": "end"
+                    "nextId": "end4"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "Every generation has faced challenges, but blaming an entire group of people isn't the solution. We should focus on policies that help everyone instead of assuming the worst.",
                     "shortText": "Each generation faces its own challenges",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "Leaving one’s home and loved ones isn’t about avoiding hardship - it’s about escaping real danger. It’s not a sign of giving up, but a desperate step toward survival.",
                     "shortText": "People leave for safety, not convenience",
-                    "nextId": "end"
+                    "nextId": "end3"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "But that's exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren't either. That's all I've been trying to get you to see.",
                     "shortText": "Today's migrants are like Grandpa was",
-                    "nextId": "end"
+                    "nextId": "end2"
                 }
             ]
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -15,12 +16,21 @@ public class DialogueDisplayManager : MonoBehaviour
     private GameOptions gameOptionsScript;
     private AudioSource audioSource_;
     private bool isIntroPlaying = false;
+    private bool isFeedbackDisplayed_ = false;
+    private Dictionary<string, string> endFeedbackMap = new Dictionary<string, string>
+    {
+        { "end1", "feedback1.txt" },
+        { "end2", "feedback2.txt" },
+        { "end3", "feedback3.txt" },
+        { "end4", "feedback4.txt" },
+    };
 
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
     public Button nextButton;
     public GameObject gameOptionsManager;
     public GameObject textDisplay;
+    public string feedbackDirName = "Scene1Feedback";
 
 
     private void Start()
@@ -50,12 +60,27 @@ public class DialogueDisplayManager : MonoBehaviour
         yield return new WaitForSeconds(delay + 0.5f);
         if (isIntroPlaying)
         {
-            StartSceneDialogue();
             isIntroPlaying = false;
         }
     }
 
-    private void StartSceneDialogue()
+    private void DisplayFeedback()
+    {
+        textDisplay.SetActive(true);
+
+        string filePath = Path.Combine(Application.dataPath, feedbackDirName, endFeedbackMap[nextId_]);
+        if (File.Exists(filePath))
+        {
+            string feedback = File.ReadAllText(filePath);
+            UpdateText(feedback);
+        }
+        else
+        {
+            Debug.LogError("Could not find TXT file at path: " + filePath);
+        }
+    }
+
+    public void StartSceneDialogue()
     {
         foreach (var node in dialogueData_.scene)
         {
@@ -127,22 +152,42 @@ public class DialogueDisplayManager : MonoBehaviour
         {
             Debug.Log($"Selected: {selectedChoice.text}, Next ID: {selectedChoice.nextId}");
             nextId_ = selectedChoice.nextId;
-            nextButton.gameObject.SetActive(true);
+
             choicesDropdown.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(true);
+
+            if (endFeedbackMap.ContainsKey(nextId_))
+            {
+                isFeedbackDisplayed_ = true;
+                DisplayFeedback();
+                return;
+            }
+
+
             DisplayPlayerText(selectedChoice);
         }
     }
 
     public void OnNextButtonPressed()
     {
+        nextButton.gameObject.SetActive(false);
+        if (isFeedbackDisplayed_)
+        {
+            // TODO: Go to next level
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+        }
         if (isIntroPlaying)
         {
             audioSource_.Stop();
-            StartSceneDialogue();
             isIntroPlaying = false;
+            // TODO: Start scene dialogue after putting out the dishes
+            StartSceneDialogue();
             return;
         }
-        nextButton.gameObject.SetActive(false);
         choicesDropdown.gameObject.SetActive(true);
 
         UpdateText(ConstructDialogueText(dialogueNodes[nextId_]));
