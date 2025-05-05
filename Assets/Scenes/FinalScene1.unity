@@ -563,6 +563,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
+    - target: {fileID: -2813063830454027409, guid: 8465abb1190cd1d4593477df86eff4a7, type: 3}
+      propertyPath: description
+      value: "\"Social Programs: Support, Not Privilege\"\LThis Social programs is
+        designed for people who:\L\Lhave lost their jobs,\Lare fleeing war or persecution,\Lface
+        discrimination or illness...\L\L"
+      objectReference: {fileID: 0}
     - target: {fileID: 445869705249793260, guid: 8465abb1190cd1d4593477df86eff4a7, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.26
@@ -15705,8 +15711,48 @@ PrefabInstance:
       propertyPath: descriptionText
       value: 
       objectReference: {fileID: 951143771}
+    - target: {fileID: 3116064169246687553, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116064169246687553, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116064169246687553, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116064169246687553, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116064169246687553, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3265431521587982071, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029457807151167642, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029457807151167642, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029457807151167642, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029457807151167642, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029457807151167642, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813523930364912078, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
@@ -15729,6 +15775,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6351904035520421152, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6949824381930537608, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
       propertyPath: m_Name
       value: ItemInspectionManager
@@ -15739,6 +15789,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7713498253694635431, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374868683167026293, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374868683167026293, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374868683167026293, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374868683167026293, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374868683167026293, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8470369085686165488, guid: e3fc84e2d79a83f48a0265c57714eb8e, type: 3}
@@ -16964,13 +17034,7 @@ PrefabInstance:
       propertyPath: description
       value: "\"A Taste of New Traditions\"\LSunrise Caf\xE9\_\n\n Where family recipes
         cross oceans and generations.\LInspired by our roots, made with love, and
-        shared with our new community.\LFresh, local ingredients\LRecipes carried
-        from our homeland, passed down with care\LA cozy space where everyone feels
-        like family\L\L(Br\xFCckengasse 89, 7849 Innsbruck)\n(+67390462444)\L(Sunrise_Cafe)\L\LWe
-        came here with dreams, stories, and the flavors of home.\LSunrise Caf\xE9
-        is more than a place to eat, it\u2019s our way of connecting cultures, celebrating
-        tradition, and building new memories with you.\LYour seat is ready and we
-        can\u2019t wait to welcome you !"
+        shared with our new community.\L"
       objectReference: {fileID: 0}
     - target: {fileID: 1442932407503872544, guid: 5a4a7f19b2817714bb9069b31c085b04, type: 3}
       propertyPath: m_PermittedDisplacementAxes
