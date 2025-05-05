@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class SceneFlowManager : MonoBehaviour
 {
     private AudioSource audioSource;
-    private bool introAudioPlayed = false;
 
     private DialogueDisplayManager dialogueDisplayManagerScript;
 
@@ -31,9 +30,11 @@ public class SceneFlowManager : MonoBehaviour
         LoadDialogueData();
     }
 
-    private string ConstructDialogueText(DialogueNode node)
+    private void StartScene()
     {
-        return node.character + ": " + node.text;
+        dialogueDisplayerInstance.SetActive(true);
+
+        dialogueDisplayManagerScript.StartScene(dialogueData, audioSource);
     }
 
     private void LoadDialogueData()
@@ -49,50 +50,13 @@ public class SceneFlowManager : MonoBehaviour
             Debug.Log("Dialogue loaded successfully!");
             if (dialogueData.intro.Count > 0)
             {
-                Debug.Log("Playing intro audio");
-                PlayIntroAudio();
+                Debug.Log("Starting the scene");
+                StartScene();
             }
         }
         else
         {
             Debug.LogError("Could not find JSON file at path: " + filePath);
         }
-    }
-
-    private void PlayIntroAudio()
-    {
-        string audioPath = dialogueData.intro[0].audio;
-
-        string resourcePath = audioPath.Replace("Assets/", "").Replace(".wav", "");
-
-        AudioClip introClip = Resources.Load<AudioClip>(resourcePath);
-
-        if (introClip != null)
-        {
-            dialogueDisplayerInstance.SetActive(true);
-            dialogueDisplayManagerScript.UpdateText(ConstructDialogueText(dialogueData.intro[0]));
-
-            audioSource.clip = introClip;
-            audioSource.Play();
-
-            StartCoroutine(WaitForAudioToFinish(introClip.length));
-        }
-        else
-        {
-            Debug.LogError("Could not load audio clip from: " + resourcePath);
-        }
-    }
-
-    private IEnumerator WaitForAudioToFinish(float delay)
-    {
-        yield return new WaitForSeconds(delay + 0.5f); // Small buffer after audio ends
-        StartScene();
-    }
-
-    public void StartScene()
-    {
-        dialogueDisplayerInstance.SetActive(true);
-
-        dialogueDisplayManagerScript.StartSceneDialogue(dialogueData);
     }
 }

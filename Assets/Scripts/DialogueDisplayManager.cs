@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class DialogueDisplayManager : MonoBehaviour
@@ -11,6 +13,8 @@ public class DialogueDisplayManager : MonoBehaviour
     private string playerName = "You";
     private string nextId_;
     private GameOptions gameOptionsScript;
+    private AudioSource audioSource_;
+    private bool isIntroPlaying = false;
 
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
@@ -39,6 +43,33 @@ public class DialogueDisplayManager : MonoBehaviour
     private void DisplayPlayerText(DialogueChoice dialogueChoice)
     {
         UpdateText(ConstructDialogueText(dialogueChoice));
+    }
+
+    private IEnumerator WaitForAudioToFinish(float delay)
+    {
+        yield return new WaitForSeconds(delay + 0.5f);
+        if (isIntroPlaying)
+        {
+            StartSceneDialogue();
+            isIntroPlaying = false;
+        }
+    }
+
+    private void StartSceneDialogue()
+    {
+        foreach (var node in dialogueData_.scene)
+        {
+            dialogueNodes[node.id] = node;
+        }
+
+        Debug.Log($"Loaded {dialogueNodes.Count} dialogue nodes successfully");
+
+        nextButton.gameObject.SetActive(false);
+        choicesDropdown.gameObject.SetActive(true);
+
+        UpdateText(ConstructDialogueText(dialogueData_.scene[0]));
+
+        AddOptionsFromChoices(dialogueData_.scene[0].choices);
     }
 
     public void UpdateText(string text)
@@ -104,6 +135,13 @@ public class DialogueDisplayManager : MonoBehaviour
 
     public void OnNextButtonPressed()
     {
+        if (isIntroPlaying)
+        {
+            audioSource_.Stop();
+            StartSceneDialogue();
+            isIntroPlaying = false;
+            return;
+        }
         nextButton.gameObject.SetActive(false);
         choicesDropdown.gameObject.SetActive(true);
 
@@ -112,21 +150,32 @@ public class DialogueDisplayManager : MonoBehaviour
         AddOptionsFromChoices(dialogueNodes[nextId_].choices);
     }
 
-    public void StartSceneDialogue(DialogueData dialogueData)
+    public void StartScene(DialogueData dialogueData, AudioSource audioSource)
     {
         dialogueData_ = dialogueData;
+        audioSource_ = audioSource;
 
-        foreach (var node in dialogueData_.scene)
+        string audioPath = dialogueData.intro[0].audio;
+
+        string resourcePath = audioPath.Replace("Assets/", "").Replace(".wav", "");
+
+        AudioClip introClip = Resources.Load<AudioClip>(resourcePath);
+
+        if (introClip != null)
         {
-            dialogueNodes[node.id] = node;
+            choicesDropdown.gameObject.SetActive(false);
+            UpdateText(ConstructDialogueText(dialogueData.intro[0]));
+
+            audioSource_.clip = introClip;
+            audioSource_.Play();
+            isIntroPlaying = true;
+            nextButton.gameObject.SetActive(true);
+
+            StartCoroutine(WaitForAudioToFinish(introClip.length));
         }
-
-        Debug.Log($"Loaded {dialogueNodes.Count} dialogue nodes successfully");
-
-        nextButton.gameObject.SetActive(false);
-
-        UpdateText(ConstructDialogueText(dialogueData_.scene[0]));
-
-        AddOptionsFromChoices(dialogueData_.scene[0].choices);
+        else
+        {
+            Debug.LogError("Could not load audio clip from: " + resourcePath);
+        }
     }
 }
