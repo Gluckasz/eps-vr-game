@@ -7,7 +7,6 @@ public class ItemInspectionManager : MonoBehaviour
     public static ItemInspectionManager instance;
 
     public GameObject inspectionCanvas;
-    public Transform playerHead;
     public Transform itemHolder; // Empty GameObject in canvas where item spawns
     public TextMeshProUGUI descriptionText;
     public Button continueButton;
@@ -52,32 +51,13 @@ public class ItemInspectionManager : MonoBehaviour
 
         // Show canvas
         inspectionCanvas.SetActive(true);
-        UpdateCanvasPosition();
 
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true;
 
-        currentItem.transform.LookAt(playerHead);
-        currentItem.transform.Rotate(0f, 180f, 0f);
-
         // Discover the item
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
-    }
-
-    private void Update()
-    {
-        if (inspectionCanvas.activeSelf)
-        {
-            UpdateCanvasPosition();
-        }
-    }
-
-    void UpdateCanvasPosition()
-    {
-        Vector3 spawnPos = playerHead.position + playerHead.forward * 1.0f;
-        inspectionCanvas.transform.position = spawnPos;
-        inspectionCanvas.transform.rotation = Quaternion.LookRotation(playerHead.forward);
     }
 
     public void CloseInspection()
