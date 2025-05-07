@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1247403981412358737}
   - component: {fileID: 8334646729198768708}
   - component: {fileID: 8807429059963823188}
+  - component: {fileID: -2041180174264689606}
   m_Layer: 0
   m_Name: Scandal_Newspaper
   m_TagString: Untagged
@@ -319,3 +320,27 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &-2041180174264689606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900549395938702468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Newspaper
+  description: "LOCAL COUNCILOR IMPLICATED IN FRAUD SCANDAL\LBy Anna Weiss | Daily
+    Chronicle | June 3, 2004\L\LCity councilor Markus Leitner is under investigation
+    following allegations of embezzlement and misuse of public funds.\LSources within
+    the municipal office report that Leitner allegedly redirected budget allocations
+    intended for community programs to personal accounts.l\LAn anonymous whistleblower
+    provided documents suggesting financial discrepancies dating back at least four
+    years. Authorities have launched a formal inquiry, and Leitner has been suspended
+    pending the outcome.d\LIn a brief statement, Leitner denied any wrongdoing, calling
+    the allegations \"a political attack.\" Prosecutors expect to conclude the initial
+    phase of the investigation within the next two months."
+  itemImage: {fileID: 21300000, guid: 9f6888e1b62969043b113d939b2d3dec, type: 3}
