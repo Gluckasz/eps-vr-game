@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class GameOptions : MonoBehaviour
 {
-    private static GameOptions instance;
+    public static GameOptions Instance;
 
     private bool _showDialogueText = false;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -19,9 +19,17 @@ public class GameOptions : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public bool ShowDialogueText
     {
         get => _showDialogueText;
-        set => _showDialogueText = value;
+        set
+        {
+            _showDialogueText = value;
+            if (DialogueDisplayManager.Instance != null)
+            {
+                DialogueDisplayManager.Instance.textDisplay.SetActive(value);
+            }
+        }
     }
 }

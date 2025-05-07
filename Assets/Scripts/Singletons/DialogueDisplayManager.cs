@@ -13,7 +13,6 @@ public class DialogueDisplayManager : MonoBehaviour
     private Dictionary<string, DialogueNode> dialogueNodes = new Dictionary<string, DialogueNode>();
     private string playerName = "You";
     private string nextId_;
-    private GameOptions gameOptionsScript;
     private AudioSource audioSource_;
     private bool isIntroPlaying = false;
     private bool isFeedbackDisplayed_ = false;
@@ -28,16 +27,22 @@ public class DialogueDisplayManager : MonoBehaviour
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
     public Button nextButton;
-    public GameObject gameOptionsManager;
     public GameObject textDisplay;
     public string feedbackDirName = "Scene1Feedback";
 
+    public static DialogueDisplayManager Instance { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        gameOptionsScript = gameOptionsManager.GetComponent<GameOptions>();
-
-        textDisplay.SetActive(gameOptionsScript.ShowDialogueText);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private string ConstructDialogueText(DialogueNode node)
@@ -68,7 +73,11 @@ public class DialogueDisplayManager : MonoBehaviour
     {
         textDisplay.SetActive(true);
 
-        string filePath = Path.Combine(Application.dataPath, feedbackDirName, endFeedbackMap[nextId_]);
+        string filePath = Path.Combine(
+            Application.dataPath,
+            feedbackDirName,
+            endFeedbackMap[nextId_]
+        );
         if (File.Exists(filePath))
         {
             string feedback = File.ReadAllText(filePath);
@@ -163,7 +172,6 @@ public class DialogueDisplayManager : MonoBehaviour
                 return;
             }
 
-
             DisplayPlayerText(selectedChoice);
         }
     }
@@ -177,7 +185,7 @@ public class DialogueDisplayManager : MonoBehaviour
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();
+            Application.Quit();
 #endif
         }
         if (isIntroPlaying)

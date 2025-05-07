@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_FacingEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3388082553901930869, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_FacingExited.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388082553901930869, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_FacingEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4843525940404709497, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

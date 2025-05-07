@@ -3,20 +3,27 @@ using UnityEngine.UI;
 
 public class ToggleShowDialogueTextOption : MonoBehaviour
 {
-    private static GameOptions gameOptionsScript;
+    private bool isInitializing = false;
 
     public GameObject gameOptionsManager;
     public Toggle showDialogueTextOptionToggle;
 
-    private void Start()
+    private void Awake()
     {
-        gameOptionsScript = gameOptionsManager.GetComponent<GameOptions>();
-        gameOptionsScript.ShowDialogueText = showDialogueTextOptionToggle.isOn;
+        isInitializing = true;
+        showDialogueTextOptionToggle.isOn = GameOptions.Instance.ShowDialogueText;
+        isInitializing = false;
     }
+
     public void Toggle()
     {
-        gameOptionsScript.ShowDialogueText = !gameOptionsScript.ShowDialogueText;
+        if (!isInitializing)
+        {
+            GameOptions.Instance.ShowDialogueText = !GameOptions.Instance.ShowDialogueText;
 
-        Debug.Log("Changed show dialogue text variable to: " + gameOptionsScript.ShowDialogueText);
+            Debug.Log(
+                "Changed show dialogue text variable to: " + GameOptions.Instance.ShowDialogueText
+            );
+        }
     }
 }
