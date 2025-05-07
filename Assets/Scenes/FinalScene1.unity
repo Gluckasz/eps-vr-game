@@ -3084,6 +3084,10 @@ PrefabInstance:
       propertyPath: m_CameraYOffset
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8744942634505116741, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_LocomotionProvider
+      value: 
+      objectReference: {fileID: 1842386181}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31035,6 +31039,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4498673807664897552, guid: 35cec57d35c91294dab341381896dc03, type: 3}
   m_PrefabInstance: {fileID: 1837675797}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1842386181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4399785403807940556, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
+  m_PrefabInstance: {fileID: 159498330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b29b6c6428c984a8a73ffc2d58063b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1844005254
 PrefabInstance:
   m_ObjectHideFlags: 0
