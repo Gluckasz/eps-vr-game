@@ -475,6 +475,7 @@ MonoBehaviour:
   nextButton: {fileID: 4068199196677371083}
   textDisplay: {fileID: 6119252495024965966}
   feedbackDirName: Scene1Feedback
+  startDialoguePos: {x: -2.2, y: 1.1, z: -3.2}
 --- !u!114 &1835874262831269187
 MonoBehaviour:
   m_ObjectHideFlags: 0

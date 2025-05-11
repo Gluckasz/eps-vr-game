@@ -24,9 +24,12 @@ public class CameraFollower : MonoBehaviour
 
     private void Update()
     {
-        Vector3 cameraEulerAngles = mainCamera.transform.rotation.eulerAngles;
+        UpdateTransform();
+    }
 
-        Vector3 newRotationEuler = new Vector3(cameraEulerAngles.x, cameraEulerAngles.y, 0f);
+    private void UpdateTransform()
+    {
+        Vector3 newRotationEuler = new Vector3(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
 
         transform.rotation = Quaternion.Euler(newRotationEuler);
 
@@ -89,5 +92,16 @@ public class CameraFollower : MonoBehaviour
                 );
             }
         }
+    }
+
+    public void UpdateTransform(Vector3 newPos)
+    {
+        Vector3 cameraEulerAngles = mainCamera.transform.rotation.eulerAngles;
+
+        Vector3 newRotationEuler = new Vector3(cameraEulerAngles.x, cameraEulerAngles.y, 0f);
+
+        transform.rotation = Quaternion.Euler(newRotationEuler);
+
+        transform.position = newPos;
     }
 }

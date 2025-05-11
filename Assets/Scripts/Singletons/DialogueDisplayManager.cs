@@ -16,6 +16,7 @@ public class DialogueDisplayManager : MonoBehaviour
     private AudioSource audioSource_;
     private bool isIntroPlaying_ = false;
     private bool isFeedbackDisplayed_ = false;
+    private bool isDialogueShowed_ = false;
     private Dictionary<string, string> endFeedbackMap = new Dictionary<string, string>
     {
         { "end1", "feedback1.txt" },
@@ -30,6 +31,7 @@ public class DialogueDisplayManager : MonoBehaviour
     public Button nextButton;
     public GameObject textDisplay;
     public string feedbackDirName = "Scene1Feedback";
+    public Vector3 startDialoguePos = new();
 
     public static DialogueDisplayManager Instance { get; private set; }
 
@@ -108,11 +110,14 @@ public class DialogueDisplayManager : MonoBehaviour
 
     public bool IsDialogueShowed()
     {
-        return isIntroPlaying_ || isFeedbackDisplayed_;
+        return isIntroPlaying_ || isFeedbackDisplayed_ || isDialogueShowed_;
     }
 
     public void StartSceneDialogue()
     {
+        textDisplay.SetActive(GameOptions.Instance.ShowDialogueText);
+        isDialogueShowed_ = true;
+        cameraFollowerScript.UpdateTransform(startDialoguePos);
         foreach (var node in dialogueData_.scene)
         {
             dialogueNodes[node.id] = node;
@@ -234,6 +239,7 @@ public class DialogueDisplayManager : MonoBehaviour
 
         if (introClip != null)
         {
+            textDisplay.SetActive(GameOptions.Instance.ShowDialogueText);
             cameraFollowerScript.IsFollowingCamera = true;
             choicesDropdown.gameObject.SetActive(false);
             UpdateText(ConstructDialogueText(dialogueData.intro[0]));

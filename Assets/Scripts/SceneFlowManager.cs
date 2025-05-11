@@ -27,8 +27,6 @@ public class SceneFlowManager : MonoBehaviour
 
         dialogueDisplayManagerScript =
             dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
-        dialogueDisplayManagerScript.textDisplay.SetActive(GameOptions.Instance.ShowDialogueText);
-
         LoadDialogueData();
     }
 

@@ -34,7 +34,8 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        if (isSnapped) return;
+        if (isSnapped)
+            return;
 
         if (ghostTransform != null)
         {
@@ -52,7 +53,8 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
-        if (isSnapped || ghostTransform == null) return;
+        if (isSnapped || ghostTransform == null)
+            return;
 
         float distance = Vector3.Distance(transform.position, ghostTransform.position);
 
@@ -79,6 +81,8 @@ public class SnapToGhost : MonoBehaviour
                 ghostRenderer.material = ghostOriginalMaterial;
 
             isSnapped = true;
+
+            SnapCountManager.Instance.CurrentSnapCount += 1;
         }
     }
 }
