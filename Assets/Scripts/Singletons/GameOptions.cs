@@ -26,7 +26,10 @@ public class GameOptions : MonoBehaviour
         set
         {
             _showDialogueText = value;
-            if (DialogueDisplayManager.Instance != null)
+            if (
+                DialogueDisplayManager.Instance != null
+                && DialogueDisplayManager.Instance.IsDialogueShowed()
+            )
             {
                 DialogueDisplayManager.Instance.textDisplay.SetActive(value);
             }
