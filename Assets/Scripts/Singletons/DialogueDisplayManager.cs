@@ -23,6 +23,7 @@ public class DialogueDisplayManager : MonoBehaviour
         { "end3", "feedback3.txt" },
         { "end4", "feedback4.txt" },
     };
+    private CameraFollower cameraFollowerScript;
 
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
@@ -43,6 +44,7 @@ public class DialogueDisplayManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        cameraFollowerScript = GetComponent<CameraFollower>();
     }
 
     private string ConstructDialogueText(DialogueNode node)
@@ -72,8 +74,7 @@ public class DialogueDisplayManager : MonoBehaviour
         yield return new WaitForSeconds(delay + 0.5f);
         if (isIntroPlaying_)
         {
-            isIntroPlaying_ = false;
-            HideDialogueDisplay();
+            StopIntro();
         }
     }
 
@@ -95,6 +96,14 @@ public class DialogueDisplayManager : MonoBehaviour
         {
             Debug.LogError("Could not find TXT file at path: " + filePath);
         }
+    }
+
+    private void StopIntro()
+    {
+        audioSource_.Stop();
+        isIntroPlaying_ = false;
+        HideDialogueDisplay();
+        cameraFollowerScript.IsFollowingCamera = false;
     }
 
     public bool IsDialogueShowed()
@@ -201,9 +210,7 @@ public class DialogueDisplayManager : MonoBehaviour
         }
         if (isIntroPlaying_)
         {
-            audioSource_.Stop();
-            isIntroPlaying_ = false;
-            HideDialogueDisplay();
+            StopIntro();
             return;
         }
         nextButton.gameObject.SetActive(false);
@@ -227,6 +234,7 @@ public class DialogueDisplayManager : MonoBehaviour
 
         if (introClip != null)
         {
+            cameraFollowerScript.IsFollowingCamera = true;
             choicesDropdown.gameObject.SetActive(false);
             UpdateText(ConstructDialogueText(dialogueData.intro[0]));
 
