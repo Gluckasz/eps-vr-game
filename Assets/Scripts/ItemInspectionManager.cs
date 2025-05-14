@@ -13,9 +13,9 @@ public class ItemInspectionManager : MonoBehaviour
     public Button continueButton;
     public Image itemImageUI;
     public TextMeshProUGUI itemName;
+    public float distanceFromFace = 1.2f;
 
     private GameObject currentItem;
-
     private Camera cam;
 
     private void Awake()
@@ -53,27 +53,26 @@ public class ItemInspectionManager : MonoBehaviour
             itemImageUI.enabled = false;
         }
 
-        // Set canvas position above player's head
-        Vector3 headPos = cam.transform.position + Vector3.up * 0.2f;
+        // Get desired canvas position: in front of the player
+        Vector3 headPos = cam.transform.position;
         Vector3 forward = cam.transform.forward;
-        Vector3 canvasPos = headPos + forward * 1.2f;
+        Vector3 desiredCanvasPos = headPos + forward * distanceFromFace;
 
-        // Raycast to avoid spawning into walls
-        if (Physics.Raycast(headPos, forward, out RaycastHit hit, 1.2f))
+        // Raycast to check for obstacles
+        if (Physics.Raycast(headPos, forward, out RaycastHit hit, distanceFromFace))
         {
-            canvasPos = hit.point - forward * 0.1f;
+            desiredCanvasPos = hit.point - forward * 0.1f;
         }
 
-        inspectionCanvas.transform.position = canvasPos;
+        inspectionCanvas.transform.position = desiredCanvasPos;
 
-        // Rotate canvas to face the player without tilting (yaw only)
+        // Rotate canvas to face the player (yaw only)
         Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
-        directionToPlayer.y = 0; // remove tilt
+        directionToPlayer.y = 0;
         if (directionToPlayer.sqrMagnitude > 0.01f)
         {
             inspectionCanvas.transform.rotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
         }
-
 
         // Disable LazyFollow rotation
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
@@ -84,7 +83,7 @@ public class ItemInspectionManager : MonoBehaviour
 
         inspectionCanvas.SetActive(true);
 
-        // Spawn the item inside the canvas holder
+        // Spawn item into holder
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true;
@@ -99,5 +98,20 @@ public class ItemInspectionManager : MonoBehaviour
             Destroy(currentItem);
 
         inspectionCanvas.SetActive(false);
+    }
+
+    private void LateUpdate()
+    {
+        if (inspectionCanvas.activeSelf && cam != null)
+        {
+            Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
+            directionToPlayer.y = 0;
+
+            if (directionToPlayer.sqrMagnitude > 0.01f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
+                inspectionCanvas.transform.rotation = targetRotation;
+            }
+        }
     }
 }

@@ -11,10 +11,8 @@ public class LazyFollowDisabler : MonoBehaviour
         lazyFollow = GetComponent<LazyFollow>();
         if (lazyFollow != null)
         {
-            // Make sure it's set to Follow right away
             lazyFollow.positionFollowMode = LazyFollow.PositionFollowMode.Follow;
 
-            // Disable it shortly after
             StartCoroutine(DisableLazyFollowAfterDelay(0.1f));
         }
     }
