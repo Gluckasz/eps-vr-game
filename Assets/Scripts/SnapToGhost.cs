@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SnapToGhost : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class SnapToGhost : MonoBehaviour
 
     [Header("Highlight Settings")]
     public Color highlightColor = Color.cyan;
+    public Color warningColor = Color.red;
+
     private Material ghostOriginalMaterial;
     private Renderer ghostRenderer;
 
     private XRGrabInteractable grabInteractable;
-    private bool isSnapped = false;
+    public bool isSnapped = false;
 
     private void Awake()
     {
@@ -34,8 +37,33 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        if (isSnapped)
+        // Check if a cup is already locked and not yet snapped
+        if (SnapManager.lockedCup != null && SnapManager.lockedCup != this && !SnapManager.lockedCup.isSnapped)
+        {
+            // Highlight the correct ghost
+            var otherGhost = SnapManager.lockedCup.ghostTransform?.GetComponent<Renderer>();
+            if (otherGhost != null)
+            {
+                otherGhost.material.color = warningColor;
+            }
+
+            // Cancel grabbing this one
+            if (args.interactorObject is IXRSelectInteractor interactor)
+            {
+                var interactionManager = grabInteractable.interactionManager;
+                interactionManager?.CancelInteractableSelection(grabInteractable as IXRSelectInteractable);
+            }
+
             return;
+        }
+
+        // Lock this as the one to place
+        if (SnapManager.lockedCup == null)
+        {
+            SnapManager.lockedCup = this;
+        }
+
+        if (isSnapped) return;
 
         if (ghostTransform != null)
         {
@@ -45,9 +73,6 @@ public class SnapToGhost : MonoBehaviour
                 ghostOriginalMaterial = new Material(ghostRenderer.material);
                 ghostRenderer.material.color = highlightColor;
             }
-
-            //var interactor = args.interactorObject as UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInputInteractor;
-            //interactor?.SendHapticImpulse(0.5f, 0.1f);
         }
     }
 
@@ -60,28 +85,35 @@ public class SnapToGhost : MonoBehaviour
 
         if (distance <= snapDistance)
         {
-            // Reset attach transform offsets to avoid weird rotations
+            // Reset attach transform offsets
             if (grabInteractable.attachTransform != null)
             {
                 grabInteractable.attachTransform.localPosition = Vector3.zero;
                 grabInteractable.attachTransform.localRotation = Quaternion.identity;
             }
 
-            // Snap position and rotation
+            // Snap!
             transform.SetPositionAndRotation(ghostTransform.position, ghostTransform.rotation);
 
             // Disable grabbing
             grabInteractable.enabled = false;
 
-            // Destroy or hide ghost
+            // Remove ghost
             Destroy(ghostTransform.gameObject);
 
-            // Reset highlight if any
+            // Reset highlight
             if (ghostRenderer != null && ghostOriginalMaterial != null)
+            {
                 ghostRenderer.material = ghostOriginalMaterial;
+            }
 
             isSnapped = true;
 
+            // Clear lock so next glass can be picked
+            if (SnapManager.lockedCup == this)
+            {
+                SnapManager.lockedCup = null;
+            }
             SnapCountManager.Instance.CurrentSnapCount += 1;
         }
     }
