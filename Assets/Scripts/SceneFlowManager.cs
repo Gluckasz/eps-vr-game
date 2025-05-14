@@ -25,8 +25,8 @@ public class SceneFlowManager : MonoBehaviour
         dialogueDisplayerInstance = Instantiate(dialogueDisplayer);
         dialogueDisplayerInstance.SetActive(false);
 
-        dialogueDisplayManagerScript = dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
-
+        dialogueDisplayManagerScript =
+            dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
         LoadDialogueData();
     }
 

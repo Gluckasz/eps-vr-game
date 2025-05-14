@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LocomotionDisabler : MonoBehaviour
 {
+    public static LocomotionDisabler Instance { get; private set; }
 
     public bool enableMovement = true;
     public bool enableTurning = true;
@@ -17,7 +18,16 @@ public class LocomotionDisabler : MonoBehaviour
     public GameObject joystickAffordancesMove;
     public GameObject joystickAffordancesTurn;
 
-    void Update()
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject);
+        }
+        Instance = this;
+    }
+
+    private void Update()
     {
         affordanceCalloutMove.GetComponent<Callout>().enabled = enableMovement;
         affordanceCalloutTurn.GetComponent<Callout>().enabled = enableTurning;

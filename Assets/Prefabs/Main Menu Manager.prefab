@@ -44,9 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2f2c5834184f54a826d1057ea9bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuInstance: {fileID: 0}
-  optionsMenuInstance: {fileID: 0}
   xROrigin: {fileID: 8298045291338814966, guid: e4f332aea9a46b34bab01d9d6d17f588, type: 3}
-  mainCamera: {fileID: 0}
   mainMenu: {fileID: 7160327394882159283, guid: 96015fa135029d0479ea1a51371889c6, type: 3}
   optionsMenu: {fileID: 7160327394882159283, guid: 3d216fa485f34f448935867c090664dc, type: 3}
+  openOptionsButton:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Open Options Button
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: fa81c019-7766-4ed0-bc4b-6f8fee61a528
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 393096f7-9e32-47ec-b612-82599f86593e
+        m_Path: <XRController>{RightHand}/{PrimaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Open Options Button
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}

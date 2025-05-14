@@ -13,10 +13,10 @@ public class DialogueDisplayManager : MonoBehaviour
     private Dictionary<string, DialogueNode> dialogueNodes = new Dictionary<string, DialogueNode>();
     private string playerName = "You";
     private string nextId_;
-    private GameOptions gameOptionsScript;
     private AudioSource audioSource_;
-    private bool isIntroPlaying = false;
+    private bool isIntroPlaying_ = false;
     private bool isFeedbackDisplayed_ = false;
+    private bool isDialogueShowed_ = false;
     private Dictionary<string, string> endFeedbackMap = new Dictionary<string, string>
     {
         { "end1", "feedback1.txt" },
@@ -24,20 +24,29 @@ public class DialogueDisplayManager : MonoBehaviour
         { "end3", "feedback3.txt" },
         { "end4", "feedback4.txt" },
     };
+    private CameraFollower cameraFollowerScript;
 
     public TMP_Dropdown choicesDropdown;
     public TMP_Text dialogueText;
     public Button nextButton;
-    public GameObject gameOptionsManager;
     public GameObject textDisplay;
     public string feedbackDirName = "Scene1Feedback";
+    public Vector3 startDialoguePos = new();
 
+    public static DialogueDisplayManager Instance { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        gameOptionsScript = gameOptionsManager.GetComponent<GameOptions>();
-
-        textDisplay.SetActive(gameOptionsScript.ShowDialogueText);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        cameraFollowerScript = GetComponent<CameraFollower>();
     }
 
     private string ConstructDialogueText(DialogueNode node)
@@ -55,12 +64,19 @@ public class DialogueDisplayManager : MonoBehaviour
         UpdateText(ConstructDialogueText(dialogueChoice));
     }
 
+    private void HideDialogueDisplay()
+    {
+        textDisplay.SetActive(false);
+        nextButton.gameObject.SetActive(false);
+        choicesDropdown.gameObject.SetActive(false);
+    }
+
     private IEnumerator WaitForAudioToFinish(float delay)
     {
         yield return new WaitForSeconds(delay + 0.5f);
-        if (isIntroPlaying)
+        if (isIntroPlaying_)
         {
-            isIntroPlaying = false;
+            StopIntro();
         }
     }
 
@@ -68,7 +84,11 @@ public class DialogueDisplayManager : MonoBehaviour
     {
         textDisplay.SetActive(true);
 
-        string filePath = Path.Combine(Application.dataPath, feedbackDirName, endFeedbackMap[nextId_]);
+        string filePath = Path.Combine(
+            Application.dataPath,
+            feedbackDirName,
+            endFeedbackMap[nextId_]
+        );
         if (File.Exists(filePath))
         {
             string feedback = File.ReadAllText(filePath);
@@ -80,8 +100,24 @@ public class DialogueDisplayManager : MonoBehaviour
         }
     }
 
+    private void StopIntro()
+    {
+        audioSource_.Stop();
+        isIntroPlaying_ = false;
+        HideDialogueDisplay();
+        cameraFollowerScript.IsFollowingCamera = false;
+    }
+
+    public bool IsDialogueShowed()
+    {
+        return isIntroPlaying_ || isFeedbackDisplayed_ || isDialogueShowed_;
+    }
+
     public void StartSceneDialogue()
     {
+        textDisplay.SetActive(GameOptions.Instance.ShowDialogueText);
+        isDialogueShowed_ = true;
+        cameraFollowerScript.UpdateTransform(startDialoguePos);
         foreach (var node in dialogueData_.scene)
         {
             dialogueNodes[node.id] = node;
@@ -163,31 +199,26 @@ public class DialogueDisplayManager : MonoBehaviour
                 return;
             }
 
-
             DisplayPlayerText(selectedChoice);
         }
     }
 
     public void OnNextButtonPressed()
     {
-        nextButton.gameObject.SetActive(false);
         if (isFeedbackDisplayed_)
         {
-            // TODO: Go to next level
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();
+            Application.Quit();
 #endif
         }
-        if (isIntroPlaying)
+        if (isIntroPlaying_)
         {
-            audioSource_.Stop();
-            isIntroPlaying = false;
-            // TODO: Start scene dialogue after putting out the dishes
-            StartSceneDialogue();
+            StopIntro();
             return;
         }
+        nextButton.gameObject.SetActive(false);
         choicesDropdown.gameObject.SetActive(true);
 
         UpdateText(ConstructDialogueText(dialogueNodes[nextId_]));
@@ -208,12 +239,14 @@ public class DialogueDisplayManager : MonoBehaviour
 
         if (introClip != null)
         {
+            textDisplay.SetActive(GameOptions.Instance.ShowDialogueText);
+            cameraFollowerScript.IsFollowingCamera = true;
             choicesDropdown.gameObject.SetActive(false);
             UpdateText(ConstructDialogueText(dialogueData.intro[0]));
 
             audioSource_.clip = introClip;
             audioSource_.Play();
-            isIntroPlaying = true;
+            isIntroPlaying_ = true;
             nextButton.gameObject.SetActive(true);
 
             StartCoroutine(WaitForAudioToFinish(introClip.length));
