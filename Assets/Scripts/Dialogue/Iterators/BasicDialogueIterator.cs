@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class BasicDialogueIterator : DialogueIterator
 {
-    private readonly DialogueCollection intro_;
+    private readonly DialogueCollection dialogue_;
     private string currentId_;
 
-    public BasicDialogueIterator(DialogueCollection intro)
+    public BasicDialogueIterator(DialogueCollection dialogue)
     {
-        intro_ = intro;
+        dialogue_ = dialogue;
     }
 
     public DialogueNode GetNode()
     {
         if (HasMore(currentId_))
         {
-            DialogueNode result = intro_.dialogueNodes[currentId_];
+            DialogueNode result = dialogue_.dialogueNodes[currentId_];
             currentId_ = result.nextId;
             return result;
         }
@@ -27,7 +27,7 @@ public class BasicDialogueIterator : DialogueIterator
 
     public bool HasMore(string id)
     {
-        return intro_.dialogueNodes.ContainsKey(id);
+        return dialogue_.dialogueNodes.ContainsKey(id);
     }
 
     public void SetId(string newId)
