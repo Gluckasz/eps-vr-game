@@ -1,0 +1,139 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
+public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
+{
+    private List<ChoiceButtonDisplay> choiceButtons_ = new();
+    private DialogueNode dialogueNode_;
+    private const string playerName = "You";
+
+    public float choiceXOffset = 10;
+    public float choiceYOffset = 5;
+    public float choicezOffset = 0.5f;
+    public TMP_Text dialogueText;
+    public Button nextButton;
+    public GameObject choiceButtonGameObject;
+    public GameObject textDisplay;
+
+    private string ConstructDialogueText(DialogueNode node)
+    {
+        return node.character + ": " + node.text;
+    }
+
+    private void InstantiateChoicesButtons()
+    {
+        foreach (var choice in dialogueNode_.choices)
+        {
+            choiceButtons_.Add(new ChoiceButtonDisplay(this, choice));
+        }
+
+        foreach (var choiceButton in choiceButtons_)
+        {
+            Instantiate(choiceButton.gameObject);
+            choiceButton.gameObject.SetActive(true);
+        }
+    }
+
+    private void UpdateChoicesButtons()
+    {
+        if (dialogueNode_.choices.Count > choiceButtons_.Count)
+        {
+            for (int i = 0; i < dialogueNode_.choices.Count - choiceButtons_.Count; i++)
+            {
+                choiceButtons_.Add(new ChoiceButtonDisplay(this, new DialogueChoiceNode()));
+                Instantiate(choiceButtons_[i].gameObject);
+                choiceButtons_[i].gameObject.SetActive(true);
+            }
+        }
+        for (int i = 0; i < choiceButtons_.Count; i++)
+        {
+            if (i >= dialogueNode_.choices.Count)
+            {
+                choiceButtons_[i].gameObject.SetActive(false);
+                continue;
+            }
+            choiceButtons_[i].SetDialogueChoice(dialogueNode_.choices[i]);
+            choiceButtons_[i].gameObject.SetActive(true);
+        }
+    }
+
+    private int CountActiveChoiceButtons()
+    {
+        int count = 0;
+        foreach (var choiceButton in choiceButtons_)
+        {
+            if (choiceButton.gameObject.activeSelf)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private void UpdateChoicesButtonsTransforms(int choicesToUpdate)
+    {
+        for (int i = 1; i <= choicesToUpdate; i++)
+        {
+            float newXPosition;
+            if (i % 2 == 1)
+            {
+                newXPosition = gameObject.transform.position.x + i * (-1) * choiceXOffset;
+            }
+            else
+            {
+                newXPosition = gameObject.transform.position.x + i * choiceXOffset;
+            }
+
+            float newYPosition = gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset;
+
+            Vector3 newPosition = new(newXPosition, newYPosition, choicezOffset);
+            choiceButtons_[i].gameObject.transform.position = newPosition;
+
+            choiceButtons_[i].gameObject.transform.rotation = gameObject.transform.rotation;
+        }
+    }
+
+    public void HideDisplay()
+    {
+        textDisplay.SetActive(false);
+    }
+
+    public void HideNextButton()
+    {
+        nextButton.gameObject.SetActive(false);
+    }
+
+    public void DisplayData(DialogueNode dialogueNode)
+    {
+        if (dialogueNode.choices.Count > 4)
+        {
+            Debug.LogError("Viewing above 4 choices is not supported.");
+        }
+        dialogueNode_ = dialogueNode;
+        dialogueText.text = ConstructDialogueText(dialogueNode);
+
+        if (choiceButtons_.Count == 0)
+        {
+            InstantiateChoicesButtons();
+        }
+        else
+        {
+            UpdateChoicesButtons();
+        }
+
+        int activeChoicesCount = CountActiveChoiceButtons();
+        UpdateChoicesButtonsTransforms(activeChoicesCount);
+    }
+
+    public void OnNextButtonPressed()
+    {
+        throw new NotImplementedException();
+    }
+}

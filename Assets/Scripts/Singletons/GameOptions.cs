@@ -27,11 +27,11 @@ public class GameOptions : MonoBehaviour
         {
             _showDialogueText = value;
             if (
-                DialogueDisplayManager.Instance != null
-                && DialogueDisplayManager.Instance.IsDialogueShowed()
+                ChoiceDialogueDisplay.Instance != null
+                && ChoiceDialogueDisplay.Instance.IsDialogueShowed()
             )
             {
-                DialogueDisplayManager.Instance.textDisplay.SetActive(value);
+                ChoiceDialogueDisplay.Instance.textDisplay.SetActive(value);
             }
         }
     }

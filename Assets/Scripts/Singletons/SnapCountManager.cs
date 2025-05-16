@@ -26,7 +26,7 @@ public class SnapCountManager : MonoBehaviour
         if (CurrentSnapCount >= totalSnapCount && !startedSceneDialogue)
         {
             startedSceneDialogue = true;
-            DialogueDisplayManager.Instance.StartSceneDialogue();
+            ChoiceDialogueDisplay.Instance.StartSceneDialogue();
             Debug.Log("Started scene dialogue.");
         }
     }

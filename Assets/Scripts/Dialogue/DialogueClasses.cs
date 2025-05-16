@@ -16,11 +16,11 @@ public class DialogueNode
     public string text;
     public string audio;
     public string nextId;
-    public List<DialogueChoice> choices;
+    public List<DialogueChoiceNode> choices;
 }
 
 [Serializable]
-public class DialogueChoice
+public class DialogueChoiceNode
 {
     public string shortText;
     public string text;

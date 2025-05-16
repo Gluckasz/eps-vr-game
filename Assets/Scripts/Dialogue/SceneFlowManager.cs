@@ -7,7 +7,7 @@ public class SceneFlowManager : MonoBehaviour
 {
     private AudioSource audioSource;
 
-    private DialogueDisplayManager dialogueDisplayManagerScript;
+    private ChoiceDialogueDisplay dialogueDisplayManagerScript;
 
     public DialogueData dialogueData;
     public string scriptPath = "scene_1_script.json";
@@ -26,7 +26,7 @@ public class SceneFlowManager : MonoBehaviour
         dialogueDisplayerInstance.SetActive(false);
 
         dialogueDisplayManagerScript =
-            dialogueDisplayerInstance.GetComponent<DialogueDisplayManager>();
+            dialogueDisplayerInstance.GetComponent<ChoiceDialogueDisplay>();
         LoadDialogueData();
     }
 
