@@ -10,14 +10,8 @@ public class ChoiceButtonDisplay : MonoBehaviour
 
     public TMP_Text choiceText;
 
-    public ChoiceButtonDisplay(
-        ChoiceDialogueDisplay choiceDialogueDisplay,
-        DialogueChoiceNode dialogueChoiceNode
-    )
+    private void Start()
     {
-        choiceDialogueDisplay_ = choiceDialogueDisplay;
-        dialogueChoiceNode_ = dialogueChoiceNode;
-
         choiceText.text = dialogueChoiceNode_.shortText;
     }
 

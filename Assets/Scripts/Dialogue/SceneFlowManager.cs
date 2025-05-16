@@ -6,57 +6,57 @@ using UnityEngine.Audio;
 public class SceneFlowManager : MonoBehaviour
 {
     private AudioSource audioSource;
+    private DialogueReader choiceDialogueReader;
+    private static SceneFlowManager Instance;
 
-    private ChoiceDialogueDisplay dialogueDisplayManagerScript;
-
-    public DialogueData dialogueData;
-    public string scriptPath = "scene_1_script.json";
-    public GameObject dialogueDisplayer;
-
-    public static GameObject dialogueDisplayerInstance;
+    public string voiceActingDirectory = "AIVoiceAudio";
+    public string sceneScriptFileName = "Scene1Dialogue.json";
+    public string entryId = "entry";
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         audioSource = GetComponent<AudioSource>();
+        choiceDialogueReader = ChoiceDialogueReader.Instance;
     }
 
     private void Start()
     {
-        dialogueDisplayerInstance = Instantiate(dialogueDisplayer);
-        dialogueDisplayerInstance.SetActive(false);
-
-        dialogueDisplayManagerScript =
-            dialogueDisplayerInstance.GetComponent<ChoiceDialogueDisplay>();
-        LoadDialogueData();
+        Vector3 pos = new(0, 0, 0);
+        ShowSceneDialogue(pos);
     }
 
-    private void StartScene()
+    private void DialogueSetup(
+        Dialogue dialogue,
+        DialogueReader dialogueReader,
+        DialogueDisplay dialogueDisplay
+    )
     {
-        dialogueDisplayerInstance.SetActive(true);
+        DialogueIterator sceneDialogueIterator = dialogue.CreateDialogueIterator();
 
-        dialogueDisplayManagerScript.StartScene(dialogueData, audioSource);
+        sceneDialogueIterator.SetId(entryId);
+
+        DialogueNode startNode = sceneDialogueIterator.GetNode();
+
+        dialogueDisplay.DisplayData(startNode);
     }
 
-    private void LoadDialogueData()
+    public void ShowSceneDialogue(Vector3 dialoguePosition)
     {
-        string filePath = Path.Combine(Application.dataPath, scriptPath);
+        DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
+        Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);
+        DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
+            sceneScript.dialogue[0].character
+        );
 
-        if (File.Exists(filePath))
-        {
-            string jsonContent = File.ReadAllText(filePath);
-
-            dialogueData = JsonUtility.FromJson<DialogueData>(jsonContent);
-
-            Debug.Log("Dialogue loaded successfully!");
-            if (dialogueData.intro.Count > 0)
-            {
-                Debug.Log("Starting the scene");
-                StartScene();
-            }
-        }
-        else
-        {
-            Debug.LogError("Could not find JSON file at path: " + filePath);
-        }
+        DialogueSetup(sceneDialogue, choiceDialogueReader, dialogueDisplay);
     }
 }

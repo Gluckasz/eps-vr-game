@@ -12,10 +12,11 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private List<ChoiceButtonDisplay> choiceButtons_ = new();
     private DialogueNode dialogueNode_;
     private const string playerName = "You";
+    private const string choiceButtonName = "ChoiceButton";
 
-    public float choiceXOffset = 10;
-    public float choiceYOffset = 5;
-    public float choicezOffset = 0.5f;
+    public float choiceXOffset = 0.5f;
+    public float choiceYOffset = 0.5f;
+    public float choicezOffset = 0.1f;
     public TMP_Text dialogueText;
     public Button nextButton;
     public GameObject choiceButtonGameObject;
@@ -30,12 +31,10 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     {
         foreach (var choice in dialogueNode_.choices)
         {
-            choiceButtons_.Add(new ChoiceButtonDisplay(this, choice));
+            choiceButtons_.Add(Instantiate(Resources.Load<ChoiceButtonDisplay>(choiceButtonName)));
         }
-
         foreach (var choiceButton in choiceButtons_)
         {
-            Instantiate(choiceButton.gameObject);
             choiceButton.gameObject.SetActive(true);
         }
     }
@@ -46,8 +45,9 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         {
             for (int i = 0; i < dialogueNode_.choices.Count - choiceButtons_.Count; i++)
             {
-                choiceButtons_.Add(new ChoiceButtonDisplay(this, new DialogueChoiceNode()));
-                Instantiate(choiceButtons_[i].gameObject);
+                choiceButtons_.Add(
+                    Instantiate(Resources.Load<ChoiceButtonDisplay>(choiceButtonName))
+                );
                 choiceButtons_[i].gameObject.SetActive(true);
             }
         }
@@ -94,9 +94,9 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
             float newYPosition = gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset;
 
             Vector3 newPosition = new(newXPosition, newYPosition, choicezOffset);
-            choiceButtons_[i].gameObject.transform.position = newPosition;
+            choiceButtons_[i - 1].gameObject.transform.position = newPosition;
 
-            choiceButtons_[i].gameObject.transform.rotation = gameObject.transform.rotation;
+            choiceButtons_[i - 1].gameObject.transform.rotation = gameObject.transform.rotation;
         }
     }
 
@@ -123,10 +123,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         {
             InstantiateChoicesButtons();
         }
-        else
-        {
-            UpdateChoicesButtons();
-        }
+        UpdateChoicesButtons();
 
         int activeChoicesCount = CountActiveChoiceButtons();
         UpdateChoicesButtonsTransforms(activeChoicesCount);
