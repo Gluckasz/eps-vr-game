@@ -5,8 +5,7 @@ using UnityEngine;
 [Serializable]
 public class DialogueData
 {
-    public List<DialogueNode> intro;
-    public List<DialogueNode> scene;
+    public List<DialogueNode> dialogue;
 }
 
 [Serializable]
