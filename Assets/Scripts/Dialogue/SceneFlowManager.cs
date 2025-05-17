@@ -29,7 +29,7 @@ public class SceneFlowManager : MonoBehaviour
 
     private void Start()
     {
-        Vector3 pos = new(0, 1, 0);
+        Vector3 pos = new(-3, 1.3f, -3);
         ShowSceneDialogue(pos);
     }
 

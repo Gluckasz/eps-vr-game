@@ -95,7 +95,11 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
             float newYPosition =
                 gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset + choiceYMargin;
 
-            Vector3 newPosition = new(newXPosition, newYPosition, choicezOffset);
+            Vector3 newPosition = new(
+                newXPosition,
+                newYPosition,
+                gameObject.transform.position.z + choicezOffset
+            );
             choiceButtons_[i - 1].gameObject.transform.position = newPosition;
         }
     }
