@@ -10609,6 +10609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519374945009003388, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
+      propertyPath: sceneScriptFileName
+      value: Scene1Dialogue.json
+      objectReference: {fileID: 0}
     - target: {fileID: 2492541232855515384, guid: 6d8951006af66fc4289bd03cb17a143a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

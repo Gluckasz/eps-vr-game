@@ -1,0 +1,11 @@
+{
+    "dialogue": [
+        {
+            "id": "entry",
+            "character": "Narrator",
+            "text": "Welcome to \"Breaking the Silence\", a VR narrative experience where words have power, and conversations shape your story. In this game, you step into the role of a social worker student. Tonight, you are attending a family dinner where difficult discussions will arise. When your father makes a racist remark, you must decide how to respond. \n\nEvery choice has consequences, shown through pop up feedbacks. Explore the apartment to find interactive objects, a newspaper, a family photo or your phone, that might help you build your argument.\n\nThis game is not about winning, it is about understanding how a conversation can create change over time.",
+            "audio": "intro_narration",
+            "nextId": "endIntro"
+        }
+    ]
+}
