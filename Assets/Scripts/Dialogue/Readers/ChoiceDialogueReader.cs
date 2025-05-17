@@ -6,7 +6,7 @@ public class ChoiceDialogueReader : DialogueReader
 {
     private Dictionary<string, ChoiceDialogueDisplay> dialogueDisplays;
     private const string dialogueDisplayerPrefabName = "DialogueDisplayer";
-    private const string dialogueReaderPrefabName = "DialogueReader";
+    private const string dialogueReaderPrefabName = "ChoiceDialogueReader";
 
     public static ChoiceDialogueReader Instance
     {

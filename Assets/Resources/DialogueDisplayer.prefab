@@ -470,9 +470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8663de0c71d7f94184d58aa39843564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choiceXOffset: 0.5
-  choiceYOffset: 0.5
-  choicezOffset: 0.1
+  choiceXOffset: 0.4
+  choiceYOffset: -0.2
+  choiceYMargin: 0.15
+  choicezOffset: -0.1
   dialogueText: {fileID: 6538143663043281671}
   nextButton: {fileID: 4068199196677371083}
   choiceButtonGameObject: {fileID: 2353881410505947731, guid: b1365fb3132e3464a9494193e0ce3d48, type: 3}

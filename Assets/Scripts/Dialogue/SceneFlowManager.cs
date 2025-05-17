@@ -8,10 +8,9 @@ public class SceneFlowManager : MonoBehaviour
     private AudioSource audioSource;
     private DialogueReader choiceDialogueReader;
     private static SceneFlowManager Instance;
-
-    public string voiceActingDirectory = "AIVoiceAudio";
-    public string sceneScriptFileName = "Scene1Dialogue.json";
-    public string entryId = "entry";
+    private const string voiceActingDirectory = "AIVoiceAudio";
+    private const string sceneScriptFileName = "Scene1Dialogue.json";
+    private const string entryId = "entry";
 
     private void Awake()
     {
@@ -30,14 +29,15 @@ public class SceneFlowManager : MonoBehaviour
 
     private void Start()
     {
-        Vector3 pos = new(0, 0, 0);
+        Vector3 pos = new(0, 1, 0);
         ShowSceneDialogue(pos);
     }
 
     private void DialogueSetup(
         Dialogue dialogue,
         DialogueReader dialogueReader,
-        DialogueDisplay dialogueDisplay
+        DialogueDisplay dialogueDisplay,
+        Vector3 dialoguePosition
     )
     {
         DialogueIterator sceneDialogueIterator = dialogue.CreateDialogueIterator();
@@ -46,7 +46,7 @@ public class SceneFlowManager : MonoBehaviour
 
         DialogueNode startNode = sceneDialogueIterator.GetNode();
 
-        dialogueDisplay.DisplayData(startNode);
+        dialogueDisplay.DisplayData(startNode, dialoguePosition);
     }
 
     public void ShowSceneDialogue(Vector3 dialoguePosition)
@@ -57,6 +57,6 @@ public class SceneFlowManager : MonoBehaviour
             sceneScript.dialogue[0].character
         );
 
-        DialogueSetup(sceneDialogue, choiceDialogueReader, dialogueDisplay);
+        DialogueSetup(sceneDialogue, choiceDialogueReader, dialogueDisplay, dialoguePosition);
     }
 }

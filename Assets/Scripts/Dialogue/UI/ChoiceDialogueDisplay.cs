@@ -15,8 +15,9 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private const string choiceButtonName = "ChoiceButton";
 
     public float choiceXOffset = 0.5f;
-    public float choiceYOffset = 0.5f;
-    public float choicezOffset = 0.1f;
+    public float choiceYOffset = -0.2f;
+    public float choiceYMargin = 0.15f;
+    public float choicezOffset = -0.1f;
     public TMP_Text dialogueText;
     public Button nextButton;
     public GameObject choiceButtonGameObject;
@@ -84,19 +85,18 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
             float newXPosition;
             if (i % 2 == 1)
             {
-                newXPosition = gameObject.transform.position.x + i * (-1) * choiceXOffset;
+                newXPosition = gameObject.transform.position.x + (-1) * choiceXOffset;
             }
             else
             {
-                newXPosition = gameObject.transform.position.x + i * choiceXOffset;
+                newXPosition = gameObject.transform.position.x + choiceXOffset;
             }
 
-            float newYPosition = gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset;
+            float newYPosition =
+                gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset + choiceYMargin;
 
             Vector3 newPosition = new(newXPosition, newYPosition, choicezOffset);
             choiceButtons_[i - 1].gameObject.transform.position = newPosition;
-
-            choiceButtons_[i - 1].gameObject.transform.rotation = gameObject.transform.rotation;
         }
     }
 
@@ -110,7 +110,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         nextButton.gameObject.SetActive(false);
     }
 
-    public void DisplayData(DialogueNode dialogueNode)
+    public void DisplayData(DialogueNode dialogueNode, Vector3 position)
     {
         if (dialogueNode.choices.Count > 4)
         {
@@ -118,6 +118,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
         dialogueNode_ = dialogueNode;
         dialogueText.text = ConstructDialogueText(dialogueNode);
+        gameObject.transform.position = position;
 
         if (choiceButtons_.Count == 0)
         {
