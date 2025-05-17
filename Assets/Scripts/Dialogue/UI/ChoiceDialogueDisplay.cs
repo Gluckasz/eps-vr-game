@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 {
+    private string nextId;
     private List<ChoiceButtonDisplay> choiceButtons_ = new();
     private DialogueNode dialogueNode_;
     private const string playerName = "You";
@@ -26,6 +27,11 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private string ConstructDialogueText(DialogueNode node)
     {
         return node.character + ": " + node.text;
+    }
+
+    private string ConstructDialogueText(DialogueChoiceNode node)
+    {
+        return playerName + ": " + node.text;
     }
 
     private void InstantiateChoicesButtons()
@@ -59,7 +65,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
                 choiceButtons_[i].gameObject.SetActive(false);
                 continue;
             }
-            choiceButtons_[i].SetDialogueChoice(dialogueNode_.choices[i]);
+            choiceButtons_[i].SetDialogueChoice(dialogueNode_.choices[i], this);
             choiceButtons_[i].gameObject.SetActive(true);
         }
     }
@@ -104,14 +110,32 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
     }
 
+    private void HideChoicesButtons()
+    {
+        foreach (var choiceButton in choiceButtons_)
+        {
+            choiceButton.gameObject.SetActive(false);
+        }
+    }
+
     public void HideDisplay()
     {
         textDisplay.SetActive(false);
     }
 
+    public void ShowDisplay()
+    {
+        textDisplay.SetActive(true);
+    }
+
     public void HideNextButton()
     {
         nextButton.gameObject.SetActive(false);
+    }
+
+    public void ShowNextButton()
+    {
+        nextButton.gameObject.SetActive(true);
     }
 
     public void DisplayData(DialogueNode dialogueNode, Vector3 position)
@@ -134,8 +158,18 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         UpdateChoicesButtonsTransforms(activeChoicesCount);
     }
 
+    public void ChoiceSelected(DialogueChoiceNode selectedChoice)
+    {
+        HideChoicesButtons();
+        dialogueText.text = ConstructDialogueText(selectedChoice);
+        nextId = selectedChoice.nextId;
+        ShowNextButton();
+    }
+
     public void OnNextButtonPressed()
     {
-        throw new NotImplementedException();
+        // Can be later changed from transform.position to characters position
+        // (if characters will be moving in the dialogue)
+        SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId, transform.position);
     }
 }

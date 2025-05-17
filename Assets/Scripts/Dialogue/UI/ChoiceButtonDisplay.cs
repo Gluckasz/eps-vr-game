@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChoiceButtonDisplay : MonoBehaviour
 {
-    private readonly ChoiceDialogueDisplay choiceDialogueDisplay_;
+    private ChoiceDialogueDisplay choiceDialogueDisplay_;
     private DialogueChoiceNode dialogueChoiceNode_;
 
     public TMP_Text choiceText;
@@ -15,8 +15,13 @@ public class ChoiceButtonDisplay : MonoBehaviour
         choiceText.text = dialogueChoiceNode_.shortText;
     }
 
-    public void SetDialogueChoice(DialogueChoiceNode dialogueChoiceNode)
+    public void SetDialogueChoice(
+        DialogueChoiceNode dialogueChoiceNode,
+        ChoiceDialogueDisplay choiceDialogueDisplay
+    )
     {
+        choiceDialogueDisplay_ = choiceDialogueDisplay;
+
         dialogueChoiceNode_ = dialogueChoiceNode;
 
         choiceText.text = dialogueChoiceNode_.shortText;
@@ -24,6 +29,6 @@ public class ChoiceButtonDisplay : MonoBehaviour
 
     public void OnChoiceButtonPressed()
     {
-        throw new NotImplementedException();
+        choiceDialogueDisplay_.ChoiceSelected(dialogueChoiceNode_);
     }
 }

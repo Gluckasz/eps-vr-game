@@ -7,7 +7,8 @@ public class SceneFlowManager : MonoBehaviour
 {
     private AudioSource audioSource;
     private DialogueReader choiceDialogueReader;
-    private static SceneFlowManager Instance;
+    private DialogueIterator sceneDialogueIterator;
+    public static SceneFlowManager Instance { get; private set; }
     private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string entryId = "entry";
@@ -33,20 +34,25 @@ public class SceneFlowManager : MonoBehaviour
         ShowSceneDialogue(pos);
     }
 
-    private void DialogueSetup(
-        Dialogue dialogue,
-        DialogueReader dialogueReader,
+    public void ChoiceDialogueNextNode(
         DialogueDisplay dialogueDisplay,
+        string nextId,
         Vector3 dialoguePosition
     )
     {
-        DialogueIterator sceneDialogueIterator = dialogue.CreateDialogueIterator();
+        if (sceneDialogueIterator.HasMore(nextId))
+        {
+            dialogueDisplay.HideNextButton();
 
-        sceneDialogueIterator.SetId(entryId);
-
-        DialogueNode startNode = sceneDialogueIterator.GetNode();
-
-        dialogueDisplay.DisplayData(startNode, dialoguePosition);
+            sceneDialogueIterator.SetId(nextId);
+            DialogueNode nextNode = sceneDialogueIterator.GetNode();
+            dialogueDisplay.DisplayData(nextNode, dialoguePosition);
+            dialogueDisplay.ShowDisplay();
+        }
+        else
+        {
+            dialogueDisplay.HideDisplay();
+        }
     }
 
     public void ShowSceneDialogue(Vector3 dialoguePosition)
@@ -56,7 +62,8 @@ public class SceneFlowManager : MonoBehaviour
         DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
             sceneScript.dialogue[0].character
         );
+        sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
 
-        DialogueSetup(sceneDialogue, choiceDialogueReader, dialogueDisplay, dialoguePosition);
+        ChoiceDialogueNextNode(dialogueDisplay, entryId, dialoguePosition);
     }
 }
