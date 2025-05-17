@@ -21,10 +21,12 @@ public class TurnToCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector3 cameraEulerAngles = mainCamera.transform.rotation.eulerAngles;
+        transform.LookAt(mainCamera.transform);
+        Vector3 newRotation = transform.rotation.eulerAngles;
+        newRotation.x = 0;
+        newRotation.y -= 180;
+        newRotation.z = 0;
 
-        Vector3 newRotationEuler = new Vector3(cameraEulerAngles.x, cameraEulerAngles.y, 0f);
-
-        transform.rotation = Quaternion.Euler(newRotationEuler);
+        transform.rotation = Quaternion.Euler(newRotation);
     }
 }
