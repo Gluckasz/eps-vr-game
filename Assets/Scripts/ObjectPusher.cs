@@ -10,15 +10,30 @@ public class ObjectPusher : MonoBehaviour
     {
         Rigidbody targetRigidbody = other.attachedRigidbody;
 
-        if (targetRigidbody != null && !targetRigidbody.isKinematic)
+        if (
+            targetRigidbody != null
+            && !targetRigidbody.isKinematic
+            && targetRigidbody.gameObject.tag != "UI"
+        )
         {
-            Vector3 worldLaunchDirection = transform.TransformDirection(localLaunchDirection.normalized);
+            Vector3 worldLaunchDirection = transform.TransformDirection(
+                localLaunchDirection.normalized
+            );
             float distance = 0;
             distance += Mathf.Abs(targetRigidbody.position.x - transform.position.x);
             distance += Mathf.Abs(targetRigidbody.position.z - transform.position.z);
 
-            targetRigidbody.AddForce(worldLaunchDirection * launchForce / distance, ForceMode.Force);
-            Debug.Log(gameObject.name + " launched " + other.name + " (while staying in trigger). Applied force: " + (worldLaunchDirection * launchForce));
+            targetRigidbody.AddForce(
+                worldLaunchDirection * launchForce / distance,
+                ForceMode.Force
+            );
+            Debug.Log(
+                gameObject.name
+                    + " launched "
+                    + other.name
+                    + " (while staying in trigger). Applied force: "
+                    + (worldLaunchDirection * launchForce)
+            );
         }
     }
 }
