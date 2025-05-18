@@ -42,16 +42,16 @@ public class SceneFlowManager : MonoBehaviour
     {
         if (sceneDialogueIterator.HasMore(nextId))
         {
-            dialogueDisplay.HideNextButton();
+            dialogueDisplay.ToggleNextButton(false);
 
             sceneDialogueIterator.SetId(nextId);
             DialogueNode nextNode = sceneDialogueIterator.GetNode();
             dialogueDisplay.DisplayData(nextNode, dialoguePosition);
-            dialogueDisplay.ShowDisplay();
+            dialogueDisplay.ToggleDisplay(true);
         }
         else
         {
-            dialogueDisplay.HideDisplay();
+            dialogueDisplay.ToggleDisplay(false);
         }
     }
 

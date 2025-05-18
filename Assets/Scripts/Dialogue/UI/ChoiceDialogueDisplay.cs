@@ -118,24 +118,14 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
     }
 
-    public void HideDisplay()
+    public void ToggleDisplay(bool active)
     {
-        textDisplay.SetActive(false);
+        textDisplay.gameObject.SetActive(active);
     }
 
-    public void ShowDisplay()
+    public void ToggleNextButton(bool active)
     {
-        textDisplay.SetActive(true);
-    }
-
-    public void HideNextButton()
-    {
-        nextButton.gameObject.SetActive(false);
-    }
-
-    public void ShowNextButton()
-    {
-        nextButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(active);
     }
 
     public void DisplayData(DialogueNode dialogueNode, Vector3 position)
@@ -163,7 +153,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         HideChoicesButtons();
         dialogueText.text = ConstructDialogueText(selectedChoice);
         nextId = selectedChoice.nextId;
-        ShowNextButton();
+        ToggleNextButton(true);
     }
 
     public void OnNextButtonPressed()
