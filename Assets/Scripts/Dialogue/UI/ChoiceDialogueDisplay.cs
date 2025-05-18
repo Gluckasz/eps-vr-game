@@ -12,6 +12,8 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private string nextId;
     private List<ChoiceButtonDisplay> choiceButtons_ = new();
     private DialogueNode dialogueNode_;
+    private DialogueIterator dialogueIterator_;
+
     private const string playerName = "You";
     private const string choiceButtonName = "ChoiceButton";
 
@@ -161,5 +163,22 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         // Can be later changed from transform.position to characters position
         // (if characters will be moving in the dialogue)
         SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId, transform.position);
+    }
+
+    public void SetDialogueIterator(DialogueIterator dialogueIterator)
+    {
+        if (dialogueIterator_ == null)
+        {
+            dialogueIterator_ = dialogueIterator;
+        }
+        else
+        {
+            Debug.LogError("Dialogue iterator already set.");
+        }
+    }
+
+    public DialogueIterator GetDialogueIterator()
+    {
+        return dialogueIterator_;
     }
 }

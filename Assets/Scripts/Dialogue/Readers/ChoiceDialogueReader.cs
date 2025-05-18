@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChoiceDialogueReader : DialogueReader
 {
     private Dictionary<string, ChoiceDialogueDisplay> dialogueDisplays;
-    private const string dialogueDisplayerPrefabName = "DialogueDisplayer";
+    private const string dialogueDisplayerPrefabName = "ChoiceDialogueDisplayer";
     private const string dialogueReaderPrefabName = "ChoiceDialogueReader";
 
     public static ChoiceDialogueReader Instance
