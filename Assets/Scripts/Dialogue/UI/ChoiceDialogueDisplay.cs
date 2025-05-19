@@ -162,6 +162,10 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     {
         // Can be later changed from transform.position to characters position
         // (if characters will be moving in the dialogue)
+        if (dialogueNode_.nextId != null)
+        {
+            nextId = dialogueNode_.nextId;
+        }
         SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId, transform.position);
     }
 

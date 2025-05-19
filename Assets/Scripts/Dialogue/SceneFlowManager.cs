@@ -37,7 +37,7 @@ public class SceneFlowManager : MonoBehaviour
     {
         Vector3 pos = new(-3, 1.3f, -3);
         ShowSceneDialogue(pos);
-        pos = new(0, 1, 0);
+        pos = new(-1, 1, 0);
         ShowIntroDialogue(pos);
     }
 
@@ -50,12 +50,18 @@ public class SceneFlowManager : MonoBehaviour
         DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
         if (dialogueIterator.HasMore(nextId))
         {
-            dialogueDisplay.ToggleNextButton(false);
-
             dialogueIterator.SetId(nextId);
             DialogueNode nextNode = dialogueIterator.GetNode();
             dialogueDisplay.DisplayData(nextNode, dialoguePosition);
             dialogueDisplay.ToggleDisplay(true);
+            if (nextNode.nextId == null)
+            {
+                dialogueDisplay.ToggleNextButton(false);
+            }
+            else
+            {
+                dialogueDisplay.ToggleNextButton(true);
+            }
         }
         else
         {
