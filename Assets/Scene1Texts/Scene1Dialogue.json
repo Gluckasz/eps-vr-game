@@ -42,49 +42,49 @@
         {
             "id": "entry pop-up choice 1.2",
             "character": "Sibling",
-            "text": "Sibling raises an eyebrow, but is intrigued by the conversation.",
+            "text": "Raises an eyebrow, but is intrigued by the conversation.",
             "nextId": "2.1"
         },
         {
             "id": "entry pop-up choice 2.1",
             "character": "Mother",
-            "text": "Mother nods in agreement",
+            "text": "Nods in agreement",
             "nextId": "entry pop-up choice 2.2"
         },
         {
             "id": "entry pop-up choice 2.2",
             "character": "Father",
-            "text": "Father hesitates, thinking of your example.",
+            "text": "Hesitates, thinking of your example.",
             "nextId": "2.2"
         },
         {
             "id": "entry pop-up choice 3.1",
             "character": "Mother",
-            "text": "Mother shakes her head.",
+            "text": "Shakes her head.",
             "nextId": "entry pop-up choice 3.2"
         },
         {
             "id": "entry pop-up choice 3.2",
             "character": "Sibling",
-            "text": "Sibling is shocked, but stays quiet.",
+            "text": "Is shocked, but stays quiet.",
             "nextId": "entry pop-up choice 3.3"
         },
         {
             "id": "entry pop-up choice 3.3",
             "character": "Father",
-            "text": "Father gets defensive.",
+            "text": "Gets defensive.",
             "nextId": "2.3"
         },
         {
             "id": "entry pop-up choice 4.1",
             "character": "Father",
-            "text": "Father chuckles a little bit, but does not take it seriously.",
+            "text": "Chuckles a little bit, but does not take it seriously.",
             "nextId": "entry pop-up choice 4.2"
         },
         {
             "id": "entry pop-up choice 4.2",
             "character": "Mother",
-            "text": "Mother rolls her eyes.",
+            "text": "Rolls her eyes.",
             "nextId": "entry pop-up choice 4.3"
         },
         {
@@ -96,7 +96,7 @@
         {
             "id": "entry pop-up choice 4.4",
             "character": "Sibling",
-            "text": "Sibling laughs a little.",
+            "text": "Laughs a little.",
             "nextId": "2.4"
         },
         {
@@ -236,20 +236,20 @@
                     "responseType": "Confront directly",
                     "text": "Then why do your words sound like you’re accusing all of them? If you know some people really need help, why focus on the few who abuse the system instead of the many who rely on it to survive?",
                     "shortText": "Why focus only on system abusers?",
-                    "nextId": "4.1"
+                    "nextId": "3.1 pop-up 1"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "Did grandpa ‘play the system’ when he got government support after the war? Or was that just ‘help’ because it was our family?",
                     "shortText": "Ask about grandpa's government support",
-                    "nextId": "4.2",
+                    "nextId": "3.1 pop-up 2",
                     "item": "letter"
                 },
                 {
                     "responseType": "Counter with humor",
                     "text": "Right, because only immigrants ever ‘play the system.’ I guess politicians just forget to pay taxes by accident!",
                     "shortText": "Compare to tax-dodging politicians",
-                    "nextId": "4.5",
+                    "nextId": "3.1 pop-up 3",
                     "item": "newspaper_fraud_scandal"
                 },
                 {
@@ -288,14 +288,14 @@
                     "responseType": "State the facts",
                     "text": "There you go! You say yourself that it's not about everyone. But when you speak in generalities, you also offend those who work, pay taxes, and save lives.",
                     "shortText": "Point out his generalization",
-                    "nextId": "4.1"
+                    "nextId": "3.23 pop-up 4"
                 }
             ]
         },
         {
-            "id": "3.3",
-            "character": "Father",
-            "text": "I don't know, maybe it's not everyone, but it feels like some people don't respect how things work here. So why should we respect them?",
+            "id": "3.3 pop-up choice",
+            "character": "Sibling",
+            "text": "Hums, but does not object.",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -320,9 +320,15 @@
                     "responseType": "State the facts",
                     "text": "There you go! You say yourself that it's not about everyone. But when you speak in generalities, you also offend those who work, pay taxes, and save lives.",
                     "shortText": "Highlight unfair generalizations",
-                    "nextId": "4.1"
+                    "nextId": "3.23 pop-up 4"
                 }
             ]
+        },
+        {
+            "id": "3.3",
+            "character": "Father",
+            "text": "I don't know, maybe it's not everyone, but it feels like some people don't respect how things work here. So why should we respect them?",
+            "nextId": "3.3 pop-up choice"
         },
         {
             "id": "3.4",
@@ -357,9 +363,15 @@
             ]
         },
         {
-            "id": "3.5",
-            "character": "Father",
-            "text": "Alright, alright, I get it, you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
+            "id": "3.5 pop-up 1 choice",
+            "character": "Mother",
+            "text": "Sighs and looks at the plate, clearly worried.",
+            "nextId": "3.5 pop-up 2 choice"
+        },
+        {
+            "id": "3.5 pop-up 2 choice",
+            "character": "Sibling",
+            "text": "Tense, as if not sure which side to take.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -371,7 +383,7 @@
                     "responseType": "State the facts",
                     "text": "But they are already here. They work, they pay taxes. If we make their lives unbearable, who will benefit? We will force them to quit their jobs, leave gaps in the economy and suffer from it ourselves.",
                     "shortText": "Explain economic consequences",
-                    "nextId": "4.3",
+                    "nextId": "3.5 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
                 },
                 {
@@ -387,6 +399,48 @@
                     "nextId": "4.5"
                 }
             ]
+        },
+        {
+            "id": "3.5",
+            "character": "Father",
+            "text": "Alright, alright, I get it, you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
+            "nextId": "3.5 pop-up 1 choice"
+        },
+        {
+            "id": "3.1 pop-up 1",
+            "character": "Sibling",
+            "text": "Oh, this will be interesting!",
+            "nextId": "4.1"
+        },
+        {
+            "id": "3.1 pop-up 2",
+            "character": "Sibling",
+            "text": "I didn't think of it this way...",
+            "nextId": "4.2"
+        },
+        {
+            "id": "3.1 pop-up 3",
+            "character": "Sibling",
+            "text": "Laughs, but quickly stops when he notices his father's reaction.",
+            "nextId": "4.5"
+        },
+        {
+            "id": "3.23 pop-up 4",
+            "character": "Sibling",
+            "text": "Well, maybe not everyone is like we think they are.",
+            "nextId": "4.1"
+        },
+        {
+            "id": "3.5 pop-up 2.1",
+            "character": "Mother",
+            "text": "Looks a little confused but tries to listen.",
+            "nextId": "3.5 pop-up 2.2"
+        },
+        {
+            "id": "3.5 pop-up 2.2",
+            "character": "Sibling",
+            "text": "Leans forward, listening with interest.",
+            "nextId": "4.3"
         },
         {
             "id": "4.1",
