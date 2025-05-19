@@ -12,6 +12,8 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private string nextId;
     private List<ChoiceButtonDisplay> choiceButtons_ = new();
     private DialogueNode dialogueNode_;
+    private DialogueIterator dialogueIterator_;
+
     private const string playerName = "You";
     private const string choiceButtonName = "ChoiceButton";
 
@@ -118,24 +120,14 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
     }
 
-    public void HideDisplay()
+    public void ToggleDisplay(bool active)
     {
-        textDisplay.SetActive(false);
+        textDisplay.gameObject.SetActive(active);
     }
 
-    public void ShowDisplay()
+    public void ToggleNextButton(bool active)
     {
-        textDisplay.SetActive(true);
-    }
-
-    public void HideNextButton()
-    {
-        nextButton.gameObject.SetActive(false);
-    }
-
-    public void ShowNextButton()
-    {
-        nextButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(active);
     }
 
     public void DisplayData(DialogueNode dialogueNode, Vector3 position)
@@ -163,13 +155,34 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         HideChoicesButtons();
         dialogueText.text = ConstructDialogueText(selectedChoice);
         nextId = selectedChoice.nextId;
-        ShowNextButton();
+        ToggleNextButton(true);
     }
 
     public void OnNextButtonPressed()
     {
         // Can be later changed from transform.position to characters position
         // (if characters will be moving in the dialogue)
+        if (dialogueNode_.nextId != null)
+        {
+            nextId = dialogueNode_.nextId;
+        }
         SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId, transform.position);
+    }
+
+    public void SetDialogueIterator(DialogueIterator dialogueIterator)
+    {
+        if (dialogueIterator_ == null)
+        {
+            dialogueIterator_ = dialogueIterator;
+        }
+        else
+        {
+            Debug.LogError("Dialogue iterator already set.");
+        }
+    }
+
+    public DialogueIterator GetDialogueIterator()
+    {
+        return dialogueIterator_;
     }
 }

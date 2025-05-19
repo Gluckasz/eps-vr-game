@@ -208,8 +208,8 @@ GameObject:
   - component: {fileID: 6220365154774213673}
   - component: {fileID: 1835874262831269187}
   m_Layer: 0
-  m_Name: DialogueDisplayer
-  m_TagString: Untagged
+  m_Name: ChoiceDialogueDisplayer
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

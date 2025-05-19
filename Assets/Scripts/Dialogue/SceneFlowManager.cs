@@ -6,12 +6,16 @@ using UnityEngine.Audio;
 public class SceneFlowManager : MonoBehaviour
 {
     private AudioSource audioSource;
+
     private DialogueReader choiceDialogueReader;
-    private DialogueIterator sceneDialogueIterator;
-    public static SceneFlowManager Instance { get; private set; }
+    private DialogueReader basicDialogueReader;
+
     private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
+    private const string introScriptFileName = "Scene1Intro.json";
     private const string entryId = "entry";
+
+    public static SceneFlowManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -26,12 +30,15 @@ public class SceneFlowManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         choiceDialogueReader = ChoiceDialogueReader.Instance;
+        basicDialogueReader = BasicDialogueReader.Instance;
     }
 
     private void Start()
     {
         Vector3 pos = new(-3, 1.3f, -3);
         ShowSceneDialogue(pos);
+        pos = new(-1, 1, 0);
+        ShowIntroDialogue(pos);
     }
 
     public void ChoiceDialogueNextNode(
@@ -40,18 +47,42 @@ public class SceneFlowManager : MonoBehaviour
         Vector3 dialoguePosition
     )
     {
-        if (sceneDialogueIterator.HasMore(nextId))
+        DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
+        if (dialogueIterator.HasMore(nextId))
         {
-            dialogueDisplay.HideNextButton();
-
-            sceneDialogueIterator.SetId(nextId);
-            DialogueNode nextNode = sceneDialogueIterator.GetNode();
+            dialogueIterator.SetId(nextId);
+            DialogueNode nextNode = dialogueIterator.GetNode();
             dialogueDisplay.DisplayData(nextNode, dialoguePosition);
-            dialogueDisplay.ShowDisplay();
+            dialogueDisplay.ToggleDisplay(true);
+            if (nextNode.nextId == null)
+            {
+                dialogueDisplay.ToggleNextButton(false);
+            }
+            else
+            {
+                dialogueDisplay.ToggleNextButton(true);
+            }
         }
         else
         {
-            dialogueDisplay.HideDisplay();
+            dialogueDisplay.ToggleDisplay(false);
+        }
+    }
+
+    public void BasicDialogueNextNode(DialogueDisplay dialogueDisplay, Vector3 dialoguePosition)
+    {
+        DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
+        DialogueNode nextNode = dialogueIterator.GetNode();
+        if (nextNode != null)
+        {
+            dialogueDisplay.ToggleNextButton(true);
+
+            dialogueDisplay.DisplayData(nextNode, dialoguePosition);
+            dialogueDisplay.ToggleDisplay(true);
+        }
+        else
+        {
+            dialogueDisplay.ToggleDisplay(false);
         }
     }
 
@@ -62,8 +93,25 @@ public class SceneFlowManager : MonoBehaviour
         DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
             sceneScript.dialogue[0].character
         );
-        sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
+
+        DialogueIterator sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
+        dialogueDisplay.SetDialogueIterator(sceneDialogueIterator);
 
         ChoiceDialogueNextNode(dialogueDisplay, entryId, dialoguePosition);
+    }
+
+    public void ShowIntroDialogue(Vector3 dialoguePosition)
+    {
+        DialogueData introScript = basicDialogueReader.ReadJsonDialogueData(introScriptFileName);
+        Dialogue introDialogue = new BasicDialogue(introScript.dialogue);
+        DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
+            introScript.dialogue[0].character
+        );
+
+        DialogueIterator introDialogueIterator = introDialogue.CreateDialogueIterator();
+        introDialogueIterator.SetId(entryId);
+        dialogueDisplay.SetDialogueIterator(introDialogueIterator);
+
+        BasicDialogueNextNode(dialogueDisplay, dialoguePosition);
     }
 }
