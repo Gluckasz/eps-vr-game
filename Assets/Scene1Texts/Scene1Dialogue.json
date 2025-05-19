@@ -672,7 +672,7 @@
                     "responseType": "State the facts",
                     "text": "Every generation has faced challenges, but blaming an entire group of people isn’t the solution. We should focus on policies that help everyone instead of assuming the worst.",
                     "shortText": "Focus on helpful policies, not blame",
-                    "nextId": "end3"
+                    "nextId": "5.15 pop-up 2"
                 },
                 {
                     "responseType": "Confront directly",
@@ -720,9 +720,9 @@
             ]
         },
         {
-            "id": "5.3",
-            "character": "Father",
-            "text": "Well, there might be something to it. I'm not saying they're all bad, but the world is not as simple as you think. It's good to help, but you can't expect everyone to start making as much effort as we do. People are different, and not everyone wants to change.",
+            "id": "5.3 pop-up choice",
+            "character": "Mother",
+            "text": "Frowns, but says nothing - it is clear that she is thinking.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -734,7 +734,7 @@
                     "responseType": "State the facts",
                     "text": "You're right, people are different. But effort isn’t something only we’re capable of. Just because it doesn’t look the same, doesn’t mean it’s not there. Change takes time, and support makes it possible.",
                     "shortText": "Effort looks different for different people",
-                    "nextId": "end1"
+                    "nextId": "5.3 pop-up 2"
                 },
                 {
                     "responseType": "Confront directly",
@@ -751,9 +751,15 @@
             ]
         },
         {
-            "id": "5.4",
+            "id": "5.3",
             "character": "Father",
-            "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems, you don’t see us running away from ours, do you?",
+            "text": "Well, there might be something to it. I'm not saying they're all bad, but the world is not as simple as you think. It's good to help, but you can't expect everyone to start making as much effort as we do. People are different, and not everyone wants to change.",
+            "nextId": "5.3 pop-up choice"
+        },
+        {
+            "id": "5.4 pop-up choice",
+            "character": "Sibling",
+            "text": "Rolls his eyes but remains silent.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -783,6 +789,12 @@
             ]
         },
         {
+            "id": "5.4",
+            "character": "Father",
+            "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems, you don’t see us running away from ours, do you?",
+            "nextId": "5.4 pop-up choice"
+        },
+        {
             "id": "5.5",
             "character": "Father",
             "text": "Yes, I understand, but you know it's not quite the same. The history of our family is one thing, but now there are new conditions, new challenges.",
@@ -797,7 +809,7 @@
                     "responseType": "State the facts",
                     "text": "Every generation has faced challenges, but blaming an entire group of people isn't the solution. We should focus on policies that help everyone instead of assuming the worst.",
                     "shortText": "Each generation faces its own challenges",
-                    "nextId": "end3"
+                    "nextId": "5.15 pop-up 2"
                 },
                 {
                     "responseType": "Confront directly",
@@ -812,6 +824,18 @@
                     "nextId": "end2"
                 }
             ]
+        },
+        {
+            "id": "5.3 pop-up 2",
+            "character": "Mother",
+            "text": "Well, yes, everyone is different.",
+            "nextId": "end1"
+        },
+        {
+            "id": "5.15 pop-up 2",
+            "character": "Mother",
+            "text": "Looks touched, but at the same time restrained, silent.",
+            "nextId": "end3"
         }
     ]
 }
