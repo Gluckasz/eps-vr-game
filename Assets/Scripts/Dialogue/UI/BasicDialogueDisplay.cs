@@ -12,6 +12,14 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
     private DialogueNode dialogueNode_;
     private DialogueIterator dialogueIterator_;
 
+    private Dictionary<string, Vector3> characterOffsetMap = new()
+    {
+        { "Father", new(-0.5f, 1.6f, -0.2f) },
+        { "Mother", new(0.5f, 1.6f, -0.2f) },
+        { "Sibling", new(0, 1.6f, 0.4f) },
+        { "Narrator", new(0, 1.3f, 0) },
+    };
+
     public TMP_Text dialogueText;
     public Button nextButton;
     public GameObject textDisplay;
@@ -31,7 +39,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
         nextButton.gameObject.SetActive(active);
     }
 
-    public void DisplayData(DialogueNode dialogueNode, Vector3 position)
+    public void DisplayData(DialogueNode dialogueNode)
     {
         if (dialogueNode.choices.Count > 4)
         {
@@ -39,14 +47,23 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
         dialogueNode_ = dialogueNode;
         dialogueText.text = ConstructDialogueText(dialogueNode);
-        gameObject.transform.position = position;
+
+        GameObject targetGameObject = GameObject.FindGameObjectWithTag(dialogueNode_.character);
+        Vector3 offset = characterOffsetMap[dialogueNode_.character];
+
+        Vector3 newPosition = new(
+            targetGameObject.transform.position.x + offset.x,
+            targetGameObject.transform.position.y + offset.y,
+            targetGameObject.transform.position.z + offset.z
+        );
+        transform.position = newPosition;
     }
 
     public void OnNextButtonPressed()
     {
-        // Can be later changed from transform.position to characters position
+        // Can be later changed from transform.position to characters offset
         // (if characters will be moving in the dialogue)
-        SceneFlowManager.Instance.BasicDialogueNextNode(this, transform.position);
+        SceneFlowManager.Instance.BasicDialogueNextNode(this);
     }
 
     public void SetDialogueIterator(DialogueIterator dialogueIterator)

@@ -35,24 +35,18 @@ public class SceneFlowManager : MonoBehaviour
 
     private void Start()
     {
-        Vector3 pos = new(-3, 1.3f, -3);
-        ShowSceneDialogue(pos);
-        pos = new(-1, 1, 0);
-        ShowIntroDialogue(pos);
+        ShowSceneDialogue();
+        ShowIntroDialogue();
     }
 
-    public void ChoiceDialogueNextNode(
-        DialogueDisplay dialogueDisplay,
-        string nextId,
-        Vector3 dialoguePosition
-    )
+    public void ChoiceDialogueNextNode(DialogueDisplay dialogueDisplay, string nextId)
     {
         DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
         if (dialogueIterator.HasMore(nextId))
         {
             dialogueIterator.SetId(nextId);
             DialogueNode nextNode = dialogueIterator.GetNode();
-            dialogueDisplay.DisplayData(nextNode, dialoguePosition);
+            dialogueDisplay.DisplayData(nextNode);
             dialogueDisplay.ToggleDisplay(true);
             if (nextNode.nextId == null)
             {
@@ -69,7 +63,7 @@ public class SceneFlowManager : MonoBehaviour
         }
     }
 
-    public void BasicDialogueNextNode(DialogueDisplay dialogueDisplay, Vector3 dialoguePosition)
+    public void BasicDialogueNextNode(DialogueDisplay dialogueDisplay)
     {
         DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
         DialogueNode nextNode = dialogueIterator.GetNode();
@@ -77,7 +71,7 @@ public class SceneFlowManager : MonoBehaviour
         {
             dialogueDisplay.ToggleNextButton(true);
 
-            dialogueDisplay.DisplayData(nextNode, dialoguePosition);
+            dialogueDisplay.DisplayData(nextNode);
             dialogueDisplay.ToggleDisplay(true);
         }
         else
@@ -86,7 +80,7 @@ public class SceneFlowManager : MonoBehaviour
         }
     }
 
-    public void ShowSceneDialogue(Vector3 dialoguePosition)
+    public void ShowSceneDialogue()
     {
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
         Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);
@@ -97,10 +91,10 @@ public class SceneFlowManager : MonoBehaviour
         DialogueIterator sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
         dialogueDisplay.SetDialogueIterator(sceneDialogueIterator);
 
-        ChoiceDialogueNextNode(dialogueDisplay, entryId, dialoguePosition);
+        ChoiceDialogueNextNode(dialogueDisplay, entryId);
     }
 
-    public void ShowIntroDialogue(Vector3 dialoguePosition)
+    public void ShowIntroDialogue()
     {
         DialogueData introScript = basicDialogueReader.ReadJsonDialogueData(introScriptFileName);
         Dialogue introDialogue = new BasicDialogue(introScript.dialogue);
@@ -112,6 +106,6 @@ public class SceneFlowManager : MonoBehaviour
         introDialogueIterator.SetId(entryId);
         dialogueDisplay.SetDialogueIterator(introDialogueIterator);
 
-        BasicDialogueNextNode(dialogueDisplay, dialoguePosition);
+        BasicDialogueNextNode(dialogueDisplay);
     }
 }

@@ -759,7 +759,7 @@
         {
             "id": "5.4 pop-up choice",
             "character": "Sibling",
-            "text": "Rolls his eyes but remains silent.",
+            "text": "Rolls her eyes but remains silent.",
             "choices": [
                 {
                     "responseType": "Counter with humor",

@@ -17,6 +17,14 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private const string playerName = "You";
     private const string choiceButtonName = "ChoiceButton";
 
+    private Dictionary<string, Vector3> characterOffsetMap = new()
+    {
+        { "Father", new(-0.5f, 1.6f, -0.2f) },
+        { "Mother", new(0.5f, 1.6f, -0.2f) },
+        { "Sibling", new(0, 1.6f, 0.4f) },
+        { "Narrator", new(0, 1.3f, 0) },
+    };
+
     public float choiceXOffset = 0.5f;
     public float choiceYOffset = -0.2f;
     public float choiceYMargin = 0.15f;
@@ -90,23 +98,29 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     {
         for (int i = 1; i <= choicesToUpdate; i++)
         {
+            GameObject father = GameObject.FindGameObjectWithTag("Father");
+            Vector3 fatherOffset = characterOffsetMap["Father"];
+
             float newXPosition;
             if (i % 2 == 1)
             {
-                newXPosition = gameObject.transform.position.x + (-1) * choiceXOffset;
+                newXPosition = father.transform.position.x + (-1) * choiceXOffset + fatherOffset.x;
             }
             else
             {
-                newXPosition = gameObject.transform.position.x + choiceXOffset;
+                newXPosition = father.transform.position.x + choiceXOffset + fatherOffset.x;
             }
 
             float newYPosition =
-                gameObject.transform.position.y + (i + 1) / 2 * choiceYOffset + choiceYMargin;
+                father.transform.position.y
+                + (i + 1) / 2 * choiceYOffset
+                + choiceYMargin
+                + fatherOffset.y;
 
             Vector3 newPosition = new(
                 newXPosition,
                 newYPosition,
-                gameObject.transform.position.z + choicezOffset
+                father.transform.position.z + choicezOffset + fatherOffset.z
             );
             choiceButtons_[i - 1].gameObject.transform.position = newPosition;
         }
@@ -130,7 +144,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         nextButton.gameObject.SetActive(active);
     }
 
-    public void DisplayData(DialogueNode dialogueNode, Vector3 position)
+    public void DisplayData(DialogueNode dialogueNode)
     {
         if (dialogueNode.choices.Count > 4)
         {
@@ -138,7 +152,16 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
         dialogueNode_ = dialogueNode;
         dialogueText.text = ConstructDialogueText(dialogueNode);
-        gameObject.transform.position = position;
+
+        GameObject targetGameObject = GameObject.FindGameObjectWithTag(dialogueNode_.character);
+        Vector3 offset = characterOffsetMap[dialogueNode_.character];
+
+        Vector3 newPosition = new(
+            targetGameObject.transform.position.x + offset.x,
+            targetGameObject.transform.position.y + offset.y,
+            targetGameObject.transform.position.z + offset.z
+        );
+        transform.position = newPosition;
 
         if (choiceButtons_.Count == 0)
         {
@@ -160,13 +183,15 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void OnNextButtonPressed()
     {
-        // Can be later changed from transform.position to characters position
+        // Can be later changed from transform.position to characters offset
         // (if characters will be moving in the dialogue)
         if (dialogueNode_.nextId != null)
         {
             nextId = dialogueNode_.nextId;
         }
-        SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId, transform.position);
+        Vector3 offset = characterOffsetMap[dialogueNode_.character];
+
+        SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId);
     }
 
     public void SetDialogueIterator(DialogueIterator dialogueIterator)

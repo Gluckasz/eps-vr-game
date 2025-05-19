@@ -7,6 +7,9 @@ TagManager:
   - Anchor
   - UI
   - Father
+  - Mother
+  - Sibling
+  - Narrator
   layers:
   - Default
   - TransparentFX
