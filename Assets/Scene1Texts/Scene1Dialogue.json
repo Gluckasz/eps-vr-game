@@ -457,7 +457,7 @@
                     "responseType": "State the facts",
                     "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Share OECD tax contribution data",
-                    "nextId": "5.2",
+                    "nextId": "4.14 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
                 },
                 {
@@ -483,13 +483,13 @@
                     "responseType": "Counter with humor",
                     "text": "Yeah, figuring out who truly needs help can be tricky. Maybe we should hand out ‘Certified in Struggling’ badges to make it easier?",
                     "shortText": "Joke about 'Certified in Struggling' badges",
-                    "nextId": "5.1"
+                    "nextId": "4.2 pop-up 1"
                 },
                 {
                     "responseType": "State the facts",
                     "text": "Most people who seek asylum or work permits go through background checks and strict procedures. If they were just here to take advantage, they wouldn’t make it past step one.",
                     "shortText": "Explain rigorous immigration procedures",
-                    "nextId": "5.2"
+                    "nextId": "4.2 pop-up 2"
                 },
                 {
                     "responseType": "Confront directly",
@@ -521,7 +521,7 @@
                     "responseType": "State the facts",
                     "text": "It is true that some people abuse the system, but judging everyone for that isn’t fair. Most immigrants contribute more than they take. If we focus only on the exceptions, we ignore the reality and hurt those who are actually helping.",
                     "shortText": "Explain most contribute more than they take",
-                    "nextId": "5.3"
+                    "nextId": "4.3 pop-up 2.1"
                 },
                 {
                     "responseType": "Confront directly",
@@ -553,7 +553,7 @@
                     "responseType": "State the facts",
                     "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Cite tax contribution statistics",
-                    "nextId": "5.2",
+                    "nextId": "4.14 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
                 },
                 {
@@ -571,9 +571,15 @@
             ]
         },
         {
-            "id": "4.5",
-            "character": "Father",
-            "text": "Oh sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn't mean they belong here. If their country's a mess, they should fix it instead of running here expecting handouts. This isn't a charity.",
+            "id": "4.5 pop-up 1 choice",
+            "character": "Mother",
+            "text": "Nervously adjusts her napkin, avoiding father's gaze.",
+            "nextId": "4.3"
+        },
+        {
+            "id": "4.5 pop-up 2 choice",
+            "character": "Sibling",
+            "text": "Raises eyebrows, anticipating your reaction.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -592,7 +598,7 @@
                     "responseType": "Confront directly",
                     "text": "So you think people should just 'fix' war, corruption, or economic collapse by themselves? That’s not how the world works. If your house was on fire, would you sit inside and try to fix it, or would you run outside to save yourself and your family?",
                     "shortText": "Challenge 'fix your country' logic",
-                    "nextId": "5.3"
+                    "nextId": "4.5 pop-up 3"
                 },
                 {
                     "responseType": "Personalize the issue",
@@ -602,6 +608,54 @@
                     "item": "grandpa_passport"
                 }
             ]
+        },
+        {
+            "id": "4.5",
+            "character": "Father",
+            "text": "Oh sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn't mean they belong here. If their country's a mess, they should fix it instead of running here expecting handouts. This isn't a charity.",
+            "nextId": "4.5 pop-up 1 choice"
+        },
+        {
+            "id": "4.2 pop-up 1",
+            "character": "Mother",
+            "text": "This is no time for jokes.",
+            "nextId": "5.1"
+        },
+        {
+            "id": "4.2 pop-up 2",
+            "character": "Sibling",
+            "text": "What are you doing now, working for the European Commission?",
+            "nextId": "5.2"
+        },
+        {
+            "id": "4.14 pop-up 2.1",
+            "character": "Mother",
+            "text": "Looks a little confused but tries to listen.",
+            "nextId": "4.14 pop-up 2.2"
+        },
+        {
+            "id": "4.14 pop-up 2.2",
+            "character": "Mother",
+            "text": "Leans forward, listening with interest.",
+            "nextId": "5.2"
+        },
+        {
+            "id": "4.3 pop-up 2.1",
+            "character": "Sibling",
+            "text": "Gives a sideways glance.",
+            "nextId": "4.3 pop-up 2.2"
+        },
+        {
+            "id": "4.3 pop-up 2.2",
+            "character": "Sibling",
+            "text": "Really?",
+            "nextId": "5.3"
+        },
+        {
+            "id": "4.5 pop-up 3",
+            "character": "Mother",
+            "text": "Maybe that's enough for today?",
+            "nextId": "5.4"
         },
         {
             "id": "5.1",
