@@ -7,31 +7,97 @@
             "choices": [
                 {
                     "responseType": "State the facts",
-                    "text": "Actually, that is not true. Studies show that there is discrimination in hiring and also a big economic gab between or social classes.",
+                    "text": "Actually, that is not true. Studies show that there is discrimination in hiring and also a big economic gap between our social classes.",
                     "shortText": "Cite discrimination studies",
-                    "nextId": "2.1",
+                    "nextId": "entry pop-up choice 1.1",
                     "item": "newspaper"
                 },
                 {
                     "responseType": "Personalize the issue",
                     "text": "Dad, remember when our neighbour Amir struggled to find a job despite being highly qualified? I am sure you know as well as me that that was not because he did not work hard enough.",
                     "shortText": "Mention neighbor Amir's struggles",
-                    "nextId": "2.2",
+                    "nextId": "entry pop-up choice 2.1",
                     "item": "photo_with_neighbors"
                 },
                 {
                     "responseType": "Confront directly",
                     "text": "You know, that’s actually a really ignorant thing to say, it sounds kinda racist and feeds into harmful stereotypes.",
                     "shortText": "Call out racist remark",
-                    "nextId": "2.3"
+                    "nextId": "entry pop-up choice 3.1"
                 },
                 {
                     "responseType": "Counter with humor",
                     "text": "Wow did you get that striaght from a Facebook post?",
                     "shortText": "Mock Facebook as a source",
-                    "nextId": "2.4"
+                    "nextId": "entry pop-up choice 4.1"
                 }
             ]
+        },
+        {
+            "id": "entry pop-up choice 1.1",
+            "character": "Mother",
+            "text": "Could we just eat in peace?",
+            "nextId": "entry pop-up choice 1.2"
+        },
+        {
+            "id": "entry pop-up choice 1.2",
+            "character": "Sibling",
+            "text": "Sibling raises an eyebrow, but is intrigued by the conversation.",
+            "nextId": "2.1"
+        },
+        {
+            "id": "entry pop-up choice 2.1",
+            "character": "Mother",
+            "text": "Mother nods in agreement",
+            "nextId": "entry pop-up choice 2.2"
+        },
+        {
+            "id": "entry pop-up choice 2.2",
+            "character": "Father",
+            "text": "Father hesitates, thinking of your example.",
+            "nextId": "2.2"
+        },
+        {
+            "id": "entry pop-up choice 3.1",
+            "character": "Mother",
+            "text": "Mother shakes her head.",
+            "nextId": "entry pop-up choice 3.2"
+        },
+        {
+            "id": "entry pop-up choice 3.2",
+            "character": "Sibling",
+            "text": "Sibling is shocked, but stays quiet.",
+            "nextId": "entry pop-up choice 3.3"
+        },
+        {
+            "id": "entry pop-up choice 3.3",
+            "character": "Father",
+            "text": "Father gets defensive.",
+            "nextId": "2.3"
+        },
+        {
+            "id": "entry pop-up choice 4.1",
+            "character": "Father",
+            "text": "Father chuckles a little bit, but does not take it seriously.",
+            "nextId": "entry pop-up choice 4.2"
+        },
+        {
+            "id": "entry pop-up choice 4.2",
+            "character": "Mother",
+            "text": "Mother rolls her eyes.",
+            "nextId": "entry pop-up choice 4.3"
+        },
+        {
+            "id": "entry pop-up choice 4.3",
+            "character": "Mother",
+            "text": "This is not a joke.",
+            "nextId": "entry pop-up choice 4.4"
+        },
+        {
+            "id": "entry pop-up choice 4.4",
+            "character": "Sibling",
+            "text": "Sibling laughs a little.",
+            "nextId": "2.4"
         },
         {
             "id": "2.1",
