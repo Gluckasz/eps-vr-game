@@ -3,7 +3,7 @@
         {
             "id": "entry",
             "character": "Father",
-            "text": "You know they showed a report about immigrant people and they just don`t work as hard as the rest of us. Thats why they struggle and can´t afford anything.",
+            "text": "You know they showed a report about immigrant people and they just don't work as hard as the rest of us. That's why they struggle and can't afford anything.",
             "choices": [
                 {
                     "responseType": "State the facts",
@@ -14,20 +14,20 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "Dad, remember when our neighbour Amir struggled to find a job despite being highly qualified? I am sure you know as well as me that that was not because he did not work hard enough.",
+                    "text": "Dad, remember when our neighbor Amir struggled to find a job despite being highly qualified? I am sure you know as well as I do that that was not because he did not work hard enough.",
                     "shortText": "Mention neighbor Amir's struggles",
                     "nextId": "entry pop-up choice 2.1",
                     "item": "photo_with_neighbors"
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "You know, that’s actually a really ignorant thing to say, it sounds kinda racist and feeds into harmful stereotypes.",
+                    "text": "You know, that’s actually a really ignorant thing to say; it sounds kind of racist and feeds into harmful stereotypes.",
                     "shortText": "Call out racist remark",
                     "nextId": "entry pop-up choice 3.1"
                 },
                 {
                     "responseType": "Counter with humor",
-                    "text": "Wow did you get that striaght from a Facebook post?",
+                    "text": "Wow, did you get that straight from a Facebook post?",
                     "shortText": "Mock Facebook as a source",
                     "nextId": "entry pop-up choice 4.1"
                 }
@@ -48,7 +48,7 @@
         {
             "id": "entry pop-up choice 2.1",
             "character": "Mother",
-            "text": "Nods in agreement",
+            "text": "Nods in agreement.",
             "nextId": "entry pop-up choice 2.2"
         },
         {
@@ -106,7 +106,7 @@
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "Right! And the next time someone cheats on a game, I won't complain, I will just play harder and pretend the rules were fair.",
+                    "text": "Right! And the next time someone cheats in a game, I won't complain; I will just play harder and pretend the rules were fair.",
                     "shortText": "Compare to cheating in games",
                     "nextId": "3.1"
                 },
@@ -125,7 +125,7 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "Dad how would you feel being called lazy just based on where you are from?",
+                    "text": "Dad, how would you feel being called lazy just based on where you are from?",
                     "shortText": "Ask how he'd feel if labeled lazy",
                     "nextId": "3.2"
                 }
@@ -134,7 +134,7 @@
         {
             "id": "2.2",
             "character": "Father",
-            "text": "Well okay, but do you not think that some of those people take advantage of the system?",
+            "text": "Well, okay, but do you not think that some of those people take advantage of the system?",
             "choices": [
                 {
                     "responseType": "State the facts",
@@ -144,7 +144,7 @@
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "How is it 'taking advantage' of the system when the system was  designed to help people in need? Isn't that just using it as intended?",
+                    "text": "How is it 'taking advantage' of the system when the system was designed to help people in need? Isn't that just using it as intended?",
                     "shortText": "Point out system's purpose is to help",
                     "nextId": "3.1",
                     "item": "brochure"
@@ -166,7 +166,7 @@
         {
             "id": "2.3",
             "character": "Father",
-            "text": "Oh now I cannot even have an opinion?",
+            "text": "Oh, now I cannot even have an opinion?",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -182,14 +182,14 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "You always taught me to treat people with respect, if someone said something like that about our family, you wouldn't just brush it off as 'an opinion' right?",
+                    "text": "You always taught me to treat people with respect; if someone said something like that about our family, you wouldn't just brush it off as 'an opinion,' right?",
                     "shortText": "Mention his teachings about respect",
                     "nextId": "3.3",
                     "item": "old_diary"
                 },
                 {
                     "responseType": "Counter with humor",
-                    "text": "Ah yes, the great tragedy of our time, someone is struggling to be heard.",
+                    "text": "Ah yes, the great tragedy of our time: someone is struggling to be heard.",
                     "shortText": "Sarcasm about privileged voices",
                     "nextId": "3.5"
                 }
@@ -198,7 +198,7 @@
         {
             "id": "2.4",
             "character": "Father",
-            "text": "It’s not like I’m making this stuff up. You know, some of those posts show that people who were born here and have lived their whole lifes here have it harder now than immigrants.",
+            "text": "It’s not like I’m making this stuff up. You know, some of those posts show that people who were born here and have lived their whole lives here have it harder now than immigrants.",
             "choices": [
                 {
                     "responseType": "Personalize the issue",
@@ -208,19 +208,19 @@
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "Okay, but a Facebook post isn't exactly a reliable source. Do you know how many fake news stories are on there? Real research shows that discrimination exists, and it affects people in ways we don’t  see.",
+                    "text": "Okay, but a Facebook post isn't exactly a reliable source. Do you know how many fake news stories are on there? Real research shows that discrimination exists, and it affects people in ways we don’t see.",
                     "shortText": "Question Facebook's reliability",
                     "nextId": "3.4"
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "Oh you mean because learning a new language, working tiwce as hard and being treated like an oustider is 'having it easier'?",
+                    "text": "Oh, you mean because learning a new language, working twice as hard, and being treated like an outsider is 'having it easier'?",
                     "shortText": "Challenge 'having it easier' claim",
                     "nextId": "3.5"
                 },
                 {
                     "responseType": "Counter with humor",
-                    "text": "Yeah because leaving everything behind and having to start a completely new life sounds like vacation to me.",
+                    "text": "Yeah, because leaving everything behind and having to start a completely new life sounds like a vacation to me.",
                     "shortText": "Sarcastically call it a vacation",
                     "nextId": "2.1",
                     "item": "suitcase"
@@ -230,7 +230,7 @@
         {
             "id": "3.1",
             "character": "Father",
-            "text": "You’re twisting my words. I’m just saying some people know how to play the system, that doesn’t mean I think no one deserves help.",
+            "text": "You’re twisting my words. I’m just saying some people know how to play the system; that doesn’t mean I think no one deserves help.",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -240,7 +240,7 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "Did grandpa ‘play the system’ when he got government support after the war? Or was that just ‘help’ because it was our family?",
+                    "text": "Did Grandpa ‘play the system’ when he got government support after the war? Or was that just ‘help’ because it was our family?",
                     "shortText": "Ask about grandpa's government support",
                     "nextId": "3.1 pop-up 2",
                     "item": "letter"
@@ -263,7 +263,7 @@
         {
             "id": "3.2",
             "character": "Father",
-            "text": "Okay, maybe the problem is not what country this person is from, but still some people just don’t seem interested in fitting in or respecting how things work here.",
+            "text": "Okay, maybe the problem is not what country this person is from, but still, some people just don’t seem interested in fitting in or respecting how things work here.",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -280,7 +280,7 @@
                 },
                 {
                     "responseType": "Counter with humor",
-                    "text": "Right, let’s build a society where everyone gets judged by how well they follow unwritten rules. How exactly are they supposed to follow the handbook if no one ever gave them one?",
+                    "text": "Right, let's build a society where everyone gets judged by how well they follow unwritten rules. How exactly are they supposed to follow the handbook if no one ever gave them one?",
                     "shortText": "Mock 'unwritten rules' idea",
                     "nextId": "4.2"
                 },
@@ -333,11 +333,11 @@
         {
             "id": "3.4",
             "character": "Father",
-            "text": "Okay, I get that there are studies and numbers, but sometimes it feels like all the focus is on helping others. Isn’t there a point where fairness goes both ways.",
+            "text": "Okay, I get that there are studies and numbers, but sometimes it feels like all the focus is on helping others. Isn’t there a point where fairness goes both ways?",
             "choices": [
                 {
                     "responseType": "Confront directly",
-                    "text": "So you think fairness means helping only some people while ignoring others? That’s not fairness, that’s favoritism.",
+                    "text": "So you think fairness means helping only some people while ignoring others? That’s not fairness; that’s favoritism.",
                     "shortText": "That's favoritism, not fairness",
                     "nextId": "4.5"
                 },
@@ -356,7 +356,7 @@
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "But fairness doesn’t mean choosing one over the other. The need is real, people are fleeing war, persecution, and extreme poverty. That’s not getting special treatment, that’s survival.",
+                    "text": "But fairness doesn’t mean choosing one over the other. The need is real; people are fleeing war, persecution, and extreme poverty. That’s not getting special treatment; that’s survival.",
                     "shortText": "Explain it's about survival, not favoritism",
                     "nextId": "4.2"
                 }
@@ -365,7 +365,7 @@
         {
             "id": "3.5 pop-up 1 choice",
             "character": "Mother",
-            "text": "Sighs and looks at the plate, clearly worried.",
+            "text": "Sighs and looks at her plate, clearly worried.",
             "nextId": "3.5 pop-up 2 choice"
         },
         {
@@ -381,7 +381,7 @@
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "But they are already here. They work, they pay taxes. If we make their lives unbearable, who will benefit? We will force them to quit their jobs, leave gaps in the economy and suffer from it ourselves.",
+                    "text": "But they are already here. They work, they pay taxes. If we make their lives unbearable, who will benefit? We will force them to quit their jobs, leave gaps in the economy, and suffer from it ourselves.",
                     "shortText": "Explain economic consequences",
                     "nextId": "3.5 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
@@ -403,7 +403,7 @@
         {
             "id": "3.5",
             "character": "Father",
-            "text": "Alright, alright, I get it, you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
+            "text": "Alright, alright, I get it; you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
             "nextId": "3.5 pop-up 1 choice"
         },
         {
@@ -449,13 +449,13 @@
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "Sure, some take advantage but if that’s the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
+                    "text": "Sure, some take advantage, but if that’s the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
                     "shortText": "Joke about applying that standard to everyone",
                     "nextId": "5.1"
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
+                    "text": "Exactly. And keeping that balance means looking at the data; OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Share OECD tax contribution data",
                     "nextId": "4.14 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
@@ -477,7 +477,7 @@
         {
             "id": "4.2",
             "character": "Father",
-            "text": "It depends, back then, the need was obvious. I’m not against helping people now either, but sometimes it’s hard to tell who really needs support and who isn’t even trying to show basic respect.",
+            "text": "It depends; back then, the need was obvious. I’m not against helping people now either, but sometimes it’s hard to tell who really needs support and who isn’t even trying to show basic respect.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -509,7 +509,7 @@
         {
             "id": "4.3",
             "character": "Father",
-            "text": "I don’t know, maybe there’s some truth to that and i also know that not all locals do everything right either. Sure, some contribute but they take far more?",
+            "text": "I don’t know, maybe there’s some truth to that, and I also know that not all locals do everything right either. Sure, some contribute, but do they take far more?",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -525,14 +525,14 @@
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "Taking? Do you know how much paperwork and bureaucracy they have to deal with just to get basic support? Some barely speak the language, how exactly would they fill out these forms?",
+                    "text": "Taking? Do you know how much paperwork and bureaucracy they have to deal with just to get basic support? Some barely speak the language; how exactly would they fill out these forms?",
                     "shortText": "Point out bureaucratic hurdles",
                     "nextId": "5.4",
                     "item": "photocopied_documents"
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "But you said it yourself, not all locals do everything right either. We’ve seen people here cheat the system too, but no one says 'Austrians take too much.",
+                    "text": "But you said it yourself, not all locals do everything right either. We’ve seen people here cheat the system too, but no one says, 'Austrians take too much.'",
                     "shortText": "Highlight double standard for locals",
                     "nextId": "5.2"
                 }
@@ -545,13 +545,13 @@
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "Sure, some take advantage but if that's the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
+                    "text": "Sure, some take advantage, but if that's the standard, half the country would be out! Luckily, most people, immigrants included, are just trying to build a decent life and actually keep the system running.",
                     "shortText": "Most just want a decent life",
                     "nextId": "5.1"
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "Exactly. And keeping that balance means looking at the data, OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
+                    "text": "Exactly. And keeping that balance means looking at the data; OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Cite tax contribution statistics",
                     "nextId": "4.14 pop-up 2.1",
                     "item": "enconomics_book_newspaper"
@@ -573,7 +573,7 @@
         {
             "id": "4.5 pop-up 1 choice",
             "character": "Mother",
-            "text": "Nervously adjusts her napkin, avoiding father's gaze.",
+            "text": "Nervously adjusts her napkin, avoiding Father's gaze.",
             "nextId": "4.3"
         },
         {
@@ -612,7 +612,7 @@
         {
             "id": "4.5",
             "character": "Father",
-            "text": "Oh sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn't mean they belong here. If their country's a mess, they should fix it instead of running here expecting handouts. This isn't a charity.",
+            "text": "Oh, sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn't mean they belong here. If their country's a mess, they should fix it instead of running here expecting handouts. This isn't a charity.",
             "nextId": "4.5 pop-up 1 choice"
         },
         {
@@ -660,11 +660,11 @@
         {
             "id": "5.1",
             "character": "Father",
-            "text": "Alright, I hear you, not everyone’s here to take advantage, I’ll give you that but I still think we need to be careful. Good intentions don’t mean there aren’t real problems we can’t ignore.",
+            "text": "Alright, I hear you, not everyone’s here to take advantage; I’ll give you that. But I still think we need to be careful. Good intentions don’t mean there aren’t real problems we can’t ignore.",
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war, character-building, right?",
+                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war—character-building, right?",
                     "shortText": "Would you stay in a crisis?",
                     "nextId": "end4"
                 },
@@ -682,7 +682,7 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "But that’s exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren’t either. That’s all I’ve been trying to get you to see.",
+                    "text": "But that’s exactly what Grandpa did after the war; he left everything behind to start over here. No one said he was running away. And the people coming here now aren’t either. That’s all I’ve been trying to get you to see.",
                     "shortText": "Compare to Grandpa's post-war migration",
                     "nextId": "end2"
                 }
@@ -701,13 +701,13 @@
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "Exactly. It’s not about picking sides,  it’s about understanding the gray areas too.",
+                    "text": "Exactly. It’s not about picking sides; it’s about understanding the gray areas too.",
                     "shortText": "It's about understanding gray areas",
                     "nextId": "end1"
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "That’s what I’ve been trying to tell you this whole time ,it’s not black and white. But every time we talk about this, you act like there’s only one truth.",
+                    "text": "That’s what I’ve been trying to tell you this whole time; it’s not black and white. But every time we talk about this, you act like there’s only one truth.",
                     "shortText": "You always act like there's one truth",
                     "nextId": "end2"
                 },
@@ -726,13 +726,13 @@
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "And I’m thankful people are different, imagine if everyone was like my teacher Mr. Gruber. The world would be boring, no languages, no new food, just complaints, forever.",
+                    "text": "And I’m thankful people are different; imagine if everyone was like my teacher Mr. Gruber. The world would be boring—no languages, no new food, just complaints, forever.",
                     "shortText": "Imagine if everyone was like Mr. Gruber",
                     "nextId": "end2"
                 },
                 {
                     "responseType": "State the facts",
-                    "text": "You're right, people are different. But effort isn’t something only we’re capable of. Just because it doesn’t look the same, doesn’t mean it’s not there. Change takes time, and support makes it possible.",
+                    "text": "You're right, people are different. But effort isn’t something only we’re capable of. Just because it doesn’t look the same doesn’t mean it’s not there. Change takes time, and support makes it possible.",
                     "shortText": "Effort looks different for different people",
                     "nextId": "5.3 pop-up 2"
                 },
@@ -775,13 +775,13 @@
                 },
                 {
                     "responseType": "Confront directly",
-                    "text": "That’s not fair. Blaming struggling people for the challenges they face just ignores the real issues. You just don't wanna understand that huh?",
+                    "text": "That’s not fair. Blaming struggling people for the challenges they face just ignores the real issues. You just don't want to understand that, huh?",
                     "shortText": "You're blaming victims of circumstance",
                     "nextId": "end4"
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "Remember when Uncle Peter lost his job while living abroad, and the government helped him get back on his feet? He didn’t run away from his problems, he tried to solve them. That’s all these people are trying to do too.",
+                    "text": "Remember when Uncle Peter lost his job while living abroad, and the government helped him get back on his feet? He didn’t run away from his problems; he tried to solve them. That’s all these people are trying to do too.",
                     "shortText": "Remind him about Uncle Peter's experience",
                     "nextId": "end3",
                     "item": "postcard"
@@ -791,7 +791,7 @@
         {
             "id": "5.4",
             "character": "Father",
-            "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems, you don’t see us running away from ours, do you?",
+            "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems; you don’t see us running away from ours, do you?",
             "nextId": "5.4 pop-up choice"
         },
         {
@@ -801,7 +801,7 @@
             "choices": [
                 {
                     "responseType": "Counter with humor",
-                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should've told Grandpa to stick it out after the war, character-building, right?",
+                    "text": "So if things got really bad here, you'd just stay and suffer? Not even consider leaving? Guess we should’ve told Grandpa to stick it out after the war—character-building, right?",
                     "shortText": "Would you stay during a crisis?",
                     "nextId": "end4"
                 },
@@ -819,7 +819,7 @@
                 },
                 {
                     "responseType": "Personalize the issue",
-                    "text": "But that's exactly what Grandpa did after the war, he left everything behind to start over here. No one said he was running away. And the people coming here now aren't either. That's all I've been trying to get you to see.",
+                    "text": "But that's exactly what Grandpa did after the war; he left everything behind to start over here. No one said he was running away. And the people coming here now aren't either. That's all I've been trying to get you to see.",
                     "shortText": "Today's migrants are like Grandpa was",
                     "nextId": "end2"
                 }
