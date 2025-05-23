@@ -6,16 +6,15 @@ public class XRWalkingPath : MonoBehaviour
     public GameObject xrRigObject; // Assign your XR Rig here
     public Transform[] pathPoints; // Add your path waypoints here in the inspector
     public float moveSpeed = 1.0f; // Speed of walking
-    public float bobFrequency = 1.5f; // Bobbing cycles per second
-    public float bobAmplitude = 0.05f; // Bob height
+    public float bobFrequency = 0.5f; // Bobbing cycles per second
+    public float bobAmplitude = 0.001f; // Bob height
     public AudioSource footstepSource; // Audio source for footstep sounds
-    public AudioClip footstepClip; // Footstep sound effect
+    public AudioClip footstepClip; // Looping footstep sound
 
     private int currentTargetIndex = 0;
     private Transform xrRig;
     private bool isMoving = true;
     private float bobTimer = 0f;
-    private bool playedStepThisBob = false;
 
     void Start()
     {
@@ -30,12 +29,30 @@ public class XRWalkingPath : MonoBehaviour
 
         // Start at the first point
         xrRig.position = pathPoints[0].position;
-        currentTargetIndex = 1; // Next point
+        currentTargetIndex = 1;
+
+        // Set up audio looping
+        if (footstepSource != null && footstepClip != null)
+        {
+            footstepSource.clip = footstepClip;
+            footstepSource.loop = true;
+        }
     }
 
     void Update()
     {
-        if (!isMoving || currentTargetIndex >= pathPoints.Length)
+        if (currentTargetIndex >= pathPoints.Length)
+        {
+            if (isMoving)
+            {
+                isMoving = false;
+                if (footstepSource.isPlaying)
+                    footstepSource.Stop();
+            }
+            return;
+        }
+
+        if (!isMoving)
             return;
 
         Transform target = pathPoints[currentTargetIndex];
@@ -45,14 +62,17 @@ public class XRWalkingPath : MonoBehaviour
         Vector3 move = direction * moveSpeed * Time.deltaTime;
         xrRig.position += move;
 
-        // Rotate rig to face the direction
+        // Smooth turning
         if (direction != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            float angleDiff = Quaternion.Angle(xrRig.rotation, toRotation);
-            float rotationSpeed = Mathf.Clamp(angleDiff / 45f, 0.1f, 1f); // Slower turn if angle is sharp
-            xrRig.rotation = Quaternion.Slerp(xrRig.rotation, toRotation, Time.deltaTime * 2f * rotationSpeed);
+            xrRig.rotation = Quaternion.Slerp(xrRig.rotation, toRotation, Time.deltaTime * 2.5f); // slower turn for more human-like motion
+        }
 
+        // Start looping footstep if not playing
+        if (footstepSource != null && !footstepSource.isPlaying)
+        {
+            footstepSource.Play();
         }
 
         // Check if close enough to go to next point
@@ -61,29 +81,24 @@ public class XRWalkingPath : MonoBehaviour
             currentTargetIndex++;
         }
 
-        // Add head bobbing effect
+        // Head bobbing
         bobTimer += Time.deltaTime * bobFrequency * Mathf.PI * 2f;
         float bobOffset = Mathf.Sin(bobTimer) * bobAmplitude;
         xrRig.position += Vector3.up * bobOffset;
-
-        // Play footstep sound at bottom of bob
-        if (Mathf.Sin(bobTimer) < -0.95f && !playedStepThisBob)
-        {
-            if (footstepSource != null && footstepClip != null)
-            {
-                footstepSource.PlayOneShot(footstepClip);
-            }
-            playedStepThisBob = true;
-        }
-        else if (Mathf.Sin(bobTimer) > -0.5f)
-        {
-            playedStepThisBob = false;
-        }
     }
 
-    // Call this to pause or resume walking
     public void SetWalking(bool walking)
     {
         isMoving = walking;
+
+        if (!walking && footstepSource != null && footstepSource.isPlaying)
+        {
+            footstepSource.Stop();
+        }
+
+        if (walking && footstepSource != null && !footstepSource.isPlaying)
+        {
+            footstepSource.Play();
+        }
     }
 }
