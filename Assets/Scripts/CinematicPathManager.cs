@@ -49,7 +49,10 @@ public class XRWalkingPath : MonoBehaviour
         if (direction != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            xrRig.rotation = Quaternion.Lerp(xrRig.rotation, toRotation, Time.deltaTime * 5f);
+            float angleDiff = Quaternion.Angle(xrRig.rotation, toRotation);
+            float rotationSpeed = Mathf.Clamp(angleDiff / 45f, 0.1f, 1f); // Slower turn if angle is sharp
+            xrRig.rotation = Quaternion.Slerp(xrRig.rotation, toRotation, Time.deltaTime * 2f * rotationSpeed);
+
         }
 
         // Check if close enough to go to next point
