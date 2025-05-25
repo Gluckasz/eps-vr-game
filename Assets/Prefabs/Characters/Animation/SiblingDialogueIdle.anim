@@ -83,7 +83,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 68.7, y: -523.5, z: -9.4}
+        value: {x: 77, y: 118.16, z: -58.7}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -99,7 +99,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 56.2, y: -43.9, z: -32.6}
+        value: {x: 36.1, y: 74.1, z: 14.9}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -115,7 +115,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 96.7, y: 2.71, z: -152.12}
+        value: {x: 102.9, y: -26.2, z: 176.3}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -131,7 +131,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 184.7, y: 32.58, z: 160.4}
+        value: {x: 36.33, y: 13.3, z: 27.2}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -147,7 +147,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 12.3, y: -2, z: -21}
+        value: {x: 15.04, y: -51.4, z: -6.7}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -163,7 +163,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 33.35, y: 179.3, z: 27.2}
+        value: {x: 2.4, y: 22.9, z: 24.5}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -254,6 +254,22 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Characters/spine/thigh.L/shin.L/foot.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -16.04, y: 202.8, z: -20}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -418,6 +434,15 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2364827919
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 3841052452
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -705,7 +730,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 68.7
+        value: 77
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -726,7 +751,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -523.5
+        value: 118.16
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -747,7 +772,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -9.4
+        value: -58.7
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -768,7 +793,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 56.2
+        value: 36.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -789,7 +814,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -43.9
+        value: 74.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -810,7 +835,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -32.6
+        value: 14.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -831,7 +856,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 96.7
+        value: 102.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -852,7 +877,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 2.71
+        value: -26.2
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -873,7 +898,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -152.12
+        value: 176.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -894,7 +919,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 184.7
+        value: 36.33
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -915,7 +940,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 32.58
+        value: 13.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -927,132 +952,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
     path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 160.4
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 12.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -2
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -21
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 33.35
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 179.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1063,6 +962,132 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 27.2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 15.04
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -51.4
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -6.7
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 2.4
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 22.9
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 24.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1455,6 +1480,69 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
     flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -16.04
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 202.8
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -20
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
   m_EulerEditorCurves:
   - serializedVersion: 2
     curve:
@@ -1464,7 +1552,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
+    path: Characters/spine/thigh.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1476,7 +1564,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
+    path: Characters/spine/thigh.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1488,7 +1576,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
+    path: Characters/spine/thigh.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1644,7 +1732,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1656,7 +1744,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1668,7 +1756,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1752,7 +1840,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1764,7 +1852,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1776,7 +1864,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R/hand.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1824,7 +1912,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1836,7 +1924,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1848,7 +1936,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1860,7 +1948,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1872,7 +1960,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1884,7 +1972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.R/upperarm.R/forearm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1932,7 +2020,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1944,7 +2032,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1956,31 +2044,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Characters/spine/thigh.R
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Characters/spine/thigh.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1992,7 +2056,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Characters/spine/thigh.R
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Characters/spine/spine.01/spine.02/spine.03/shoulder.L/upperarm.L/forearm.L/hand.L/thumb.01.L
     classID: 4
     script: {fileID: 0}
     flags: 0
