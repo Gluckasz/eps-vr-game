@@ -14,7 +14,6 @@ public class SceneFlowManager : MonoBehaviour
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
     private const string entryId = "entry";
-    private const string motherTag = "Mother";
 
     public bool SceneDialougePlaying { get; private set; } = false;
 
@@ -82,12 +81,18 @@ public class SceneFlowManager : MonoBehaviour
         }
     }
 
-    public void ShowSceneDialogue()
+    public IEnumerator ShowSceneDialogue()
     {
         SceneDialougePlaying = true;
-        GameObject mother = GameObject.FindGameObjectWithTag(motherTag);
+        GameObject mother = GameObject.FindGameObjectWithTag("Mother");
         Animator motherAnimator = mother.GetComponent<Animator>();
-        motherAnimator.Play("MotherSitting");
+        motherAnimator.Play("MotherDialogueIdle");
+
+        GameObject father = GameObject.FindGameObjectWithTag("Father");
+        Animator fatherAnimator = father.GetComponent<Animator>();
+        fatherAnimator.Play("FatherDialogueIdle");
+
+        yield return new WaitForEndOfFrame();
 
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
         Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);

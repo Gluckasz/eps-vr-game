@@ -27,7 +27,7 @@ public class SnapCountManager : MonoBehaviour
         {
             startedSceneDialogue = true;
             Debug.Log("Starting scene dialogue.");
-            SceneFlowManager.Instance.ShowSceneDialogue();
+            StartCoroutine(SceneFlowManager.Instance.ShowSceneDialogue());
         }
     }
 }
