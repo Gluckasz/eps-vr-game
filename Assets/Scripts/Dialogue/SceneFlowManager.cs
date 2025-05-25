@@ -13,7 +13,9 @@ public class SceneFlowManager : MonoBehaviour
     private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
+    private const string motherIntroScriptFileName = "MotherIntro.json";
     private const string entryId = "entry";
+    private const string motherTag = "Mother";
 
     public static SceneFlowManager Instance { get; private set; }
 
@@ -35,7 +37,6 @@ public class SceneFlowManager : MonoBehaviour
 
     private void Start()
     {
-        ShowSceneDialogue();
         ShowIntroDialogue();
     }
 
@@ -82,6 +83,10 @@ public class SceneFlowManager : MonoBehaviour
 
     public void ShowSceneDialogue()
     {
+        GameObject mother = GameObject.FindGameObjectWithTag(motherTag);
+        Animator motherAnimator = mother.GetComponent<Animator>();
+        motherAnimator.Play("MotherSitting");
+
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
         Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);
         DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
@@ -105,6 +110,21 @@ public class SceneFlowManager : MonoBehaviour
         DialogueIterator introDialogueIterator = introDialogue.CreateDialogueIterator();
         introDialogueIterator.SetId(entryId);
         dialogueDisplay.SetDialogueIterator(introDialogueIterator);
+
+        BasicDialogueNextNode(dialogueDisplay);
+    }
+
+    public void ShowMotherIntroDialogue()
+    {
+        DialogueData script = basicDialogueReader.ReadJsonDialogueData(motherIntroScriptFileName);
+        Dialogue dialogue = new BasicDialogue(script.dialogue);
+        DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
+            script.dialogue[0].character
+        );
+
+        DialogueIterator dialogueIterator = dialogue.CreateDialogueIterator();
+        dialogueIterator.SetId(entryId);
+        dialogueDisplay.SetDialogueIterator(dialogueIterator);
 
         BasicDialogueNextNode(dialogueDisplay);
     }

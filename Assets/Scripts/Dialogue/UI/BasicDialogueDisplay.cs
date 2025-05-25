@@ -68,14 +68,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void SetDialogueIterator(DialogueIterator dialogueIterator)
     {
-        if (dialogueIterator_ == null)
-        {
-            dialogueIterator_ = dialogueIterator;
-        }
-        else
-        {
-            Debug.LogError("Dialogue iterator already set.");
-        }
+        dialogueIterator_ = dialogueIterator;
     }
 
     public DialogueIterator GetDialogueIterator()
