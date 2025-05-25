@@ -1,0 +1,10 @@
+{
+    "dialogue": [
+        {
+            "id": "entry",
+            "character": "Sibling",
+            "text": "I don’t know… Dad always says rude things, but it’s getting worse.",
+            "nextId": "end"
+        }
+    ]
+}

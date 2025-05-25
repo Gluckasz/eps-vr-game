@@ -4843,8 +4843,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6987534504329121067}
   - component: {fileID: 369627817832519787}
-  - component: {fileID: 3746280714650164472}
   - component: {fileID: -4632087812511552991}
+  - component: {fileID: 3468806056784719483}
   m_Layer: 0
   m_Name: Father
   m_TagString: Father
@@ -4930,27 +4930,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &3746280714650164472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955038286668108843}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5851289, y: 1.8676656, z: 0.37272573}
-  m_Center: {x: -0.03989482, y: 0.8991006, z: 0.026419759}
 --- !u!114 &-4632087812511552991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5024,6 +5003,27 @@ MonoBehaviour:
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   objectRenderer: {fileID: 3322436053281705615}
+--- !u!65 &3468806056784719483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955038286668108843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.46578872, y: 1.3637033, z: 0.47382316}
+  m_Center: {x: -0.012809217, y: 1.0888954, z: -0.011510685}
 --- !u!1 &7078568690968146888
 GameObject:
   m_ObjectHideFlags: 0

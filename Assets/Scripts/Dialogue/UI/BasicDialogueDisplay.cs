@@ -15,7 +15,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
     private Dictionary<string, Vector3> characterOffsetMap = new()
     {
         { "Father", new(-0.5f, 1.6f, -0.2f) },
-        { "Mother", new(0.5f, 1.6f, -0.2f) },
+        { "Mother", new(0.5f, 1.2f, -0.2f) },
         { "Sibling", new(0, 1.6f, 0.4f) },
         { "Narrator", new(0, 1.3f, 0) },
     };
@@ -61,8 +61,6 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void OnNextButtonPressed()
     {
-        // Can be later changed from transform.position to characters offset
-        // (if characters will be moving in the dialogue)
         SceneFlowManager.Instance.BasicDialogueNextNode(this);
     }
 

@@ -92,6 +92,10 @@ public class SceneFlowManager : MonoBehaviour
         Animator fatherAnimator = father.GetComponent<Animator>();
         fatherAnimator.Play("FatherDialogueIdle");
 
+        GameObject sibling = GameObject.FindGameObjectWithTag("Sibling");
+        Animator siblingAnimator = sibling.GetComponent<Animator>();
+        siblingAnimator.Play("SiblingDialogueIdle");
+
         yield return new WaitForEndOfFrame();
 
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);

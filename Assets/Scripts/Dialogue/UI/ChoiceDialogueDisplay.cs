@@ -20,8 +20,8 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
     private Dictionary<string, Vector3> characterOffsetMap = new()
     {
         { "Father", new(-0.5f, 1.6f, -0.2f) },
-        { "Mother", new(0.5f, 1.6f, -0.2f) },
-        { "Sibling", new(0, 1.6f, 0.4f) },
+        { "Mother", new(0.5f, 1.3f, -0.2f) },
+        { "Sibling", new(0, 0.6f, 1.2f) },
         { "Narrator", new(0, 1.3f, 0) },
     };
 
