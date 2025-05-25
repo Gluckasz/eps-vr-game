@@ -96,6 +96,12 @@ public class SceneFlowManager : MonoBehaviour
         Animator siblingAnimator = sibling.GetComponent<Animator>();
         siblingAnimator.Play("SiblingDialogueIdle");
 
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        LocomotionDisabler locomotionDisablerScript = player.GetComponent<LocomotionDisabler>();
+        locomotionDisablerScript.enableMovement = false;
+        player.transform.position = new Vector3(-3.5f, 0.1f, -4.3f);
+        player.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         yield return new WaitForEndOfFrame();
 
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);

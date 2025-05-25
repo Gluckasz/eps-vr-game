@@ -19,15 +19,15 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     private Dictionary<string, Vector3> characterOffsetMap = new()
     {
-        { "Father", new(-0.5f, 1.6f, -0.2f) },
+        { "Father", new(-0.5f, 1.4f, -0.2f) },
         { "Mother", new(0.5f, 1.3f, -0.2f) },
-        { "Sibling", new(0, 0.6f, 1.2f) },
+        { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(0, 1.3f, 0) },
     };
 
     public float choiceXOffset = 0.5f;
-    public float choiceYOffset = -0.2f;
-    public float choiceYMargin = 0.15f;
+    public float choiceYOffset = -0.1f;
+    public float choiceYMargin = 2f;
     public float choicezOffset = -0.1f;
     public TMP_Text dialogueText;
     public Button nextButton;

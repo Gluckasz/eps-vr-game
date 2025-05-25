@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choiceXOffset: 0.4
   choiceYOffset: -0.2
-  choiceYMargin: 0.15
+  choiceYMargin: 0.22
   choicezOffset: -0.1
   dialogueText: {fileID: 6538143663043281671}
   nextButton: {fileID: 4068199196677371083}
