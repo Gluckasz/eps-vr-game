@@ -10,6 +10,7 @@ public class DialogueTriggerInteractable : XRBaseInteractable
     private new bool isHovered = false;
     private Color originalColor;
     private const string motherIntroScriptFileName = "MotherIntro.json";
+    private const string fatherIntroScriptFileName = "FatherIntro.json";
 
     public Renderer objectRenderer;
 
@@ -76,6 +77,10 @@ public class DialogueTriggerInteractable : XRBaseInteractable
             if (tag == "Mother")
             {
                 SceneFlowManager.Instance.ShowCharacterIntroDialogue(motherIntroScriptFileName);
+            }
+            else if (tag == "Father")
+            {
+                SceneFlowManager.Instance.ShowCharacterIntroDialogue(fatherIntroScriptFileName);
             }
         }
     }
