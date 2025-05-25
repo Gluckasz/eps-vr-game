@@ -10,7 +10,16 @@ public class ItemInspectionManager : MonoBehaviour
     public GameObject inspectionCanvas;
     public Transform itemHolder;
     public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI FulldescriptionText;
+
+
+    public GameObject itemImageObject;
+    public GameObject shortDescriptionPanel;
+    public GameObject fullDescriptionPanel;
+    public Button readMoreButton;
+    public Button backButton;
     public Button continueButton;
+
     public Image itemImageUI;
     public TextMeshProUGUI itemName;
     public float distanceFromFace = 1.2f;
@@ -26,6 +35,16 @@ public class ItemInspectionManager : MonoBehaviour
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
         continueButton.onClick.AddListener(CloseInspection);
+
+        readMoreButton.onClick.AddListener(ShowFullDescription);
+        backButton.onClick.AddListener(ShowShortDescription);
+
+        // Default UI state
+        fullDescriptionPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        readMoreButton.gameObject.SetActive(true);
+        shortDescriptionPanel.SetActive(true);
+
     }
 
     public void StartInspection(GameObject item)
@@ -38,10 +57,12 @@ public class ItemInspectionManager : MonoBehaviour
         }
 
         item.SetActive(false);
+        item.transform.position += Vector3.down * 100f;
 
         // Set UI info
         descriptionText.text = inspectable.description;
         itemName.text = inspectable.itemName;
+        FulldescriptionText.text = inspectable.fullDescription;
 
         if (inspectable.itemImage != null)
         {
@@ -81,6 +102,7 @@ public class ItemInspectionManager : MonoBehaviour
             lazy.rotationFollowMode = LazyFollow.RotationFollowMode.None;
         }
 
+        ShowShortDescription(); // Always start with short view
         inspectionCanvas.SetActive(true);
 
         // Spawn item into holder
@@ -99,7 +121,7 @@ public class ItemInspectionManager : MonoBehaviour
 
         inspectionCanvas.SetActive(false);
     }
-
+    
     private void LateUpdate()
     {
         if (inspectionCanvas.activeSelf && cam != null)
@@ -114,4 +136,23 @@ public class ItemInspectionManager : MonoBehaviour
             }
         }
     }
+
+    private void ShowFullDescription()
+    {
+        shortDescriptionPanel.SetActive(false);
+        fullDescriptionPanel.SetActive(true);
+        backButton.gameObject.SetActive(true);
+        readMoreButton.gameObject.SetActive(false);
+        itemImageObject.SetActive(false);
+    }
+
+    private void ShowShortDescription()
+    {
+        shortDescriptionPanel.SetActive(true);
+        fullDescriptionPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        readMoreButton.gameObject.SetActive(true);
+        itemImageObject.SetActive(true);
+    }
+
 }
