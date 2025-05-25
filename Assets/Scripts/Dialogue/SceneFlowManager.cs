@@ -13,9 +13,10 @@ public class SceneFlowManager : MonoBehaviour
     private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
-    private const string motherIntroScriptFileName = "MotherIntro.json";
     private const string entryId = "entry";
     private const string motherTag = "Mother";
+
+    public bool SceneDialougePlaying { get; private set; } = false;
 
     public static SceneFlowManager Instance { get; private set; }
 
@@ -83,6 +84,7 @@ public class SceneFlowManager : MonoBehaviour
 
     public void ShowSceneDialogue()
     {
+        SceneDialougePlaying = true;
         GameObject mother = GameObject.FindGameObjectWithTag(motherTag);
         Animator motherAnimator = mother.GetComponent<Animator>();
         motherAnimator.Play("MotherSitting");
@@ -114,9 +116,9 @@ public class SceneFlowManager : MonoBehaviour
         BasicDialogueNextNode(dialogueDisplay);
     }
 
-    public void ShowMotherIntroDialogue()
+    public void ShowCharacterIntroDialogue(string scriptFileName)
     {
-        DialogueData script = basicDialogueReader.ReadJsonDialogueData(motherIntroScriptFileName);
+        DialogueData script = basicDialogueReader.ReadJsonDialogueData(scriptFileName);
         Dialogue dialogue = new BasicDialogue(script.dialogue);
         DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
             script.dialogue[0].character

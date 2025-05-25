@@ -9,6 +9,7 @@ public class DialogueTriggerInteractable : XRBaseInteractable
 {
     private new bool isHovered = false;
     private Color originalColor;
+    private const string motherIntroScriptFileName = "MotherIntro.json";
 
     public Renderer objectRenderer;
 
@@ -37,33 +38,45 @@ public class DialogueTriggerInteractable : XRBaseInteractable
 
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
-        isHovered = true;
-        Debug.Log($"Hover entered on {gameObject.name}");
+        if (!SceneFlowManager.Instance.SceneDialougePlaying)
+        {
+            isHovered = true;
+            Debug.Log($"Hover entered on {gameObject.name}");
 
-        if (objectRenderer != null)
-            objectRenderer.material.color = Color.yellow;
+            if (objectRenderer != null)
+                objectRenderer.material.color = Color.clear;
+        }
     }
 
     protected override void OnHoverExited(HoverExitEventArgs args)
     {
-        isHovered = false;
-        Debug.Log($"Hover exited on {gameObject.name}");
+        if (!SceneFlowManager.Instance.SceneDialougePlaying)
+        {
+            isHovered = false;
+            Debug.Log($"Hover exited on {gameObject.name}");
 
-        if (objectRenderer != null)
-            objectRenderer.material.color = originalColor;
+            if (objectRenderer != null)
+                objectRenderer.material.color = originalColor;
+        }
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        Debug.Log($"Selected (grabbed) {gameObject.name}");
-        TriggerDialogue();
+        if (!SceneFlowManager.Instance.SceneDialougePlaying)
+        {
+            Debug.Log($"Selected {gameObject.name}");
+            TriggerDialogue();
+        }
     }
 
     private void TriggerDialogue()
     {
-        if (isHovered && tag == "Mother")
+        if (isHovered && !SceneFlowManager.Instance.SceneDialougePlaying)
         {
-            SceneFlowManager.Instance.ShowMotherIntroDialogue();
+            if (tag == "Mother")
+            {
+                SceneFlowManager.Instance.ShowCharacterIntroDialogue(motherIntroScriptFileName);
+            }
         }
     }
 }
