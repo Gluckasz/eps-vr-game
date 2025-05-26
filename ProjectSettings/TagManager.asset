@@ -10,6 +10,7 @@ TagManager:
   - Mother
   - Sibling
   - Narrator
+  - Feedback
   layers:
   - Default
   - TransparentFX
