@@ -56,10 +56,10 @@ public class ItemInspectionManager : MonoBehaviour
             return;
         }
 
+        // Hide original item for now
         item.SetActive(false);
-        item.transform.position += Vector3.down * 100f;
 
-        // Set UI info
+        // Set UI data
         descriptionText.text = inspectable.description;
         itemName.text = inspectable.itemName;
         FulldescriptionText.text = inspectable.fullDescription;
@@ -74,67 +74,39 @@ public class ItemInspectionManager : MonoBehaviour
             itemImageUI.enabled = false;
         }
 
-        // Get desired canvas position: in front of the player
+        // ✨ BASIC SPAWN: Put canvas in front of the player's face
         Vector3 headPos = cam.transform.position;
         Vector3 forward = cam.transform.forward;
-        Vector3 desiredCanvasPos = headPos + forward * distanceFromFace;
+        Vector3 desiredPos = headPos + forward * distanceFromFace;
+        desiredPos.y += 0.3f; // optional height nudge
 
-        //// Raycast to check for obstacles
-        //if (Physics.Raycast(headPos, forward, out RaycastHit hit, distanceFromFace))
-        //{
-        //    desiredCanvasPos = hit.point - forward * 0.1f;
-        //}
+        inspectionCanvas.transform.position = desiredPos;
 
-        float canvasRadius = 0.5f;
-        Ray ray = new Ray(headPos, forward);
-        if (Physics.SphereCast(ray, canvasRadius, out RaycastHit hit, distanceFromFace))
-        {
-            desiredCanvasPos = hit.point - forward * 0.1f;
-        }
+        // Face canvas toward camera
+        Vector3 flatLookDir = (headPos - desiredPos);
+        flatLookDir.y = 0;
+        inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
 
-        desiredCanvasPos.y += 0.3f;
-
-        Collider[] overlaps = Physics.OverlapBox(inspectionCanvas.transform.position, inspectionCanvas.transform.localScale / 2f);
-        foreach (var c in overlaps)
-        {
-            if (!c.isTrigger && !c.transform.IsChildOf(inspectionCanvas.transform))
-            {
-                // Nudge canvas back or up if inside something
-                desiredCanvasPos += Vector3.up * 0.5f;
-                inspectionCanvas.transform.position = desiredCanvasPos;
-                break;
-            }
-        }
-
-
-        inspectionCanvas.transform.position = desiredCanvasPos;
-
-        // Rotate canvas to face the player (yaw only)
-        Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
-        directionToPlayer.y = 0;
-        if (directionToPlayer.sqrMagnitude > 0.01f)
-        {
-            inspectionCanvas.transform.rotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
-        }
-
-        // Disable LazyFollow rotation
+        // Turn off lazy follow rotation if it exists
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
         if (lazy != null)
         {
             lazy.rotationFollowMode = LazyFollow.RotationFollowMode.None;
         }
 
-        ShowShortDescription(); // Always start with short view
+        // Reset UI state
+        ShowShortDescription();
         inspectionCanvas.SetActive(true);
 
-        // Spawn item into holder
+        // Spawn the item into the holder
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true;
 
-        // Discover item
+        // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
+
 
     public void CloseInspection()
     {
