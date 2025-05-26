@@ -79,11 +79,33 @@ public class ItemInspectionManager : MonoBehaviour
         Vector3 forward = cam.transform.forward;
         Vector3 desiredCanvasPos = headPos + forward * distanceFromFace;
 
-        // Raycast to check for obstacles
-        if (Physics.Raycast(headPos, forward, out RaycastHit hit, distanceFromFace))
+        //// Raycast to check for obstacles
+        //if (Physics.Raycast(headPos, forward, out RaycastHit hit, distanceFromFace))
+        //{
+        //    desiredCanvasPos = hit.point - forward * 0.1f;
+        //}
+
+        float canvasRadius = 0.5f;
+        Ray ray = new Ray(headPos, forward);
+        if (Physics.SphereCast(ray, canvasRadius, out RaycastHit hit, distanceFromFace))
         {
             desiredCanvasPos = hit.point - forward * 0.1f;
         }
+
+        desiredCanvasPos.y += 0.3f;
+
+        Collider[] overlaps = Physics.OverlapBox(inspectionCanvas.transform.position, inspectionCanvas.transform.localScale / 2f);
+        foreach (var c in overlaps)
+        {
+            if (!c.isTrigger && !c.transform.IsChildOf(inspectionCanvas.transform))
+            {
+                // Nudge canvas back or up if inside something
+                desiredCanvasPos += Vector3.up * 0.5f;
+                inspectionCanvas.transform.position = desiredCanvasPos;
+                break;
+            }
+        }
+
 
         inspectionCanvas.transform.position = desiredCanvasPos;
 
@@ -121,7 +143,7 @@ public class ItemInspectionManager : MonoBehaviour
 
         inspectionCanvas.SetActive(false);
     }
-    
+
     private void LateUpdate()
     {
         if (inspectionCanvas.activeSelf && cam != null)
