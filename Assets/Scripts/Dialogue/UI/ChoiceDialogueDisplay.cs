@@ -23,6 +23,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Mother", new(0.5f, 1.3f, -0.2f) },
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(0, 1.3f, 0) },
+        { "Feedback", new(0, 0, 0) },
     };
 
     public float choiceXOffset = 0.5f;

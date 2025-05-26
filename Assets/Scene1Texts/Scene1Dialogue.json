@@ -930,23 +930,17 @@
         {
             "id": "end3 4",
             "character": "Feedback",
-            "text": "What emotions did it evoke: Guilt ('maybe I'm biased'). A defensive reaction ('but I'm not that bad!')",
+            "text": "What emotions he evoked: Rational respect ('my arguments are partially disproved') but also fatigue ('it's all too idealistic, and life is different')",
             "nextId": "end3 5"
         },
         {
             "id": "end3 5",
             "character": "Feedback",
-            "text": "What emotions he evoked: Rational respect ('my arguments are partially disproved') but also fatigue ('it's all too idealistic, and life is different')",
+            "text": "How he interpreted your actions: 'My daughter is smart, but does not fully understand reality.' 'I'm going to stick to my opinion, because the real world is not that simple.'",
             "nextId": "end3 6"
         },
         {
             "id": "end3 6",
-            "character": "Feedback",
-            "text": "How he interpreted your actions: 'My daughter is smart, but does not fully understand reality.' 'I'm going to stick to my opinion, because the real world is not that simple.'",
-            "nextId": "end3 7"
-        },
-        {
-            "id": "end3 7",
             "character": "Feedback",
             "text": "Why he answered this way: He agreed with some of the facts, but did not feel an emotional connection. Result: Minimal change in mindset.",
             "nextId": "end"
