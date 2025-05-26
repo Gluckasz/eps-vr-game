@@ -913,7 +913,7 @@
             "id": "end3",
             "character": "Feedback",
             "text": "Here, you used logical arguments and examples, but put a little more pressure on the fairness and wrongness of your father's thinking. The result: your father recognized some facts, but his general view of the world (“life is unfair, you can't change everything”) remained. He heard you, but remained a realistic skeptic.",
-            "nextId": "end2 2"
+            "nextId": "end3 2"
         },
         {
             "id": "end3 2",
@@ -955,7 +955,7 @@
             "id": "end4",
             "character": "Feedback",
             "text": "In these cases, your tone was either mocking or too harsh and confrontational. Even if the arguments were valid, the way you presented them triggered a defensive reaction in your father. He shut down, consolidated his position, and said he was not going to change his mind. Here we can see that it was not the ideas themselves, but the style of communication that influenced the negative outcome.",
-            "nextId": "end2 2"
+            "nextId": "end4 2"
         },
         {
             "id": "end4 2",
