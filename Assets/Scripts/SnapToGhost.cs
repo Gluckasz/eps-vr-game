@@ -99,6 +99,7 @@ public class SnapToGhost : MonoBehaviour
             }
 
             isSnapped = true;
+            SnapCountManager.Instance.totalSnapCount++;
 
             // Clear lock
             if (SnapManager.lockedCup == this)
