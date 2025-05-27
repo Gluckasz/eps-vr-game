@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -6,8 +6,12 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SnapToGhost : MonoBehaviour
 {
+    public enum SnapType { Glass, Dish }
+
     [Header("Ghost Blueprint Settings")]
-    public Transform ghostTransform;
+    public SnapType type;
+    public static List<Transform> allGhostsGlass = new List<Transform>();
+    public static List<Transform> allGhostsDish = new List<Transform>();
 
     [Header("Snapping Settings")]
     public float snapDistance = 0.2f;
@@ -18,9 +22,10 @@ public class SnapToGhost : MonoBehaviour
 
     private Material ghostOriginalMaterial;
     private Renderer ghostRenderer;
-
     private XRGrabInteractable grabInteractable;
+
     public bool isSnapped = false;
+    private Transform closestGhost = null;
 
     private void Awake()
     {
@@ -37,37 +42,13 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        // Check if a cup is already locked and not yet snapped
-        if (SnapManager.lockedCup != null && SnapManager.lockedCup != this && !SnapManager.lockedCup.isSnapped)
-        {
-            // Highlight the correct ghost
-            var otherGhost = SnapManager.lockedCup.ghostTransform?.GetComponent<Renderer>();
-            if (otherGhost != null)
-            {
-                otherGhost.material.color = warningColor;
-            }
-
-            // Cancel grabbing this one
-            if (args.interactorObject is IXRSelectInteractor interactor)
-            {
-                var interactionManager = grabInteractable.interactionManager;
-                interactionManager?.CancelInteractableSelection(grabInteractable as IXRSelectInteractable);
-            }
-
-            return;
-        }
-
-        // Lock this as the one to place
-        if (SnapManager.lockedCup == null)
-        {
-            SnapManager.lockedCup = this;
-        }
-
         if (isSnapped) return;
 
-        if (ghostTransform != null)
+        closestGhost = FindClosestGhost();
+
+        if (closestGhost != null)
         {
-            ghostRenderer = ghostTransform.GetComponent<Renderer>();
+            ghostRenderer = closestGhost.GetComponent<Renderer>();
             if (ghostRenderer != null)
             {
                 ghostOriginalMaterial = new Material(ghostRenderer.material);
@@ -78,11 +59,12 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
-        if (isSnapped || ghostTransform == null)
-            return;
+        if (isSnapped) return;
 
-        float distance = Vector3.Distance(transform.position, ghostTransform.position);
+        Transform closestGhost = FindClosestGhost();
+        if (closestGhost == null) return;
 
+        float distance = Vector3.Distance(transform.position, closestGhost.position);
         if (distance <= snapDistance)
         {
             // Reset attach transform offsets
@@ -92,14 +74,23 @@ public class SnapToGhost : MonoBehaviour
                 grabInteractable.attachTransform.localRotation = Quaternion.identity;
             }
 
-            // Snap!
-            transform.SetPositionAndRotation(ghostTransform.position, ghostTransform.rotation);
+            // Snap to position and rotation
+            transform.SetPositionAndRotation(closestGhost.position, closestGhost.rotation);
+
+            // Remove ghost
+            Destroy(closestGhost.gameObject);
 
             // Disable grabbing
             grabInteractable.enabled = false;
 
-            // Remove ghost
-            Destroy(ghostTransform.gameObject);
+            // Disable Rigidbody physics
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;     // Makes it unaffected by physics
+                rb.useGravity = false;     // Optional: ensure it doesn’t fall
+                rb.constraints = RigidbodyConstraints.FreezeAll; // Literally freeze all motion/rotation
+            }
 
             // Reset highlight
             if (ghostRenderer != null && ghostOriginalMaterial != null)
@@ -109,12 +100,32 @@ public class SnapToGhost : MonoBehaviour
 
             isSnapped = true;
 
-            // Clear lock so next glass can be picked
+            // Clear lock
             if (SnapManager.lockedCup == this)
             {
                 SnapManager.lockedCup = null;
             }
-            SnapCountManager.Instance.CurrentSnapCount += 1;
         }
+    }
+
+
+    private Transform FindClosestGhost()
+    {
+        List<Transform> relevantList = type == SnapType.Glass ? allGhostsGlass : allGhostsDish;
+
+        Transform closest = null;
+        float minDistance = float.MaxValue;
+
+        foreach (var ghost in relevantList)
+        {
+            float dist = Vector3.Distance(transform.position, ghost.position);
+            if (dist < minDistance)
+            {
+                closest = ghost;
+                minDistance = dist;
+            }
+        }
+
+        return closest;
     }
 }

@@ -10,7 +10,16 @@ public class ItemInspectionManager : MonoBehaviour
     public GameObject inspectionCanvas;
     public Transform itemHolder;
     public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI FulldescriptionText;
+
+
+    public GameObject itemImageObject;
+    public GameObject shortDescriptionPanel;
+    public GameObject fullDescriptionPanel;
+    public Button readMoreButton;
+    public Button backButton;
     public Button continueButton;
+
     public Image itemImageUI;
     public TextMeshProUGUI itemName;
     public float distanceFromFace = 1.2f;
@@ -26,6 +35,16 @@ public class ItemInspectionManager : MonoBehaviour
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
         continueButton.onClick.AddListener(CloseInspection);
+
+        readMoreButton.onClick.AddListener(ShowFullDescription);
+        backButton.onClick.AddListener(ShowShortDescription);
+
+        // Default UI state
+        fullDescriptionPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        readMoreButton.gameObject.SetActive(true);
+        shortDescriptionPanel.SetActive(true);
+
     }
 
     public void StartInspection(GameObject item)
@@ -37,11 +56,13 @@ public class ItemInspectionManager : MonoBehaviour
             return;
         }
 
+        // Hide original item for now
         item.SetActive(false);
 
-        // Set UI info
+        // Set UI data
         descriptionText.text = inspectable.description;
         itemName.text = inspectable.itemName;
+        FulldescriptionText.text = inspectable.fullDescription;
 
         if (inspectable.itemImage != null)
         {
@@ -53,44 +74,39 @@ public class ItemInspectionManager : MonoBehaviour
             itemImageUI.enabled = false;
         }
 
-        // Get desired canvas position: in front of the player
+        // ✨ BASIC SPAWN: Put canvas in front of the player's face
         Vector3 headPos = cam.transform.position;
         Vector3 forward = cam.transform.forward;
-        Vector3 desiredCanvasPos = headPos + forward * distanceFromFace;
+        Vector3 desiredPos = headPos + forward * distanceFromFace;
+        desiredPos.y += 0.3f; // optional height nudge
 
-        // Raycast to check for obstacles
-        if (Physics.Raycast(headPos, forward, out RaycastHit hit, distanceFromFace))
-        {
-            desiredCanvasPos = hit.point - forward * 0.1f;
-        }
+        inspectionCanvas.transform.position = desiredPos;
 
-        inspectionCanvas.transform.position = desiredCanvasPos;
+        // Face canvas toward camera
+        Vector3 flatLookDir = (headPos - desiredPos);
+        flatLookDir.y = 0;
+        inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
 
-        // Rotate canvas to face the player (yaw only)
-        Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
-        directionToPlayer.y = 0;
-        if (directionToPlayer.sqrMagnitude > 0.01f)
-        {
-            inspectionCanvas.transform.rotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
-        }
-
-        // Disable LazyFollow rotation
+        // Turn off lazy follow rotation if it exists
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
         if (lazy != null)
         {
             lazy.rotationFollowMode = LazyFollow.RotationFollowMode.None;
         }
 
+        // Reset UI state
+        ShowShortDescription();
         inspectionCanvas.SetActive(true);
 
-        // Spawn item into holder
+        // Spawn the item into the holder
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true;
 
-        // Discover item
+        // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
+
 
     public void CloseInspection()
     {
@@ -114,4 +130,23 @@ public class ItemInspectionManager : MonoBehaviour
             }
         }
     }
+
+    private void ShowFullDescription()
+    {
+        shortDescriptionPanel.SetActive(false);
+        fullDescriptionPanel.SetActive(true);
+        backButton.gameObject.SetActive(true);
+        readMoreButton.gameObject.SetActive(false);
+        itemImageObject.SetActive(false);
+    }
+
+    private void ShowShortDescription()
+    {
+        shortDescriptionPanel.SetActive(true);
+        fullDescriptionPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        readMoreButton.gameObject.SetActive(true);
+        itemImageObject.SetActive(true);
+    }
+
 }
