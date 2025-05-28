@@ -39,20 +39,35 @@
         },
         {
             "id": "entry pop-up choice 1.1",
-            "character": "Mother",
-            "text": "Could we just eat in peace?",
+            "character": "Narrator",
+            "text": "Father looks uncomfortable but rolls his eyes.",
             "nextId": "entry pop-up choice 1.2",
-            "audio": "M_1.Stating_facts"
+            "audio": "N_1.Stating_facts (father)"
         },
         {
             "id": "entry pop-up choice 1.2",
-            "character": "Sibling",
-            "text": "Raises an eyebrow, but is intrigued by the conversation.",
-            "nextId": "2.1"
+            "character": "Narrator",
+            "text": "Mother sighs.",
+            "nextId": "entry pop-up choice 1.3",
+            "audio": "N_1.Stating_facts (mother)"
+        },
+        {
+            "id": "entry pop-up choice 1.3",
+            "character": "Mother",
+            "text": "Could we just eat in peace?",
+            "nextId": "entry pop-up choice 1.4",
+            "audio": "M_1.Stating_facts"
+        },
+        {
+            "id": "entry pop-up choice 1.4",
+            "character": "Narrator",
+            "text": "Sibling raises an eyebrow, but is intrigued by the conversation.",
+            "nextId": "2.1",
+            "audio": "N_1.Stating_facts (sibling)"
         },
         {
             "id": "entry pop-up choice 2.1",
-            "character": "Mother",
+            "character": "Narrator",
             "text": "Mother nods in agreement.",
             "nextId": "entry pop-up choice 2.2",
             "audio": "N_1.Personalize_the_issue (mother)"
@@ -408,14 +423,16 @@
         },
         {
             "id": "3.5 pop-up 1 choice",
-            "character": "Mother",
-            "text": "Sighs and looks at her plate, clearly worried.",
-            "nextId": "3.5 pop-up 2 choice"
+            "character": "Narrator",
+            "text": "Mother sighs and looks at her plate, clearly worried.",
+            "nextId": "3.5 pop-up 2 choice",
+            "audio": "N_3.5 (mother)"
         },
         {
             "id": "3.5 pop-up 2 choice",
-            "character": "Sibling",
-            "text": "Tense, as if not sure which side to take.",
+            "character": "Narrator",
+            "text": "Sibling is tense, as if not sure which side to take.",
+            "audio": "N_3.5 (sibling)",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -468,9 +485,10 @@
         },
         {
             "id": "3.1 pop-up 3",
-            "character": "Sibling",
-            "text": "Laughs, but quickly stops when he notices his father's reaction.",
-            "nextId": "4.5"
+            "character": "Narrator",
+            "text": "Sibling laughs, but quickly stops when she notices her father's reaction.",
+            "nextId": "4.5",
+            "audio": "N_3.1.Countering_with_humor (sibling)"
         },
         {
             "id": "3.23 pop-up 4",
@@ -480,15 +498,17 @@
         },
         {
             "id": "3.5 pop-up 2.1",
-            "character": "Mother",
-            "text": "Looks a little confused but tries to listen.",
-            "nextId": "3.5 pop-up 2.2"
+            "character": "Narrator",
+            "text": "Mother looks a little confused but tries to listen.",
+            "nextId": "3.5 pop-up 2.2",
+            "audio": "N_3.5.Stating_facts (mother)"
         },
         {
             "id": "3.5 pop-up 2.2",
-            "character": "Sibling",
-            "text": "Leans forward, listening with interest.",
-            "nextId": "4.3"
+            "character": "Narrator",
+            "text": "Sibling leans forward, listening with interest.",
+            "nextId": "4.3",
+            "audio": "N_3.5.Stating_facts (sibling)"
         },
         {
             "id": "4.1",
@@ -636,14 +656,16 @@
         },
         {
             "id": "4.5 pop-up 1 choice",
-            "character": "Mother",
-            "text": "Nervously adjusts her napkin, avoiding Father's gaze.",
-            "nextId": "4.3"
+            "character": "Narrator",
+            "text": "Mother nervously adjusts her clothes, avoiding Father's gaze.",
+            "nextId": "4.3",
+            "audio": "N_4.5 (mother)"
         },
         {
             "id": "4.5 pop-up 2 choice",
-            "character": "Sibling",
-            "text": "Raises eyebrows, anticipating your reaction.",
+            "character": "Narrator",
+            "text": "Sibling raises eyebrows, anticipating your reaction.",
+            "audio": "N_4.5 (sibling)",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -698,21 +720,24 @@
         },
         {
             "id": "4.14 pop-up 2.1",
-            "character": "Mother",
-            "text": "Looks a little confused but tries to listen.",
-            "nextId": "4.14 pop-up 2.2"
+            "character": "Narrator",
+            "text": "Mother looks a little confused but tries to listen.",
+            "nextId": "4.14 pop-up 2.2",
+            "audio": "N_4.1_4.4.Stating_facts (mother)"
         },
         {
             "id": "4.14 pop-up 2.2",
-            "character": "Mother",
-            "text": "Leans forward, listening with interest.",
-            "nextId": "5.2"
+            "character": "Narrator",
+            "text": "Sibling leans forward, listening with interest.",
+            "nextId": "5.2",
+            "audio": "N_4.1_4.4.Stating_facts (sibling)"
         },
         {
             "id": "4.3 pop-up 2.1",
-            "character": "Sibling",
-            "text": "Gives a sideways glance.",
-            "nextId": "4.3 pop-up 2.2"
+            "character": "Narrator",
+            "text": "Sibling gives a sideways glance.",
+            "nextId": "4.3 pop-up 2.2",
+            "audio": "N_4.3.Stating_facts (sibling)"
         },
         {
             "id": "4.3 pop-up 2.2",
@@ -799,8 +824,9 @@
         },
         {
             "id": "5.3 pop-up choice",
-            "character": "Mother",
-            "text": "Frowns, but says nothing - it is clear that she is thinking.",
+            "character": "Narrator",
+            "text": "Mother frowns, but says nothing - it's clear that she is thinking about it.",
+            "audio": "N_5.3 (mother)",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -842,6 +868,7 @@
             "id": "5.4 pop-up choice",
             "character": "Sibling",
             "text": "Rolls her eyes but remains silent.",
+            "audio": "N_5.4 (sibling)",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -917,6 +944,13 @@
         },
         {
             "id": "5.3 pop-up 2",
+            "character": "Narrator",
+            "text": "Mother agrees, nodding.",
+            "nextId": "5.3 pop-up 3",
+            "audio": "N_5.3.Stating_facts (mother)"
+        },
+        {
+            "id": "5.3 pop-up 3",
             "character": "Mother",
             "text": "Well, yes, everyone is different.",
             "nextId": "end1",
@@ -924,9 +958,10 @@
         },
         {
             "id": "5.15 pop-up 2",
-            "character": "Mother",
-            "text": "Looks touched, but at the same time restrained, silent.",
-            "nextId": "end3"
+            "character": "Narrator",
+            "text": "Mother looks touched, but at the same time restrained, silent.",
+            "nextId": "end3",
+            "audio": "N_5.1_5.5.Stating_facts (mother)"
         },
         {
             "id": "end1",

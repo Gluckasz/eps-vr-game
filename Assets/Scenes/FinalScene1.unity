@@ -9305,7 +9305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b1043a3ea22ef488011b4325e57700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 800
+  launchForce: 200
   localLaunchDirection: {x: 0, y: 0, z: 1}
 --- !u!114 &491812102
 MonoBehaviour:
@@ -12336,7 +12336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901640029015197930, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: totalSnapCount
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6781384943780759888, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: m_Name
@@ -24894,7 +24894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1310174152
 Transform:
   m_ObjectHideFlags: 0

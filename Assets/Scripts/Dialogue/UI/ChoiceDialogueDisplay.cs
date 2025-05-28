@@ -23,7 +23,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Father", new(-0.5f, 1.4f, -0.2f) },
         { "Mother", new(0.5f, 1.3f, -0.2f) },
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
-        { "Narrator", new(0, 1.3f, 0) },
+        { "Narrator", new(-3.3f, 1.2f, -1.4f) },
         { "Feedback", new(0, 0, 0) },
     };
     private readonly List<string> characterTags = new()
