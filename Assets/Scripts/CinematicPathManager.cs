@@ -62,11 +62,18 @@ public class XRWalkingPath : MonoBehaviour
         Vector3 move = direction * moveSpeed * Time.deltaTime;
         xrRig.position += move;
 
-        // Smooth turning
+        //// Smooth turning
+        //if (direction != Vector3.zero)
+        //{
+        //    Quaternion toRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        //    xrRig.rotation = Quaternion.Slerp(xrRig.rotation, toRotation, Time.deltaTime * 2.5f); // slower turn for more human-like motion
+        //}
+
+        // Instant snap turning
         if (direction != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            xrRig.rotation = Quaternion.Slerp(xrRig.rotation, toRotation, Time.deltaTime * 2.5f); // slower turn for more human-like motion
+            xrRig.rotation = toRotation; // instant snap to direction
         }
 
         // Start looping footstep if not playing
