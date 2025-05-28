@@ -16,6 +16,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     private const string playerName = "You";
     private const string choiceButtonName = "ChoiceButton";
+    private const string audioDir = "AIVoiceAudio";
 
     private Dictionary<string, Vector3> characterOffsetMap = new()
     {
@@ -24,6 +25,15 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(0, 1.3f, 0) },
         { "Feedback", new(0, 0, 0) },
+    };
+    private readonly List<string> characterTags = new()
+    {
+        "Player",
+        "Sibling",
+        "Mother",
+        "Father",
+        "Feedback",
+        "Narrator"
     };
 
     public float choiceXOffset = 0.5f;
@@ -135,6 +145,76 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
     }
 
+    private void StopAllCharacterAudio()
+    {
+        foreach (string tag in characterTags)
+        {
+            if (GameObject.FindGameObjectWithTag(tag) is GameObject character)
+            {
+                if (character.TryGetComponent<AudioSource>(out AudioSource audioSource))
+                {
+                    audioSource.Stop();
+                }
+            }
+        }
+    }
+
+    private void PlayAudio(DialogueNode dialogueNode)
+    {
+        StopAllCharacterAudio();
+
+        GameObject character = GameObject.FindGameObjectWithTag(dialogueNode.character);
+        AudioSource characterAudioSource = character.GetComponent<AudioSource>();
+
+        if (dialogueNode.audio != null)
+        {
+            string audioPath = Path.Combine(audioDir, dialogueNode.character, dialogueNode.audio);
+
+            AudioClip clip = Resources.Load<AudioClip>(audioPath);
+            if (clip != null)
+            {
+                characterAudioSource.clip = clip;
+                characterAudioSource.Play();
+            }
+            else
+            {
+                Debug.LogWarning($"AudioClip not found at path: {audioPath}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Audio path not found in node with id: {dialogueNode.id}");
+        }
+    }
+
+    private void PlayAudio(DialogueChoiceNode dialogueChoiceNode)
+    {
+        StopAllCharacterAudio();
+
+        GameObject character = GameObject.FindGameObjectWithTag("Player");
+        AudioSource characterAudioSource = character.GetComponent<AudioSource>();
+
+        if (dialogueChoiceNode.audio != null)
+        {
+            string audioPath = Path.Combine(audioDir, "Player", dialogueChoiceNode.audio);
+
+            AudioClip clip = Resources.Load<AudioClip>(audioPath);
+            if (clip != null)
+            {
+                characterAudioSource.clip = clip;
+                characterAudioSource.Play();
+            }
+            else
+            {
+                Debug.LogWarning($"AudioClip not found at path: {audioPath}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Audio path not found in choice with shortText: {dialogueChoiceNode.shortText}");
+        }
+    }
+
     public void ToggleDisplay(bool active)
     {
         textDisplay.gameObject.SetActive(active);
@@ -151,6 +231,11 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         {
             Debug.LogError("Viewing above 4 choices is not supported.");
         }
+        if (dialogueNode.choices.Count > 0)
+        {
+            ToggleNextButton(false);
+        }
+        
         dialogueNode_ = dialogueNode;
         dialogueText.text = ConstructDialogueText(dialogueNode);
 
@@ -172,6 +257,8 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
         int activeChoicesCount = CountActiveChoiceButtons();
         UpdateChoicesButtonsTransforms(activeChoicesCount);
+
+        PlayAudio(dialogueNode_);
     }
 
     public void ChoiceSelected(DialogueChoiceNode selectedChoice)
@@ -180,6 +267,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         dialogueText.text = ConstructDialogueText(selectedChoice);
         nextId = selectedChoice.nextId;
         ToggleNextButton(true);
+        PlayAudio(selectedChoice);
     }
 
     public void OnNextButtonPressed()

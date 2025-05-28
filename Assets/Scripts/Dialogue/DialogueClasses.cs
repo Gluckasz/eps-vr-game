@@ -26,4 +26,5 @@ public class DialogueChoiceNode
     public string text;
     public string nextId;
     public string item;
+    public string audio;
 }
