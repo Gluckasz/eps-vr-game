@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.XR.Interaction.Toolkit.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class ItemInspectionManager : MonoBehaviour
 {
@@ -12,7 +12,6 @@ public class ItemInspectionManager : MonoBehaviour
     public Transform itemHolder;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI FulldescriptionText;
-
 
     public GameObject itemImageObject;
     public GameObject shortDescriptionPanel;
@@ -30,8 +29,10 @@ public class ItemInspectionManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
 
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
@@ -45,7 +46,6 @@ public class ItemInspectionManager : MonoBehaviour
         backButton.gameObject.SetActive(false);
         readMoreButton.gameObject.SetActive(true);
         shortDescriptionPanel.SetActive(true);
-
     }
 
     public void StartInspection(GameObject item)
@@ -84,7 +84,8 @@ public class ItemInspectionManager : MonoBehaviour
         if (Physics.Raycast(headPos, forward, out hit, distanceFromFace))
         {
             safeDistance = hit.distance - 0.05f;
-            if (safeDistance < 0.3f) safeDistance = 0.3f;
+            if (safeDistance < 0.3f)
+                safeDistance = 0.3f;
         }
 
         Vector3 desiredPos = headPos + forward * safeDistance;
@@ -95,7 +96,6 @@ public class ItemInspectionManager : MonoBehaviour
         Vector3 flatLookDir = (headPos - desiredPos);
         flatLookDir.y = 0;
         inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
-
 
         // Turn off lazy follow rotation if it exists
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
@@ -130,8 +130,9 @@ public class ItemInspectionManager : MonoBehaviour
 
         // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
-    }
 
+        Debug.Log($"Added item with name: {inspectable.itemName} to inventory.");
+    }
 
     public void CloseInspection()
     {
@@ -145,12 +146,16 @@ public class ItemInspectionManager : MonoBehaviour
     {
         if (inspectionCanvas.activeSelf && cam != null)
         {
-            Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
+            Vector3 directionToPlayer =
+                inspectionCanvas.transform.position - cam.transform.position;
             directionToPlayer.y = 0;
 
             if (directionToPlayer.sqrMagnitude > 0.01f)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
+                Quaternion targetRotation = Quaternion.LookRotation(
+                    directionToPlayer.normalized,
+                    Vector3.up
+                );
                 inspectionCanvas.transform.rotation = targetRotation;
             }
         }
@@ -173,5 +178,4 @@ public class ItemInspectionManager : MonoBehaviour
         readMoreButton.gameObject.SetActive(true);
         itemImageObject.SetActive(true);
     }
-
 }
