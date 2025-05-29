@@ -866,8 +866,8 @@
         },
         {
             "id": "5.4 pop-up choice",
-            "character": "Sibling",
-            "text": "Rolls her eyes but remains silent.",
+            "character": "Narrator",
+            "text": "Sibling rolls her eyes but remains silent.",
             "audio": "N_5.4 (sibling)",
             "choices": [
                 {
