@@ -24,7 +24,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Mother", new(0.5f, 1.3f, -0.2f) },
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(-3.94f, 1.2f, -1f) },
-        { "Feedback", new(0, 0, 0) },
+        { "Feedback", new(0, 0, 0.3f) },
     };
     private readonly List<string> characterTags = new()
     {
@@ -33,7 +33,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         "Mother",
         "Father",
         "Feedback",
-        "Narrator"
+        "Narrator",
     };
 
     public float choiceXOffset = 0.5f;
@@ -55,33 +55,26 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         return playerName + ": " + node.text;
     }
 
-    private void InstantiateChoicesButtons()
+    private void UpdateChoicesButtons()
     {
-        foreach (var choice in dialogueNode_.choices)
+        int choiceButtonsCount = choiceButtons_.Count;
+        for (int i = 0; i < dialogueNode_.choices.Count - choiceButtonsCount; i++)
         {
             choiceButtons_.Add(Instantiate(Resources.Load<ChoiceButtonDisplay>(choiceButtonName)));
         }
-        foreach (var choiceButton in choiceButtons_)
-        {
-            choiceButton.gameObject.SetActive(true);
-        }
-    }
 
-    private void UpdateChoicesButtons()
-    {
-        if (dialogueNode_.choices.Count > choiceButtons_.Count)
+        for (int i = 0; i < choiceButtons_.Count && i < dialogueNode_.choices.Count; i++)
         {
-            for (int i = 0; i < dialogueNode_.choices.Count - choiceButtons_.Count; i++)
-            {
-                choiceButtons_.Add(
-                    Instantiate(Resources.Load<ChoiceButtonDisplay>(choiceButtonName))
-                );
-                choiceButtons_[i].gameObject.SetActive(true);
-            }
-        }
-        for (int i = 0; i < choiceButtons_.Count; i++)
-        {
-            if (i >= dialogueNode_.choices.Count)
+            bool hasItem = dialogueNode_.choices[i].item != null;
+            bool isDiscovered =
+                !hasItem
+                || ItemDiscoveryManager.instance.HasDiscovered(dialogueNode_.choices[i].item);
+
+            Debug.Log(
+                $"Button {i}: Item='{dialogueNode_.choices[i].item}', HasItem={hasItem}, IsDiscovered={isDiscovered}"
+            );
+
+            if (i >= dialogueNode_.choices.Count || (hasItem && !isDiscovered))
             {
                 choiceButtons_[i].gameObject.SetActive(false);
                 continue;
@@ -89,20 +82,6 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
             choiceButtons_[i].SetDialogueChoice(dialogueNode_.choices[i], this);
             choiceButtons_[i].gameObject.SetActive(true);
         }
-    }
-
-    private int CountActiveChoiceButtons()
-    {
-        int count = 0;
-        foreach (var choiceButton in choiceButtons_)
-        {
-            if (choiceButton.gameObject.activeSelf)
-            {
-                count++;
-            }
-        }
-
-        return count;
     }
 
     private void UpdateChoicesButtonsTransforms(int choicesToUpdate)
@@ -211,7 +190,9 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
         else
         {
-            Debug.LogWarning($"Audio path not found in choice with shortText: {dialogueChoiceNode.shortText}");
+            Debug.LogWarning(
+                $"Audio path not found in choice with shortText: {dialogueChoiceNode.shortText}"
+            );
         }
     }
 
@@ -235,7 +216,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         {
             ToggleNextButton(false);
         }
-        
+
         dialogueNode_ = dialogueNode;
         dialogueText.text = ConstructDialogueText(dialogueNode);
 
@@ -249,14 +230,9 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         );
         transform.position = newPosition;
 
-        if (choiceButtons_.Count == 0)
-        {
-            InstantiateChoicesButtons();
-        }
         UpdateChoicesButtons();
 
-        int activeChoicesCount = CountActiveChoiceButtons();
-        UpdateChoicesButtonsTransforms(activeChoicesCount);
+        UpdateChoicesButtonsTransforms(choiceButtons_.Count);
 
         PlayAudio(dialogueNode_);
     }
@@ -272,8 +248,6 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void OnNextButtonPressed()
     {
-        // Can be later changed from transform.position to characters offset
-        // (if characters will be moving in the dialogue)
         if (dialogueNode_.nextId != null)
         {
             nextId = dialogueNode_.nextId;
