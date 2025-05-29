@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class ItemInspectionManager : MonoBehaviour
@@ -74,15 +75,24 @@ public class ItemInspectionManager : MonoBehaviour
             itemImageUI.enabled = false;
         }
 
-        // ✨ BASIC SPAWN: Put canvas in front of the player's face
+        // ✨ Spawn canvas safely in front of face, not through walls
+        RaycastHit hit;
         Vector3 headPos = cam.transform.position;
         Vector3 forward = cam.transform.forward;
-        Vector3 desiredPos = headPos + forward * distanceFromFace;
-        desiredPos.y += 0.3f; // optional height nudge
+        float safeDistance = distanceFromFace;
 
+        if (Physics.Raycast(headPos, forward, out hit, distanceFromFace))
+        {
+            safeDistance = hit.distance - 0.05f;
+            if (safeDistance < 0.3f)
+                safeDistance = 0.3f;
+        }
+
+        Vector3 desiredPos = headPos + forward * safeDistance;
+        desiredPos.y += 0.3f;
         inspectionCanvas.transform.position = desiredPos;
 
-        // Face canvas toward camera
+        // Face canvas toward camera (keep original turning behavior)
         Vector3 flatLookDir = (headPos - desiredPos);
         flatLookDir.y = 0;
         inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
@@ -102,7 +112,21 @@ public class ItemInspectionManager : MonoBehaviour
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb)
+        {
             rb.isKinematic = true;
+            rb.detectCollisions = false;
+        }
+
+        XRGrabInteractable grab = currentItem.GetComponent<XRGrabInteractable>();
+        if (grab)
+        {
+            grab.enabled = false;
+        }
+
+        foreach (var col in currentItem.GetComponentsInChildren<Collider>())
+        {
+            col.enabled = false;
+        }
 
         // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
