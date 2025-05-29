@@ -8,4 +8,5 @@ public class InspectableItem : MonoBehaviour
     [TextArea]
     public string fullDescription;
     public Sprite itemImage;
+    public Transform itemPosition;
 }

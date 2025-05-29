@@ -13,7 +13,6 @@ public class ItemInspectionManager : MonoBehaviour
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI FulldescriptionText;
 
-
     public GameObject itemImageObject;
     public GameObject shortDescriptionPanel;
     public GameObject fullDescriptionPanel;
@@ -23,7 +22,8 @@ public class ItemInspectionManager : MonoBehaviour
 
     public Image itemImageUI;
     public TextMeshProUGUI itemName;
-    public float distanceFromFace = 1.2f;
+
+    public float canvasOffsetY = 0.3f;
 
     private GameObject currentItem;
     private Camera cam;
@@ -45,7 +45,6 @@ public class ItemInspectionManager : MonoBehaviour
         backButton.gameObject.SetActive(false);
         readMoreButton.gameObject.SetActive(true);
         shortDescriptionPanel.SetActive(true);
-
     }
 
     public void StartInspection(GameObject item)
@@ -54,6 +53,12 @@ public class ItemInspectionManager : MonoBehaviour
         if (inspectable == null)
         {
             Debug.LogError("Item has no InspectableItem script attached!");
+            return;
+        }
+
+        if (inspectable.itemPosition == null)
+        {
+            Debug.LogError("No 'itemPosition' set on InspectableItem: " + item.name);
             return;
         }
 
@@ -75,29 +80,17 @@ public class ItemInspectionManager : MonoBehaviour
             itemImageUI.enabled = false;
         }
 
-        // ✨ Spawn canvas safely in front of face, not through walls
-        RaycastHit hit;
-        Vector3 headPos = cam.transform.position;
-        Vector3 forward = cam.transform.forward;
-        float safeDistance = distanceFromFace;
+        // 📌 Position canvas at the custom item position
+        Vector3 spawnPos = inspectable.itemPosition.position + Vector3.up * canvasOffsetY;
+        inspectionCanvas.transform.position = spawnPos;
 
-        if (Physics.Raycast(headPos, forward, out hit, distanceFromFace))
-        {
-            safeDistance = hit.distance - 0.05f;
-            if (safeDistance < 0.3f) safeDistance = 0.3f;
-        }
+        // 👀 Face canvas toward camera
+        Vector3 toCam = cam.transform.position - spawnPos;
+        toCam.y = 0;
+        if (toCam != Vector3.zero)
+            inspectionCanvas.transform.rotation = Quaternion.LookRotation(toCam);
 
-        Vector3 desiredPos = headPos + forward * safeDistance;
-        desiredPos.y += 0.3f;
-        inspectionCanvas.transform.position = desiredPos;
-
-        // Face canvas toward camera (keep original turning behavior)
-        Vector3 flatLookDir = (headPos - desiredPos);
-        flatLookDir.y = 0;
-        inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
-
-
-        // Turn off lazy follow rotation if it exists
+        // 🧼 Turn off LazyFollow if present
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
         if (lazy != null)
         {
@@ -108,7 +101,7 @@ public class ItemInspectionManager : MonoBehaviour
         ShowShortDescription();
         inspectionCanvas.SetActive(true);
 
-        // Spawn the item into the holder
+        // Clone the item into the holder
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb)
@@ -131,7 +124,6 @@ public class ItemInspectionManager : MonoBehaviour
         // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
-
 
     public void CloseInspection()
     {
@@ -173,5 +165,4 @@ public class ItemInspectionManager : MonoBehaviour
         readMoreButton.gameObject.SetActive(true);
         itemImageObject.SetActive(true);
     }
-
 }
