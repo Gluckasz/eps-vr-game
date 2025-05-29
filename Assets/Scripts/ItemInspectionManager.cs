@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.XR.Interaction.Toolkit.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class ItemInspectionManager : MonoBehaviour
 {
@@ -23,10 +23,9 @@ public class ItemInspectionManager : MonoBehaviour
     public Image itemImageUI;
     public TextMeshProUGUI itemName;
 
-    public float canvasOffsetY = 0.3f;
-
     private GameObject currentItem;
     private Camera cam;
+    private Transform canvasTargetPosition;
 
     private void Awake()
     {
@@ -35,8 +34,8 @@ public class ItemInspectionManager : MonoBehaviour
 
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
-        continueButton.onClick.AddListener(CloseInspection);
 
+        continueButton.onClick.AddListener(CloseInspection);
         readMoreButton.onClick.AddListener(ShowFullDescription);
         backButton.onClick.AddListener(ShowShortDescription);
 
@@ -52,77 +51,45 @@ public class ItemInspectionManager : MonoBehaviour
         InspectableItem inspectable = item.GetComponent<InspectableItem>();
         if (inspectable == null)
         {
-            Debug.LogError("Item has no InspectableItem script attached!");
+            Debug.LogError("Missing InspectableItem component on: " + item.name);
             return;
         }
 
-        if (inspectable.itemPosition == null)
-        {
-            Debug.LogError("No 'itemPosition' set on InspectableItem: " + item.name);
-            return;
-        }
-
-        // Hide original item for now
         item.SetActive(false);
 
-        // Set UI data
-        descriptionText.text = inspectable.description;
+        // Set UI content
         itemName.text = inspectable.itemName;
+        descriptionText.text = inspectable.description;
         FulldescriptionText.text = inspectable.fullDescription;
 
+        itemImageUI.enabled = inspectable.itemImage != null;
         if (inspectable.itemImage != null)
-        {
             itemImageUI.sprite = inspectable.itemImage;
-            itemImageUI.enabled = true;
-        }
-        else
-        {
-            itemImageUI.enabled = false;
-        }
 
-        // 📌 Position canvas at the custom item position
-        Vector3 spawnPos = inspectable.itemPosition.position + Vector3.up * canvasOffsetY;
-        inspectionCanvas.transform.position = spawnPos;
+        canvasTargetPosition = inspectable.itemPosition;
 
-        // 👀 Face canvas toward camera
-        Vector3 toCam = cam.transform.position - spawnPos;
-        toCam.y = 0;
-        if (toCam != Vector3.zero)
-            inspectionCanvas.transform.rotation = Quaternion.LookRotation(toCam);
+        inspectionCanvas.transform.position = canvasTargetPosition.position;
 
-        // 🧼 Turn off LazyFollow if present
+        ShowShortDescription();
+        inspectionCanvas.SetActive(true);
+
+        currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
+        Rigidbody rb = currentItem.GetComponent<Rigidbody>();
+        if (rb) { rb.isKinematic = true; rb.detectCollisions = false; }
+
+        XRGrabInteractable grab = currentItem.GetComponent<XRGrabInteractable>();
+        if (grab) grab.enabled = false;
+
+        foreach (var col in currentItem.GetComponentsInChildren<Collider>())
+            col.enabled = false;
+
+        ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
+
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
         if (lazy != null)
         {
             lazy.rotationFollowMode = LazyFollow.RotationFollowMode.None;
         }
-
-        // Reset UI state
-        ShowShortDescription();
-        inspectionCanvas.SetActive(true);
-
-        // Clone the item into the holder
-        currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
-        Rigidbody rb = currentItem.GetComponent<Rigidbody>();
-        if (rb)
-        {
-            rb.isKinematic = true;
-            rb.detectCollisions = false;
-        }
-
-        XRGrabInteractable grab = currentItem.GetComponent<XRGrabInteractable>();
-        if (grab)
-        {
-            grab.enabled = false;
-        }
-
-        foreach (var col in currentItem.GetComponentsInChildren<Collider>())
-        {
-            col.enabled = false;
-        }
-
-        // Log discovery
-        ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
     }
 
     public void CloseInspection()
@@ -135,15 +102,19 @@ public class ItemInspectionManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (inspectionCanvas.activeSelf && cam != null)
+        if (inspectionCanvas.activeSelf && cam != null && canvasTargetPosition != null)
         {
-            Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
-            directionToPlayer.y = 0;
+            inspectionCanvas.transform.position = canvasTargetPosition.position;
 
-            if (directionToPlayer.sqrMagnitude > 0.01f)
+            Vector3 headPos = cam.transform.position;
+            Vector3 desiredPos = inspectionCanvas.transform.position;
+
+            Vector3 flatLookDir = (desiredPos - headPos); 
+            flatLookDir.y = 0;
+
+            if (flatLookDir.sqrMagnitude > 0.01f)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
-                inspectionCanvas.transform.rotation = targetRotation;
+                inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
             }
         }
     }
