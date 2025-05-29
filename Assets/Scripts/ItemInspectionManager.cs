@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class ItemInspectionManager : MonoBehaviour
@@ -11,7 +11,6 @@ public class ItemInspectionManager : MonoBehaviour
     public Transform itemHolder;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI FulldescriptionText;
-
 
     public GameObject itemImageObject;
     public GameObject shortDescriptionPanel;
@@ -29,8 +28,10 @@ public class ItemInspectionManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
 
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
@@ -44,7 +45,6 @@ public class ItemInspectionManager : MonoBehaviour
         backButton.gameObject.SetActive(false);
         readMoreButton.gameObject.SetActive(true);
         shortDescriptionPanel.SetActive(true);
-
     }
 
     public void StartInspection(GameObject item)
@@ -101,12 +101,14 @@ public class ItemInspectionManager : MonoBehaviour
         // Spawn the item into the holder
         currentItem = Instantiate(item, itemHolder.position, itemHolder.rotation, itemHolder);
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
-        if (rb) rb.isKinematic = true;
+        if (rb)
+            rb.isKinematic = true;
 
         // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
-    }
 
+        Debug.Log($"Added item with name: {inspectable.itemName} to inventory.");
+    }
 
     public void CloseInspection()
     {
@@ -120,12 +122,16 @@ public class ItemInspectionManager : MonoBehaviour
     {
         if (inspectionCanvas.activeSelf && cam != null)
         {
-            Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
+            Vector3 directionToPlayer =
+                inspectionCanvas.transform.position - cam.transform.position;
             directionToPlayer.y = 0;
 
             if (directionToPlayer.sqrMagnitude > 0.01f)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
+                Quaternion targetRotation = Quaternion.LookRotation(
+                    directionToPlayer.normalized,
+                    Vector3.up
+                );
                 inspectionCanvas.transform.rotation = targetRotation;
             }
         }
@@ -148,5 +154,4 @@ public class ItemInspectionManager : MonoBehaviour
         readMoreButton.gameObject.SetActive(true);
         itemImageObject.SetActive(true);
     }
-
 }

@@ -24,7 +24,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Mother", new(0.5f, 1.3f, -0.2f) },
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(-3.94f, 1.2f, -1f) },
-        { "Feedback", new(0, 0, 0) },
+        { "Feedback", new(0, 0, -0.5f) },
     };
     private readonly List<string> characterTags = new()
     {
@@ -232,7 +232,6 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
         UpdateChoicesButtons();
 
-        //int activeChoicesCount = CountActiveChoiceButtons();
         UpdateChoicesButtonsTransforms(choiceButtons_.Count);
 
         PlayAudio(dialogueNode_);
@@ -249,8 +248,6 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void OnNextButtonPressed()
     {
-        // Can be later changed from transform.position to characters offset
-        // (if characters will be moving in the dialogue)
         if (dialogueNode_.nextId != null)
         {
             nextId = dialogueNode_.nextId;

@@ -10,7 +10,7 @@
                     "text": "Actually, that is not true. Studies show that there is discrimination in hiring and also a big economic gap between our social classes.",
                     "shortText": "Cite discrimination studies",
                     "nextId": "entry pop-up choice 1.1",
-                    "item": "newspaper",
+                    "item": "Economics newspaper",
                     "audio": "P_1.Stating_facts"
                 },
                 {
@@ -18,7 +18,7 @@
                     "text": "Dad, remember when our neighbor Amir struggled to find a job despite being highly qualified? I am sure you know as well as I do that that was not because he did not work hard enough.",
                     "shortText": "Mention neighbor Amir's struggles",
                     "nextId": "entry pop-up choice 2.1",
-                    "item": "photo_with_neighbors",
+                    "item": "Photo with neighbours",
                     "audio": "P_1.Personalize_the_issue"
                 },
                 {
@@ -143,7 +143,7 @@
                     "text": "It is not about playing the victim. Enough studies have shown that applicants with immigrant-sounding names get up to 50% fewer callbacks for jobs.",
                     "shortText": "Share name discrimination statistics",
                     "nextId": "2.4",
-                    "item": "newspaper",
+                    "item": "Political newspaper",
                     "audio": "P_2.1.Stating_facts"
                 },
                 {
@@ -179,7 +179,7 @@
                     "text": "How is it 'taking advantage' of the system when the system was designed to help people in need? Isn't that just using it as intended?",
                     "shortText": "Point out system's purpose is to help",
                     "nextId": "3.1",
-                    "item": "brochure",
+                    "item": "Social program",
                     "audio": "P_2.2.Confront_directly"
                 },
                 {
@@ -222,7 +222,7 @@
                     "text": "You always taught me to treat people with respect; if someone said something like that about our family, you wouldn't just brush it off as 'an opinion,' right?",
                     "shortText": "Mention his teachings about respect",
                     "nextId": "3.3",
-                    "item": "old_diary",
+                    "item": "My diary",
                     "audio": "P_2.3.Personalize_the_issue"
                 },
                 {
@@ -265,7 +265,7 @@
                     "text": "Yeah, because leaving everything behind and having to start a completely new life sounds like a vacation to me.",
                     "shortText": "Sarcastically call it a vacation",
                     "nextId": "2.1",
-                    "item": "suitcase",
+                    "item": "Old suitcase",
                     "audio": "P_2.4.Countering_with_humor"
                 }
             ]
@@ -287,7 +287,7 @@
                     "text": "Did Grandpa ‘play the system’ when he got government support after the war? Or was that just ‘help’ because it was our family?",
                     "shortText": "Ask about grandpa's government support",
                     "nextId": "3.1 pop-up 2",
-                    "item": "letter",
+                    "item": "Old family letter",
                     "audio": "P_3.1.Personalize_the_issue"
                 },
                 {
@@ -295,7 +295,7 @@
                     "text": "Right, because only immigrants ever ‘play the system.’ I guess politicians just forget to pay taxes by accident!",
                     "shortText": "Compare to tax-dodging politicians",
                     "nextId": "3.1 pop-up 3",
-                    "item": "newspaper_fraud_scandal",
+                    "item": "Scandal newspaper",
                     "audio": "P_3.1.Countering_with_humor"
                 },
                 {
@@ -317,7 +317,7 @@
                     "text": "What about your father? He came to a foreign country with no money, no language, no connections. And what, he had to be sent back too, because the locals didn't like him being a `stranger`?",
                     "shortText": "Remind him about his father's immigration",
                     "nextId": "4.1",
-                    "item": "grandpa_passport",
+                    "item": "Grandpa's old passport",
                     "audio": "P_3.2_3.3.Confront_directly"
                 },
                 {
@@ -353,7 +353,7 @@
                     "text": "What about your father? He came to a foreign country with no money, no language, no connections. And what, he had to be sent back too, because the locals didn't like him being a `stranger`?",
                     "shortText": "Bring up his father's immigrant experience",
                     "nextId": "4.1",
-                    "item": "grandpa_passport",
+                    "item": "Grandpa's old passport",
                     "audio": "P_3.2_3.3.Confront_directly"
                 },
                 {
@@ -402,7 +402,7 @@
                     "text": "Imagine if you lost your job and had to move to another country to support your family. Wouldn’t you hope people treated you fairly instead of seeing you as a burden?",
                     "shortText": "Ask how he'd want to be treated abroad",
                     "nextId": "4.4",
-                    "item": "fridge_drawing",
+                    "item": "Children's drawing",
                     "audio": "P_3.4.Personalize_the_issue"
                 },
                 {
@@ -446,7 +446,7 @@
                     "text": "But they are already here. They work, they pay taxes. If we make their lives unbearable, who will benefit? We will force them to quit their jobs, leave gaps in the economy, and suffer from it ourselves.",
                     "shortText": "Explain economic consequences",
                     "nextId": "3.5 pop-up 2.1",
-                    "item": "enconomics_book_newspaper",
+                    "item": "Economics newspaper",
                     "audio": "P_3.5.Stating_facts"
                 },
                 {
@@ -527,7 +527,7 @@
                     "text": "Exactly. And keeping that balance means looking at the data; OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Share OECD tax contribution data",
                     "nextId": "4.14 pop-up 2.1",
-                    "item": "enconomics_book_newspaper",
+                    "item": "Economics newspaper",
                     "audio": "P_4.1_4.4.Stating_facts"
                 },
                 {
@@ -577,7 +577,7 @@
                     "text": "Most immigrants work hard and contribute more in taxes than they receive in aid. That café down the street you like? It’s run by an immigrant family. Should we assume they’re not trying either?",
                     "shortText": "Mention immigrant-run café he likes",
                     "nextId": "5.1",
-                    "item": "immigrant_business_flyer",
+                    "item": "Flyer from an immigrant-owned business",
                     "audio": "P_4.2.Personalize_the_issue"
                 }
             ]
@@ -606,7 +606,7 @@
                     "text": "Taking? Do you know how much paperwork and bureaucracy they have to deal with just to get basic support? Some barely speak the language; how exactly would they fill out these forms?",
                     "shortText": "Point out bureaucratic hurdles",
                     "nextId": "5.4",
-                    "item": "photocopied_documents",
+                    "item": "Photocopied documents",
                     "audio": "P_4.3.Confront_directly"
                 },
                 {
@@ -635,7 +635,7 @@
                     "text": "Exactly. And keeping that balance means looking at the data; OECD studies show immigrants often pay more in taxes than they get in benefits. Ignoring that only hurts the people who help keep the system going.",
                     "shortText": "Cite tax contribution statistics",
                     "nextId": "4.14 pop-up 2.1",
-                    "item": "enconomics_book_newspaper",
+                    "item": "Economics newspaper",
                     "audio": "P_4.1_4.4.Stating_facts"
                 },
                 {
@@ -679,7 +679,6 @@
                     "text": "Actually, many immigrants work in sectors with severe labor shortages, like healthcare, logistics, and construction. In Austria, over 30% of cleaning staff and nearly 20% of nurses have a migration background. We should acknowledge how essential they are to daily life.",
                     "shortText": "Share immigrant workforce statistics",
                     "nextId": "5.2",
-                    "item": "magazine_article",
                     "audio": "P_4.5.Stating_facts"
                 },
                 {
@@ -694,7 +693,7 @@
                     "text": "What if our relatives who went abroad could not find a place for themselves? My grandfather, when he left, was also looking for a better life. And if he had not been accepted, where do you think we would be now?",
                     "shortText": "Ask about our own family's migration",
                     "nextId": "5.1",
-                    "item": "grandpa_passport",
+                    "item": "Grandpa's old passport",
                     "audio": "P_4.5.Personalize_the_issue"
                 }
             ]
@@ -833,7 +832,8 @@
                     "text": "And I’m thankful people are different; imagine if everyone was like my teacher Mr. Gruber. The world would be boring—no languages, no new food, just complaints, forever.",
                     "shortText": "Imagine if everyone was like Mr. Gruber",
                     "nextId": "end2",
-                    "audio": "P_5.3.Countering_with_humor"
+                    "audio": "P_5.3.Countering_with_humor",
+                    "item": "School report"
                 },
                 {
                     "responseType": "State the facts",
@@ -896,7 +896,7 @@
                     "text": "Remember when Uncle Peter lost his job while living abroad, and the government helped him get back on his feet? He didn’t run away from his problems; he tried to solve them. That’s all these people are trying to do too.",
                     "shortText": "Remind him about Uncle Peter's experience",
                     "nextId": "end3",
-                    "item": "postcard",
+                    "item": "Postcard",
                     "audio": "P_5.4.Personalize_the_issue"
                 }
             ]

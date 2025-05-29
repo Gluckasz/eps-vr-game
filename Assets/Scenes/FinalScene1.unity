@@ -689,6 +689,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
     - target: {fileID: -2813063830454027409, guid: 8465abb1190cd1d4593477df86eff4a7, type: 3}
+      propertyPath: itemName
+      value: Social program
+      objectReference: {fileID: 0}
+    - target: {fileID: -2813063830454027409, guid: 8465abb1190cd1d4593477df86eff4a7, type: 3}
       propertyPath: description
       value: "\"Social Programs: Support, Not Privilege\"\LThis Social programs is
         designed for people who:\L\Lhave lost their jobs,\Lare fleeing war or persecution,\Lface
@@ -5691,9 +5695,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8251873297685035787, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
       insertIndex: -1
       addedObject: {fileID: 290730505}
-    - targetCorrespondingSourceObject: {fileID: 8251873297685035787, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 290730506}
   m_SourcePrefab: {fileID: 100100000, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
 --- !u!4 &290730503 stripped
 Transform:
@@ -5717,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Economics Newspaper
+  itemName: Economics newspaper
   description: '"...Foreign workers are already integrated into economic processes:
     they are employed in various sectors, pay taxes, and ensure the continuity of
     production..."'
@@ -5726,18 +5727,6 @@ MonoBehaviour:
     production. Making their stay more difficult may lead to a reduction in the labor
     force, disruption of labor markets, and a decrease in overall economic efficiency..."'
   itemImage: {fileID: 21300000, guid: 74819610a50bbec4cb781dc54ea88520, type: 3}
---- !u!114 &290730506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290730504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11270eaa9acce3244928fde794bfc242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &296081290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10773,6 +10762,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
     - target: {fileID: -2041180174264689606, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
+      propertyPath: itemName
+      value: Scandal newspaper
+      objectReference: {fileID: 0}
+    - target: {fileID: -2041180174264689606, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
       propertyPath: description
       value: "LOCAL COUNCILOR IMPLICATED IN FRAUD SCANDAL\LBy Anna Weiss | Daily
         Chronicle | June 3, 2004"
@@ -10858,33 +10851,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2900549395938702468, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 620533648}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
 --- !u!4 &620533646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7477146058003496775, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
   m_PrefabInstance: {fileID: 620533645}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &620533647 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2900549395938702468, guid: fc0cb4eb91974dd4480715faf6af6ed5, type: 3}
-  m_PrefabInstance: {fileID: 620533645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &620533648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620533647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11270eaa9acce3244928fde794bfc242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &620905510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16644,6 +16617,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
     - target: {fileID: 627660513794517518, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
+      propertyPath: itemName
+      value: Photocopied documents
+      objectReference: {fileID: 0}
+    - target: {fileID: 627660513794517518, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
       propertyPath: description
       value: An application for domicile certificate.
       objectReference: {fileID: 0}
@@ -16734,9 +16711,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3329016017986432674, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
       insertIndex: -1
       addedObject: {fileID: 889505992}
-    - targetCorrespondingSourceObject: {fileID: 3329016017986432674, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 889505991}
   m_SourcePrefab: {fileID: 100100000, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
 --- !u!4 &889505989 stripped
 Transform:
@@ -16748,18 +16722,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3329016017986432674, guid: 26ea24aacb344cd4f823d7ce5b54d432, type: 3}
   m_PrefabInstance: {fileID: 889505988}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &889505991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889505990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11270eaa9acce3244928fde794bfc242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &889505992
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16812,6 +16774,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
+    - target: {fileID: -7872965351318470939, guid: 96c80f024961b634d9c136dc126feff2, type: 3}
+      propertyPath: itemName
+      value: Grandpa's old passport
+      objectReference: {fileID: 0}
     - target: {fileID: -7872965351318470939, guid: 96c80f024961b634d9c136dc126feff2, type: 3}
       propertyPath: description
       value: Grandpa's old passport
@@ -27820,7 +27786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Newspaper
+  itemName: Political newspaper
   description: '''''...Studies have shown that resumes with names that sound African-American
     receive 50% fewer responses from employers than resumes with names that sound
     European..."'
@@ -27855,6 +27821,10 @@ PrefabInstance:
     - target: {fileID: 4762437076218389741, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
       propertyPath: m_Name
       value: Letter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560817409059691669, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
+      propertyPath: itemName
+      value: Old family letter
       objectReference: {fileID: 0}
     - target: {fileID: 5560817409059691669, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
       propertyPath: description
@@ -27928,33 +27898,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4762437076218389741, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1447571808}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
 --- !u!4 &1447571806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9213623519670503403, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
   m_PrefabInstance: {fileID: 1447571805}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1447571807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4762437076218389741, guid: 42195deb35c397d4cb9bf04247cc84b3, type: 3}
-  m_PrefabInstance: {fileID: 1447571805}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1447571808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447571807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11270eaa9acce3244928fde794bfc242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1449615277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34481,9 +34431,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9131437502857720020, guid: 70c6738815ec1194cb1cf899c6938ff2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1792142691}
-    - targetCorrespondingSourceObject: {fileID: 9131437502857720020, guid: 70c6738815ec1194cb1cf899c6938ff2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1792142690}
   m_SourcePrefab: {fileID: 100100000, guid: 70c6738815ec1194cb1cf899c6938ff2, type: 3}
 --- !u!4 &1792142687 stripped
 Transform:
@@ -34507,22 +34454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ac5328583820545a854b37ff7fdefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Pictured Frame
+  itemName: Photo with neighbours
   description: A photo with my neighbours.
   fullDescription: A photo with my neighbours.
   itemImage: {fileID: 21300000, guid: fa448fc0bf106b34dbe1d493ed1fc32f, type: 3}
---- !u!114 &1792142690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792142688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11270eaa9acce3244928fde794bfc242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1792142691
 MeshRenderer:
   m_ObjectHideFlags: 0
