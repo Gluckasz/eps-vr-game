@@ -1,8 +1,8 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using TMPro;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class ItemInspectionManager : MonoBehaviour
 {
@@ -30,10 +30,8 @@ public class ItemInspectionManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
 
         cam = Camera.main;
         inspectionCanvas.SetActive(false);
@@ -86,7 +84,6 @@ public class ItemInspectionManager : MonoBehaviour
         Vector3 spawnPos = inspectable.itemPosition.position + Vector3.up * canvasOffsetY;
         inspectionCanvas.transform.position = spawnPos;
 
-<<<<<<< HEAD
         // 👀 Face canvas toward camera
         Vector3 toCam = cam.transform.position - spawnPos;
         toCam.y = 0;
@@ -94,25 +91,6 @@ public class ItemInspectionManager : MonoBehaviour
             inspectionCanvas.transform.rotation = Quaternion.LookRotation(toCam);
 
         // 🧼 Turn off LazyFollow if present
-=======
-        if (Physics.Raycast(headPos, forward, out hit, distanceFromFace))
-        {
-            safeDistance = hit.distance - 0.05f;
-            if (safeDistance < 0.3f)
-                safeDistance = 0.3f;
-        }
-
-        Vector3 desiredPos = headPos + forward * safeDistance;
-        desiredPos.y += 0.3f;
-        inspectionCanvas.transform.position = desiredPos;
-
-        // Face canvas toward camera (keep original turning behavior)
-        Vector3 flatLookDir = (headPos - desiredPos);
-        flatLookDir.y = 0;
-        inspectionCanvas.transform.rotation = Quaternion.LookRotation(flatLookDir);
-
-        // Turn off lazy follow rotation if it exists
->>>>>>> c42c19b496623d0b02df03698cb42093d6a559cd
         LazyFollow lazy = inspectionCanvas.GetComponent<LazyFollow>();
         if (lazy != null)
         {
@@ -145,13 +123,8 @@ public class ItemInspectionManager : MonoBehaviour
 
         // Log discovery
         ItemDiscoveryManager.instance.DiscoverItem(inspectable.itemName);
-
-<<<<<<< HEAD
-=======
-        Debug.Log($"Added item with name: {inspectable.itemName} to inventory.");
     }
 
->>>>>>> c42c19b496623d0b02df03698cb42093d6a559cd
     public void CloseInspection()
     {
         if (currentItem != null)
@@ -164,16 +137,12 @@ public class ItemInspectionManager : MonoBehaviour
     {
         if (inspectionCanvas.activeSelf && cam != null)
         {
-            Vector3 directionToPlayer =
-                inspectionCanvas.transform.position - cam.transform.position;
+            Vector3 directionToPlayer = inspectionCanvas.transform.position - cam.transform.position;
             directionToPlayer.y = 0;
 
             if (directionToPlayer.sqrMagnitude > 0.01f)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(
-                    directionToPlayer.normalized,
-                    Vector3.up
-                );
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer.normalized, Vector3.up);
                 inspectionCanvas.transform.rotation = targetRotation;
             }
         }
