@@ -235,6 +235,8 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         UpdateChoicesButtonsTransforms(choiceButtons_.Count);
 
         PlayAudio(dialogueNode_);
+        SceneFlowManager.Instance.PlayTalkAnimation(dialogueNode_.character);
+        Debug.Log($"Played talk animation for: {dialogueNode_.character}");
     }
 
     public void ChoiceSelected(DialogueChoiceNode selectedChoice)
@@ -244,6 +246,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         nextId = selectedChoice.nextId;
         ToggleNextButton(true);
         PlayAudio(selectedChoice);
+        SceneFlowManager.Instance.PlayIdleAnimation(dialogueNode_.character);
     }
 
     public void OnNextButtonPressed()
@@ -254,7 +257,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         }
         Vector3 offset = characterOffsetMap[dialogueNode_.character];
 
-        SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId);
+        StartCoroutine(SceneFlowManager.Instance.ChoiceDialogueNextNode(this, nextId));
     }
 
     public void SetDialogueIterator(DialogueIterator dialogueIterator)

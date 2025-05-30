@@ -10,7 +10,6 @@ public class SceneFlowManager : MonoBehaviour
     private DialogueReader choiceDialogueReader;
     private DialogueReader basicDialogueReader;
 
-    private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
     private const string introReminderScriptFileName = "NarratorIntroReminder.json";
@@ -65,8 +64,53 @@ public class SceneFlowManager : MonoBehaviour
         }
     }
 
-    public void ChoiceDialogueNextNode(DialogueDisplay dialogueDisplay, string nextId)
+    public void PlayTalkAnimation(string characterTag)
     {
+        GameObject character = GameObject.FindGameObjectWithTag(characterTag);
+        Animator animator = character.GetComponent<Animator>();
+        switch (characterTag)
+        {
+            case "Father":
+                animator.Play("FatherDialogueTalking");
+                break;
+            case "Mother":
+                animator.Play("MotherDialogueTalking");
+                break;
+            case "Sibling":
+                animator.Play("SiblingDialogueTalking");
+                break;
+        }
+    }
+
+    public void PlayIdleAnimation(string characterTag)
+    {
+        GameObject character = GameObject.FindGameObjectWithTag(characterTag);
+        if (character != null)
+        {
+            Animator animator = character.GetComponent<Animator>();
+
+            switch (characterTag)
+            {
+                case "Father":
+                    animator.Play("FatherDialogueIdle");
+                    break;
+                case "Mother":
+                    animator.Play("MotherDialogueIdle");
+                    break;
+                case "Sibling":
+                    animator.Play("SiblingDialogueIdle");
+                    break;
+            }
+        }
+    }
+
+    public IEnumerator ChoiceDialogueNextNode(DialogueDisplay dialogueDisplay, string nextId)
+    {
+        PlayIdleAnimation("Father");
+        PlayIdleAnimation("Mother");
+        PlayIdleAnimation("Sibling");
+        yield return new WaitForEndOfFrame();
+        Debug.Log("Setall character animations to idle.");
         DialogueIterator dialogueIterator = dialogueDisplay.GetDialogueIterator();
         if (dialogueIterator.HasMore(nextId))
         {
@@ -109,17 +153,9 @@ public class SceneFlowManager : MonoBehaviour
     public IEnumerator ShowSceneDialogue()
     {
         SceneDialougePlaying = true;
-        GameObject mother = GameObject.FindGameObjectWithTag("Mother");
-        Animator motherAnimator = mother.GetComponent<Animator>();
-        motherAnimator.Play("MotherDialogueIdle");
-
-        GameObject father = GameObject.FindGameObjectWithTag("Father");
-        Animator fatherAnimator = father.GetComponent<Animator>();
-        fatherAnimator.Play("FatherDialogueIdle");
-
-        GameObject sibling = GameObject.FindGameObjectWithTag("Sibling");
-        Animator siblingAnimator = sibling.GetComponent<Animator>();
-        siblingAnimator.Play("SiblingDialogueIdle");
+        PlayIdleAnimation("Father");
+        PlayIdleAnimation("Mother");
+        PlayIdleAnimation("Sibling");
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         LocomotionDisabler locomotionDisablerScript = player.GetComponent<LocomotionDisabler>();
@@ -138,7 +174,7 @@ public class SceneFlowManager : MonoBehaviour
         DialogueIterator sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
         dialogueDisplay.SetDialogueIterator(sceneDialogueIterator);
 
-        ChoiceDialogueNextNode(dialogueDisplay, entryId);
+        StartCoroutine(ChoiceDialogueNextNode(dialogueDisplay, entryId));
     }
 
     public void ShowIntroDialogue()
