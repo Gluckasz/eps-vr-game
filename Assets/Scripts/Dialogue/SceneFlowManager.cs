@@ -13,9 +13,11 @@ public class SceneFlowManager : MonoBehaviour
     private const string voiceActingDirectory = "AIVoiceAudio";
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
+    private const string introReminderScriptFileName = "NarratorIntroReminder.json";
     private const string entryId = "entry";
 
     public bool SceneDialougePlaying { get; private set; } = false;
+    public int introReminderWaitTime = 90;
 
     public static SceneFlowManager Instance { get; private set; }
 
@@ -38,6 +40,29 @@ public class SceneFlowManager : MonoBehaviour
     private void Start()
     {
         ShowIntroDialogue();
+        StartCoroutine(ShowIntroReminder());
+    }
+
+    private IEnumerator ShowIntroReminder()
+    {
+        yield return new WaitForSecondsRealtime(introReminderWaitTime);
+        if (!SceneDialougePlaying)
+        {
+            DialogueData script = basicDialogueReader.ReadJsonDialogueData(
+                introReminderScriptFileName
+            );
+            Dialogue dialogue = new BasicDialogue(script.dialogue);
+            DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
+                script.dialogue[0].character
+            );
+
+            DialogueIterator dialogueIterator = dialogue.CreateDialogueIterator();
+            dialogueIterator.SetId(entryId);
+            dialogueDisplay.SetDialogueIterator(dialogueIterator);
+
+            BasicDialogueNextNode(dialogueDisplay);
+            StartCoroutine(ShowIntroReminder());
+        }
     }
 
     public void ChoiceDialogueNextNode(DialogueDisplay dialogueDisplay, string nextId)

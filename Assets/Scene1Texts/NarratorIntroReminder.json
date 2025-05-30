@@ -1,0 +1,11 @@
+{
+    "dialogue": [
+        {
+            "id": "entry",
+            "character": "Player",
+            "text": "When I'm ready, I should go to the kitchen and put out the dishes.",
+            "nextId": "end",
+            "audio": "PlayerIntroReminder"
+        }
+    ]
+}
