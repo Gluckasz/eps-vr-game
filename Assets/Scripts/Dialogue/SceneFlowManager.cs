@@ -68,17 +68,35 @@ public class SceneFlowManager : MonoBehaviour
     {
         GameObject character = GameObject.FindGameObjectWithTag(characterTag);
         Animator animator = character.GetComponent<Animator>();
-        switch (characterTag)
+        if (SceneDialougePlaying)
         {
-            case "Father":
-                animator.Play("FatherDialogueTalking");
-                break;
-            case "Mother":
-                animator.Play("MotherDialogueTalking");
-                break;
-            case "Sibling":
-                animator.Play("SiblingDialogueTalking");
-                break;
+            switch (characterTag)
+            {
+                case "Father":
+                    animator.Play("FatherDialogueTalking");
+                    break;
+                case "Mother":
+                    animator.Play("MotherDialogueTalking");
+                    break;
+                case "Sibling":
+                    animator.Play("SiblingDialogueTalking");
+                    break;
+            }
+        }
+        else
+        {
+            switch (characterTag)
+            {
+                case "Father":
+                    animator.Play("FatherIntroTalking");
+                    break;
+                case "Mother":
+                    animator.Play("MotherIntroTalking");
+                    break;
+                case "Sibling":
+                    animator.Play("SiblingIntroTalking");
+                    break;
+            }
         }
     }
 
@@ -89,17 +107,35 @@ public class SceneFlowManager : MonoBehaviour
         {
             Animator animator = character.GetComponent<Animator>();
 
-            switch (characterTag)
+            if (SceneDialougePlaying)
             {
-                case "Father":
-                    animator.Play("FatherDialogueIdle");
-                    break;
-                case "Mother":
-                    animator.Play("MotherDialogueIdle");
-                    break;
-                case "Sibling":
-                    animator.Play("SiblingDialogueIdle");
-                    break;
+                switch (characterTag)
+                {
+                    case "Father":
+                        animator.Play("FatherDialogueIdle");
+                        break;
+                    case "Mother":
+                        animator.Play("MotherDialogueIdle");
+                        break;
+                    case "Sibling":
+                        animator.Play("SiblingDialogueIdle");
+                        break;
+                }
+            }
+            else
+            {
+                switch (characterTag)
+                {
+                    case "Father":
+                        animator.Play("FatherIntro");
+                        break;
+                    case "Mother":
+                        animator.Play("MotherIntro");
+                        break;
+                    case "Sibling":
+                        animator.Play("SiblingIntro");
+                        break;
+                }
             }
         }
     }

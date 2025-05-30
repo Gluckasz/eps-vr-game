@@ -110,11 +110,13 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
 
         transform.Translate(offset);
 
+        SceneFlowManager.Instance.PlayTalkAnimation(dialogueNode_.character);
         PlayAudio(dialogueNode_);
     }
 
     public void OnNextButtonPressed()
     {
+        SceneFlowManager.Instance.PlayIdleAnimation(dialogueNode_.character);
         SceneFlowManager.Instance.BasicDialogueNextNode(this);
     }
 
