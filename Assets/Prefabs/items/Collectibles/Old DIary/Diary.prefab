@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8f1471e00c2ccc24fab65875d4a5eead, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,7 +293,9 @@ MonoBehaviour:
   description: "\u201CI remember that day... I was insulted at school. Then my dad
     told me that you should always stand up for your opinion if what you do is right
     and honest. \u201D"
+  fullDescription: 
   itemImage: {fileID: 21300000, guid: f7ccbb93d93a1f948a2e324fd9700391, type: 3}
+  itemPosition: {fileID: 0}
 --- !u!114 &-6447368177609178644
 MonoBehaviour:
   m_ObjectHideFlags: 0
