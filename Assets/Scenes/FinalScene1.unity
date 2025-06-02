@@ -8637,6 +8637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6345487625910301731, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea162df30c968944eae599700fc6f9a8, type: 2}
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1 (1)
@@ -19838,6 +19842,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6345487625910301731, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea162df30c968944eae599700fc6f9a8, type: 2}
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1 (2)
@@ -21533,6 +21541,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6345487625910301731, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea162df30c968944eae599700fc6f9a8, type: 2}
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1
@@ -22246,6 +22258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6345487625910301731, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea162df30c968944eae599700fc6f9a8, type: 2}
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1 (3)
