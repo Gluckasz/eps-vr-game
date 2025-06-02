@@ -342,7 +342,7 @@ Material:
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _OutlineMode: 8
-    - _OutlineThickness: 3.29
+    - _OutlineThickness: 3.2
     - _OutlineType: 2
     - _Parallax: 0.005
     - _Pixelate: 0
