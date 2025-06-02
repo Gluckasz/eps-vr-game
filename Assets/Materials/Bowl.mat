@@ -33,7 +33,7 @@ Material:
   - _HEIGHTGRADIENTPOSITIONSPACE_LOCAL
   - _LIGHTMODEL_CLASSIC
   - _MATCAPBLENDMODE_MULTIPLY
-  - _OUTLINETYPE_CONSTANT
+  - _OUTLINETYPE_SIMPLE
   - _REFLECTIONS_NONE
   - _RIMLIGHTINGSTAGE_BEFORELIGHTING
   - _SHADINGMODEL_BASIC
@@ -342,8 +342,8 @@ Material:
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _OutlineMode: 8
-    - _OutlineThickness: 3.29
-    - _OutlineType: 2
+    - _OutlineThickness: 0.1
+    - _OutlineType: 1
     - _Parallax: 0.005
     - _Pixelate: 0
     - _PixelateSize: 32
