@@ -200,6 +200,7 @@ public class SceneFlowManager : MonoBehaviour
         player.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         yield return new WaitForEndOfFrame();
+        BackgroundMusic.Instance.PlayDialogueMusic();
 
         DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
         Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);

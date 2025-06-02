@@ -870,6 +870,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 1441933812957433155, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
+      propertyPath: dialogueMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: e00384695c1245f44b4f8a585c599d70, type: 3}
     - target: {fileID: 2266644342306350321, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
       propertyPath: m_Resource
       value: 

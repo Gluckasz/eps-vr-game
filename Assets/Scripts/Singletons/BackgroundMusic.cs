@@ -2,18 +2,29 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    private static BackgroundMusic instance;
+    public static BackgroundMusic Instance { get; private set; }
+    private AudioSource musicAudioSource;
+
+    public AudioClip dialogueMusic;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+        musicAudioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayDialogueMusic()
+    {
+        musicAudioSource.Stop();
+        musicAudioSource.clip = dialogueMusic;
+        musicAudioSource.Play();
     }
 }
