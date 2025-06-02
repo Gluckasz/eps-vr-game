@@ -5685,6 +5685,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -108.966
       objectReference: {fileID: 0}
+    - target: {fileID: 8945824908484030621, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -27299,6 +27303,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 8945824908484030621, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -36707,6 +36715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7566186287466678530, guid: 3d136a8fe95238848925f957eaebb5ab, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8002340890005555871, guid: 3d136a8fe95238848925f957eaebb5ab, type: 3}
       propertyPath: m_Name
       value: Drawing
@@ -39147,7 +39159,8 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 806083dc923e0364bbb5517035fa9e4f, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7256660301881533542, guid: ce188e12075e91046b8292963e6cdca1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -39227,6 +39240,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 963889646}
     m_Modifications:
+    - target: {fileID: 2782835158107489682, guid: ef90dc0438a0aa04ab5d99c226e9c200, type: 3}
+      propertyPath: m_Size.y
+      value: 1.87154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782835158107489682, guid: ef90dc0438a0aa04ab5d99c226e9c200, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000020296222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782835158107489682, guid: ef90dc0438a0aa04ab5d99c226e9c200, type: 3}
+      propertyPath: m_Center.y
+      value: -0.43575573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782835158107489682, guid: ef90dc0438a0aa04ab5d99c226e9c200, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000009832324
+      objectReference: {fileID: 0}
     - target: {fileID: 8028512928832408439, guid: ef90dc0438a0aa04ab5d99c226e9c200, type: 3}
       propertyPath: m_Name
       value: Postcard
@@ -39511,7 +39540,8 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bdd02e79447a167478c52e6449a18e84, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8879269669481621674, guid: f4d40ec9c90602643a0bea20a629a2b4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
