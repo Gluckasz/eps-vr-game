@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 3242296744878648381}
   - component: {fileID: 1397498887331585959}
   - component: {fileID: 5560817409059691669}
+  - component: {fileID: 3318060406901395808}
+  - component: {fileID: 8016116190307506417}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Untagged
@@ -71,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdd02e79447a167478c52e6449a18e84, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -334,8 +336,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Old family letter
   description: "\"My dear ones,\LI came here with nothing, only with the faith that
-    I can build a new life for our family. Every day I work from morning to night.
-    It is hard here, but I hope that one day you will be able to join me and we will
-    be together again. Despite the difficulties, I am grateful for the chance to
-    start over. Let our sacrifices not be in vain.\LLove, Dad.\""
+    I can build a new life for our family....\""
+  fullDescription: "\"My dear ones,\LI came here with nothing, only with the faith
+    that I can build a new life for our family. Every day I work from morning to
+    night. It is hard here, but I hope that one day you will be able to join me and
+    we will be together again. Despite the difficulties, I am grateful for the chance
+    to start over. Let our sacrifices not be in vain.\LLove, Dad.\""
   itemImage: {fileID: 21300000, guid: e4b249c42c0adf340a6a9f6ea3b84647, type: 3}
+  itemPosition: {fileID: 0}
+--- !u!114 &3318060406901395808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762437076218389741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc39b4cbc1e00449b2ff0c95caeba62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisLight: {fileID: 0}
+  urpIntensityMultiplier: 5
+--- !u!114 &8016116190307506417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762437076218389741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fb2c5f145047846ac8e94ce0994dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currRenderer: {fileID: 8002563835699693885}

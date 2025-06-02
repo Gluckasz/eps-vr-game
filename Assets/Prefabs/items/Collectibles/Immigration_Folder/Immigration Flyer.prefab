@@ -482,7 +482,9 @@ MonoBehaviour:
     recipients work and pay taxes.\LAbuse is the exception, not the rule.\L\LSocial
     support strengthens the economy and helps people become independent faster.\L\LBy
     supporting others today, we build a safer society tomorrow."
+  fullDescription: 
   itemImage: {fileID: 21300000, guid: 359422533b262ed448a5d13b8a37dae6, type: 3}
+  itemPosition: {fileID: 0}
 --- !u!1 &6197260666957864608
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class DialogueTriggerInteractable : XRBaseInteractable
 {
     private new bool isHovered = false;
-    private Color originalColor;
     private const string motherIntroScriptFileName = "MotherIntro.json";
     private const string fatherIntroScriptFileName = "FatherIntro.json";
     private const string siblingIntroScriptFileName = "SiblingIntro.json";
@@ -18,8 +17,6 @@ public class DialogueTriggerInteractable : XRBaseInteractable
     protected override void Awake()
     {
         base.Awake();
-        if (objectRenderer != null)
-            originalColor = objectRenderer.material.color;
     }
 
     protected override void OnEnable()
@@ -44,9 +41,6 @@ public class DialogueTriggerInteractable : XRBaseInteractable
         {
             isHovered = true;
             Debug.Log($"Hover entered on {gameObject.name}");
-
-            if (objectRenderer != null)
-                objectRenderer.material.color = Color.clear;
         }
     }
 
@@ -56,9 +50,6 @@ public class DialogueTriggerInteractable : XRBaseInteractable
         {
             isHovered = false;
             Debug.Log($"Hover exited on {gameObject.name}");
-
-            if (objectRenderer != null)
-                objectRenderer.material.color = originalColor;
         }
     }
 

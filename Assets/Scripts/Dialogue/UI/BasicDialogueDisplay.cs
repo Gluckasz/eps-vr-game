@@ -16,7 +16,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
     private Dictionary<string, Vector3> characterOffsetMap = new()
     {
         { "Father", new(0.2f, 1.4f, -0.2f) },
-        { "Mother", new(0.5f, 1.2f, -0.2f) },
+        { "Mother", new(-0.7f, 1.2f, -0.3f) },
         { "Sibling", new(0, 1.3f, 0.4f) },
         { "Narrator", new(0, 1.3f, 0) },
         { "Player", new(0, 1f, 1.5f) },

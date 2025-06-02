@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4050a48336317d042bd670ea8c479d8d, type: 2}
+  - {fileID: 2100000, guid: b60f0765523dc8a4aa3a9dbf5af61f13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,4 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Postcard
   description: Uncle Peter's Postcard
+  fullDescription: 
   itemImage: {fileID: 21300000, guid: d153c2dce5e9eae42ac604c288504c7c, type: 3}
+  itemPosition: {fileID: 0}

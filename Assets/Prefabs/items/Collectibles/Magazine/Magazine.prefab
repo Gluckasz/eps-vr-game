@@ -71,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4eba86616a9ca34782d8c33fff9fbd3, type: 2}
+  - {fileID: 2100000, guid: 3c5792aa22746a845866bb9466d7d004, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,4 +342,6 @@ MonoBehaviour:
     and the flavors of home.\LSunrise Caf\xE9 is more than a place to eat, it\u2019s
     our way of connecting cultures, celebrating tradition, and building new memories
     with you.\LYour seat is ready and we can\u2019t wait to welcome you !"
+  fullDescription: 
   itemImage: {fileID: 21300000, guid: 35c3666540cf10e46a8f3d584dc5b8ad, type: 3}
+  itemPosition: {fileID: 0}
