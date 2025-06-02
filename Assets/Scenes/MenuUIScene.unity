@@ -866,14 +866,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Music
       objectReference: {fileID: 0}
+    - target: {fileID: 1191682316144990290, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
+      propertyPath: m_TagString
+      value: Music
+      objectReference: {fileID: 0}
     - target: {fileID: 2266644342306350321, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 8f6afd31ea126e348b59211475d7eda5, type: 3}
+      objectReference: {fileID: 8300000, guid: d4514fcb76559d249bf276d7bb8ebed4, type: 3}
     - target: {fileID: 2266644342306350321, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 8f6afd31ea126e348b59211475d7eda5, type: 3}
+      objectReference: {fileID: 8300000, guid: d4514fcb76559d249bf276d7bb8ebed4, type: 3}
     - target: {fileID: 3610053854732324577, guid: 84afd952c8570b64fbeb2ec59171f209, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
