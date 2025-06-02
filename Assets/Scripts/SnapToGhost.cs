@@ -6,7 +6,11 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SnapToGhost : MonoBehaviour
 {
-    public enum SnapType { Glass, Dish }
+    public enum SnapType
+    {
+        Glass,
+        Dish,
+    }
 
     [Header("Ghost Blueprint Settings")]
     public SnapType type;
@@ -15,6 +19,8 @@ public class SnapToGhost : MonoBehaviour
 
     [Header("Snapping Settings")]
     public float snapDistance = 0.2f;
+    public AudioSource itemPutSound;
+    public AudioSource allItemsPutSound;
 
     [Header("Highlight Settings")]
     public Color highlightColor = Color.cyan;
@@ -42,7 +48,8 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        if (isSnapped) return;
+        if (isSnapped)
+            return;
 
         closestGhost = FindClosestGhost();
 
@@ -59,10 +66,12 @@ public class SnapToGhost : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
-        if (isSnapped) return;
+        if (isSnapped)
+            return;
 
         Transform closestGhost = FindClosestGhost();
-        if (closestGhost == null) return;
+        if (closestGhost == null)
+            return;
 
         float distance = Vector3.Distance(transform.position, closestGhost.position);
         if (distance <= snapDistance)
@@ -87,8 +96,8 @@ public class SnapToGhost : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = true;     // Makes it unaffected by physics
-                rb.useGravity = false;     // Optional: ensure it doesn’t fall
+                rb.isKinematic = true; // Makes it unaffected by physics
+                rb.useGravity = false; // Optional: ensure it doesn’t fall
                 rb.constraints = RigidbodyConstraints.FreezeAll; // Literally freeze all motion/rotation
             }
 
@@ -100,6 +109,15 @@ public class SnapToGhost : MonoBehaviour
 
             isSnapped = true;
             SnapCountManager.Instance.CurrentSnapCount++;
+            itemPutSound.Play();
+
+            if (
+                SnapCountManager.Instance.CurrentSnapCount
+                == SnapCountManager.Instance.totalSnapCount
+            )
+            {
+                allItemsPutSound.Play();
+            }
 
             // Clear lock
             if (SnapManager.lockedCup == this)
@@ -108,7 +126,6 @@ public class SnapToGhost : MonoBehaviour
             }
         }
     }
-
 
     private Transform FindClosestGhost()
     {
