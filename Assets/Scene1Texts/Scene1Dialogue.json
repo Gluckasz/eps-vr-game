@@ -1112,6 +1112,12 @@
             "character": "Feedback",
             "text": "Result: locking in one's position.",
             "nextId": "end"
+        },
+        {
+            "id": "end",
+            "character": "Credits",
+            "text": "                                                          Team leader: Łukasz Glück.                             Programming: Łukasz Glück, Olivier Cardoen.                                                  Writing: Anhelina Borodai, Zainab Askari.                               Music: Łukasz Glück.                                        Making of movie: Saba Amirhesari. ",
+            "nextId": "exit"
         }
     ]
 }

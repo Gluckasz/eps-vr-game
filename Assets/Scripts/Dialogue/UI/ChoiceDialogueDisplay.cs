@@ -24,6 +24,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Mother", new(0.5f, 1.3f, -0.2f) },
         { "Sibling", new(0.3f, 1.3f, 0.6f) },
         { "Narrator", new(-3.94f, 1.2f, -1f) },
+        { "Credits", new(-3.94f, 1.2f, -1f) },
         { "Feedback", new(0, 0, 0.3f) },
     };
     private readonly List<string> characterTags = new()
@@ -254,6 +255,15 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
         if (dialogueNode_.nextId != null)
         {
             nextId = dialogueNode_.nextId;
+        }
+        if (nextId == "exit")
+        {
+            Debug.Log("Quitting the app");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
         Vector3 offset = characterOffsetMap[dialogueNode_.character];
 

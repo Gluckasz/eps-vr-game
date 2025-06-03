@@ -12,6 +12,7 @@ TagManager:
   - Narrator
   - Feedback
   - Music
+  - Credits
   layers:
   - Default
   - TransparentFX
