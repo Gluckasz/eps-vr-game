@@ -43,6 +43,7 @@ public class MainMenuManager : MonoBehaviour
         )
         {
             ToggleOptionsMenu();
+            OptionsMenuManager.Instance.ToggleBackButton(false);
         }
     }
 
