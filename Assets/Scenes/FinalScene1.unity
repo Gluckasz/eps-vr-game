@@ -6224,6 +6224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalGlass (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8469564855434603177, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -10240,6 +10244,10 @@ PrefabInstance:
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7867414140216917380, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Convex
@@ -15900,7 +15908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901640029015197930, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: totalSnapCount
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6781384943780759888, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: m_Name
@@ -19932,6 +19940,10 @@ PrefabInstance:
     - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_Name
       value: NormalGlass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8469564855434603177, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_LocalScale.x
@@ -25594,6 +25606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate1_C1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7867414140216917380, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -28009,6 +28025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate1_C1
       objectReference: {fileID: 0}
+    - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7867414140216917380, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -28870,6 +28890,10 @@ PrefabInstance:
     - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Name
       value: Plate1_C1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542784960229949104, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7867414140216917380, guid: 1b3c7b7fad686f343b5b608e8417be31, type: 3}
       propertyPath: m_Convex
@@ -34265,6 +34289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalGlass
       objectReference: {fileID: 0}
+    - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8469564855434603177, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -35461,7 +35489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8746923270534175230, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.953
+      value: -0.904
       objectReference: {fileID: 0}
     - target: {fileID: 8746923270534175230, guid: 71d0af919bdd15e40a070dcaa7258918, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45847,6 +45875,10 @@ PrefabInstance:
     - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_Name
       value: NormalGlass (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735497848138262486, guid: a265648884a264847a164dc8355b3333, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8469564855434603177, guid: a265648884a264847a164dc8355b3333, type: 3}
       propertyPath: m_LocalScale.x
