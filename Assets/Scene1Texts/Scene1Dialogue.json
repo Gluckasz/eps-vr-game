@@ -345,8 +345,8 @@
         },
         {
             "id": "3.3 pop-up choice",
-            "character": "Sibling",
-            "text": "Hums, but does not object.",
+            "character": "Narrator",
+            "text": "Sibling hums, but does not object.",
             "choices": [
                 {
                     "responseType": "Confront directly",

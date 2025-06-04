@@ -3,7 +3,7 @@
         {
             "id": "entry",
             "character": "Mother",
-            "text": "You know, dinners used to be so much simpler when you and your sibling were kids. Just a bit of laughter and food - no heavy discussions. I miss that sometimes.",
+            "text": "You know, dinners used to be so much simpler when you and your sibling were kids. Just a bit of laughter and food — no heavy discussions. I miss that sometimes.",
             "nextId": "entry2"
         },
         {
@@ -15,7 +15,7 @@
         {
             "id": "entry3",
             "character": "Mother",
-            "text": "I know you want to speak your mind, and I admire that. Just… maybe try not to let things get too heated?",
+            "text": "I know you want to speak your mind, and I admire that. Maybe just don’t let things get too heated, okay?",
             "nextId": "end"
         }
     ]
