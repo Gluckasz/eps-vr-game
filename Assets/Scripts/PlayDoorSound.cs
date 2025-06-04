@@ -3,38 +3,58 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource), typeof(Rigidbody))]
 public class DoorSound : MonoBehaviour
 {
-    public float movementThreshold = 0.1f;
-    public float cooldown = 0.5f;
-    public AudioClip[] doorSounds; // Assign your sound clips in the Inspector
+    public float openAngleThreshold = 5f;
+    public float velocityThreshold = 0.1f;
+    public float cooldown = 1.5f;
+    public AudioClip[] openSounds;
 
     private Rigidbody rb;
     private AudioSource audioSource;
     private float lastPlayTime = -1f;
+    private bool isDoorOpen = false;
+    private bool wasMoving = false;
+    private Quaternion initialRotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        initialRotation = transform.rotation;
     }
 
     void Update()
     {
-        if (rb.angularVelocity.magnitude > movementThreshold)
+        bool isMovingNow = rb.angularVelocity.magnitude > velocityThreshold;
+
+        float currentAngle = Quaternion.Angle(transform.rotation, initialRotation);
+
+        bool isOpenNow = currentAngle > openAngleThreshold;
+        if (wasMoving && !isMovingNow)
         {
-            if (!audioSource.isPlaying && Time.time > lastPlayTime + cooldown)
+            if (isOpenNow != isDoorOpen)
             {
-                PlayRandomSound();
-                lastPlayTime = Time.time;
+                if (Time.time > lastPlayTime + cooldown)
+                {
+                    if (isOpenNow)
+                    {
+                        PlayRandomSound(openSounds);
+                    }
+                    lastPlayTime = Time.time;
+                }
+
+                isDoorOpen = isOpenNow;
             }
         }
+
+        wasMoving = isMovingNow;
     }
 
-    void PlayRandomSound()
+    void PlayRandomSound(AudioClip[] sounds)
     {
-        if (doorSounds.Length == 0) return;
+        if (sounds == null || sounds.Length == 0) return;
 
-        int randomIndex = Random.Range(0, doorSounds.Length);
-        audioSource.clip = doorSounds[randomIndex];
+        int randomIndex = Random.Range(0, sounds.Length);
+        audioSource.clip = sounds[randomIndex];
         audioSource.Play();
     }
 }

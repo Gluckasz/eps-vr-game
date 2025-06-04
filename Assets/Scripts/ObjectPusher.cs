@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectPusher : MonoBehaviour
 {
-    public float launchForce = 800f;
+    public float launchForce = 10f;
     public Vector3 localLaunchDirection = new Vector3(0, 0, 1);
 
     void OnTriggerStay(Collider other)
@@ -19,12 +19,9 @@ public class ObjectPusher : MonoBehaviour
             Vector3 worldLaunchDirection = transform.TransformDirection(
                 localLaunchDirection.normalized
             );
-            float distance = 0;
-            distance += Mathf.Abs(targetRigidbody.position.x - transform.position.x);
-            distance += Mathf.Abs(targetRigidbody.position.z - transform.position.z);
 
             targetRigidbody.AddForce(
-                worldLaunchDirection * launchForce / distance,
+                worldLaunchDirection * launchForce,
                 ForceMode.Force
             );
             Debug.Log(

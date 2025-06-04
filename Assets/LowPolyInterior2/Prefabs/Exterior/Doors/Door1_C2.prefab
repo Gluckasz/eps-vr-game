@@ -247,6 +247,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: fb19f83f91810c8488c8bf195aee63a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 534779243736415556}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: fb19f83f91810c8488c8bf195aee63a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8633358418740221925}
   m_SourcePrefab: {fileID: 100100000, guid: fb19f83f91810c8488c8bf195aee63a2, type: 3}
 --- !u!4 &4515546076543109759 stripped
 Transform:
@@ -365,8 +368,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 2.04, z: 4}
-  m_Center: {x: 0.44559306, y: 1.02, z: 0}
+  m_Size: {x: 3.850113, y: 2.04, z: 5.711541}
+  m_Center: {x: 0.61031705, y: 1.02, z: 0.0068645477}
 --- !u!82 &534779243736415556
 AudioSource:
   m_ObjectHideFlags: 0
@@ -464,3 +467,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8633358418740221925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515546076543276639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252ca7751a39413408a2837b01d89170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openAngleThreshold: 30
+  velocityThreshold: 0.1
+  cooldown: 1.5
+  openSounds:
+  - {fileID: 8300000, guid: 901d7ccf81a204f4b847955bfc2317d2, type: 3}
+  - {fileID: 8300000, guid: 7b60cac022c6b7e49b3f1546b6a95ee8, type: 3}
