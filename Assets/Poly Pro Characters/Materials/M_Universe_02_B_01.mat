@@ -8,39 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Universe_02_B_01
-  m_Shader: {fileID: 4800000, guid: 6034452bd7752ab41918b7826b5cfd4f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ALBEDOVERTEXCOLORMODE_REPLACE
-  - _ALPHA_CUTOFF_ON
-  - _CAST_SHADOWS_ON
-  - _COLORRAMPLIGHTINGSTAGE_BEFORELIGHTING
-  - _GREYSCALESTAGE_BEFORELIGHTING
-  - _HEIGHTGRADIENTPOSITIONSPACE_LOCAL
-  - _LIGHTMODEL_CLASSIC
-  - _MATCAPBLENDMODE_MULTIPLY
-  - _OUTLINETYPE_SIMPLE
-  - _REFLECTIONS_NONE
-  - _RIMLIGHTINGSTAGE_BEFORELIGHTING
-  - _SHADINGMODEL_BASIC
-  - _SPECULARMODEL_NONE
-  - _TEXTUREBLENDINGMODE_RGB
-  - _TEXTUREBLENDINGSOURCE_VERTEXCOLOR
-  - _TRIPLANARNORMALSPACE_WORLD
-  - _USE_WIND_VERTICAL_MASK
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
-  - _GLITCHWORLDSPACE_ON
-  - _METALLICGLOSSMAP
-  - _METALLICSPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
+  - FORWARDADD
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -191,7 +173,7 @@ Material:
     - _AOMapEnabled: 0
     - _AOMapStrength: 1
     - _AddPrecomputedVelocity: 0
-    - _AdvancedConfigurationEnabled: 0
+    - _AdvancedConfigurationEnabled: 1
     - _AffectedByLightmaps: 0
     - _AlbedoVertexColorMode: 1
     - _AlbedoVertexColorOn: 0
@@ -205,6 +187,7 @@ Material:
     - _Blend: 0
     - _BlendDst: 0
     - _BlendModePreserveSpecular: 1
+    - _BlendOp: 0
     - _BlendSrc: 1
     - _BlendingMaskCutoffB: 0.1
     - _BlendingMaskCutoffG: 0.1
@@ -215,7 +198,7 @@ Material:
     - _Brightness: 0
     - _BrightnessLM: 0
     - _BumpScale: 1
-    - _CastShadowsOn: 1
+    - _CastShadowsOn: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorMask: 15
@@ -308,7 +291,7 @@ Material:
     - _IntersectionFadeFactor: 1
     - _IntersectionFadeOn: 0
     - _IntersectionGlowOn: 0
-    - _LightModel: 1
+    - _LightModel: 0
     - _LightmapColorCorrection: 0
     - _Matcap: 0
     - _MatcapBlend: 1
@@ -354,6 +337,7 @@ Material:
     - _SSSFrontAtten: 0.3
     - _SSSFrontPower: 3
     - _SSSPower: 1
+    - _SampleGI: 0
     - _ScaleWithCameraDistance: 0
     - _ScreenSpaceUVOn: 0
     - _ScrollTextureOn: 0
