@@ -15908,7 +15908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901640029015197930, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: totalSnapCount
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6781384943780759888, guid: 1818d3e297402e44e8838fcfa0c88d3f, type: 3}
       propertyPath: m_Name

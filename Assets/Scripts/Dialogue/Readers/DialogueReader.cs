@@ -29,20 +29,22 @@ public abstract class DialogueReader : MonoBehaviour
 
     public DialogueData ReadJsonDialogueData(string fileName)
     {
-        string filePath = Path.Combine(Application.dataPath, textsFolder, fileName);
+        string resourcePath = Path.Combine(textsFolder, Path.GetFileNameWithoutExtension(fileName));
 
-        if (File.Exists(filePath))
+        TextAsset textAsset = Resources.Load<TextAsset>(resourcePath);
+
+        if (textAsset != null)
         {
-            string jsonContent = File.ReadAllText(filePath);
+            string jsonContent = textAsset.text;
             DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonContent);
 
-            Debug.Log("Dialogue from: " + filePath + " loaded successfully!");
+            Debug.Log("Dialogue from Resource: " + resourcePath + " loaded successfully!");
 
             return dialogueData;
         }
         else
         {
-            Debug.LogError("Could not find JSON file at path: " + filePath);
+            Debug.LogError("Could not find JSON resource at path: " + resourcePath);
             return null;
         }
     }
