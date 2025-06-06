@@ -3,7 +3,7 @@
         {
             "id": "entry",
             "character": "Player",
-            "text": "When I'm ready, I should go to the kitchen and put out the dishes.",
+            "text": "When I'm ready, I should go to the kitchen and set the table.",
             "nextId": "end",
             "audio": "PlayerIntroReminder"
         }

@@ -10454,6 +10454,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 239079878150105931, guid: 21649dd7a98d65749a2d7e8182ec7258, type: 3}
+      propertyPath: MinDistance
+      value: 3.04
+      objectReference: {fileID: 0}
     - target: {fileID: 241697931300934293, guid: 21649dd7a98d65749a2d7e8182ec7258, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0

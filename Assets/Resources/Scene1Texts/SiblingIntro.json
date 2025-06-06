@@ -3,8 +3,9 @@
         {
             "id": "entry",
             "character": "Sibling",
-            "text": "I don’t know… Dad’s always saying rude stuff, but lately it’s getting worse. He doesn’t even notice how bad it sounds.",
-            "nextId": "end"
+            "text": "I don’t know… Dad always saying rude stuff, but it’s getting worse.",
+            "nextId": "end",
+            "audio": "Sibling Intro"
         }
     ]
 }

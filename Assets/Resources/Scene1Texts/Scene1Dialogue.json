@@ -4,6 +4,7 @@
             "id": "entry",
             "character": "Father",
             "text": "You know they showed a report about immigrant people and they just don't work as hard as the rest of us. That's why they struggle and can't afford anything.",
+            "audio": "Father Dialogue Entry",
             "choices": [
                 {
                     "responseType": "State the facts",
@@ -74,9 +75,10 @@
         },
         {
             "id": "entry pop-up choice 2.2",
-            "character": "Father",
-            "text": "Hesitates, thinking of your example.",
-            "nextId": "2.2"
+            "character": "Narrator",
+            "text": "Father hesitates, thinking of your example.",
+            "nextId": "2.2",
+            "audio": "N_1.Personalize_the_issue (father)"
         },
         {
             "id": "entry pop-up choice 3.1",
@@ -94,9 +96,10 @@
         },
         {
             "id": "entry pop-up choice 3.3",
-            "character": "Father",
-            "text": "Gets defensive.",
-            "nextId": "2.3"
+            "character": "Narrator",
+            "text": "Father gets defensive.",
+            "nextId": "2.3",
+            "audio": "Narrator entry pop-up choice 3.3"
         },
         {
             "id": "entry pop-up choice 4.1",
@@ -130,6 +133,7 @@
             "id": "2.1",
             "character": "Father",
             "text": "Well, I just think people should stop playing the victim.",
+            "audio": "Father 2.1",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -166,6 +170,7 @@
             "id": "2.2",
             "character": "Father",
             "text": "Well, okay, but do you not think that some of those people take advantage of the system?",
+            "audio": "Father 2.2",
             "choices": [
                 {
                     "responseType": "State the facts",
@@ -202,6 +207,7 @@
             "id": "2.3",
             "character": "Father",
             "text": "Oh, now I cannot even have an opinion?",
+            "audio": "Father 2.3",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -238,6 +244,7 @@
             "id": "2.4",
             "character": "Father",
             "text": "It’s not like I’m making this stuff up. You know, some of those posts show that people who were born here and have lived their whole lives here have it harder now than immigrants.",
+            "audio": "Father 2.4",
             "choices": [
                 {
                     "responseType": "Personalize the issue",
@@ -274,6 +281,7 @@
             "id": "3.1",
             "character": "Father",
             "text": "You’re twisting my words. I’m just saying some people know how to play the system; that doesn’t mean I think no one deserves help.",
+            "audio": "Father 3.1",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -311,6 +319,7 @@
             "id": "3.2",
             "character": "Father",
             "text": "Okay, maybe the problem is not what country this person is from, but still, some people just don’t seem interested in fitting in or respecting how things work here.",
+            "audio": "Father 3.2",
             "choices": [
                 {
                     "responseType": "Confront directly",

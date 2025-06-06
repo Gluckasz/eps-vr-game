@@ -4,7 +4,8 @@
             "id": "entry",
             "character": "Father",
             "text": "Did you see that on the TV? Just another example of how they don’t even try to integrate.",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Father Intro"
         }
     ]
 }

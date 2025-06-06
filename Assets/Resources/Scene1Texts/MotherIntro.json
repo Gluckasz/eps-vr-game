@@ -4,19 +4,22 @@
             "id": "entry",
             "character": "Mother",
             "text": "You know, dinners used to be so much simpler when you and your sibling were kids. Just a bit of laughter and food — no heavy discussions. I miss that sometimes.",
-            "nextId": "entry2"
+            "nextId": "entry2",
+            "audio": "Mother Intro 1"
         },
         {
             "id": "entry2",
             "character": "Mother",
             "text": "Your father has been watching those news reports again. He gets very opinionated about these things. I just hope dinner goes smoothly tonight.",
-            "nextId": "entry3"
+            "nextId": "entry3",
+            "audio": "Mother Intro 2"
         },
         {
             "id": "entry3",
             "character": "Mother",
             "text": "I know you want to speak your mind, and I admire that. Maybe just don’t let things get too heated, okay?",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Mother Intro 3"
         }
     ]
 }
