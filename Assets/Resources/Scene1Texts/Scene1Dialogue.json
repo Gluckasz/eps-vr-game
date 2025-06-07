@@ -356,6 +356,7 @@
             "id": "3.3 pop-up choice",
             "character": "Narrator",
             "text": "Sibling hums, but does not object.",
+            "audio": "Narrator 3.3 pop-up choice",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -392,12 +393,14 @@
             "id": "3.3",
             "character": "Father",
             "text": "I don't know, maybe it's not everyone, but it feels like some people don't respect how things work here. So why should we respect them?",
-            "nextId": "3.3 pop-up choice"
+            "nextId": "3.3 pop-up choice",
+            "audio": "Father 3.3"
         },
         {
             "id": "3.4",
             "character": "Father",
             "text": "Okay, I get that there are studies and numbers, but sometimes it feels like all the focus is on helping others. Isn’t there a point where fairness goes both ways?",
+            "audio": "Father 3.4",
             "choices": [
                 {
                     "responseType": "Confront directly",
@@ -478,19 +481,22 @@
             "id": "3.5",
             "character": "Father",
             "text": "Alright, alright, I get it; you’re making a point. You think I’m being ridiculous. But I am not saying it’s easy, but if it’s really that awful here, maybe they shouldn’t have come in the first place.",
-            "nextId": "3.5 pop-up 1 choice"
+            "nextId": "3.5 pop-up 1 choice",
+            "audio": "Father 3.5"
         },
         {
             "id": "3.1 pop-up 1",
             "character": "Sibling",
             "text": "Oh, this will be interesting!",
-            "nextId": "4.1"
+            "nextId": "4.1",
+            "audio": "Sibling 3.1 pop up 1"
         },
         {
             "id": "3.1 pop-up 2",
             "character": "Sibling",
             "text": "I didn't think of it this way...",
-            "nextId": "4.2"
+            "nextId": "4.2",
+            "audio": "Sibling 3.1 pop up 2"
         },
         {
             "id": "3.1 pop-up 3",
@@ -503,7 +509,8 @@
             "id": "3.23 pop-up 4",
             "character": "Sibling",
             "text": "Well, maybe not everyone is like we think they are.",
-            "nextId": "4.1"
+            "nextId": "4.1",
+            "audio": "Sibling 3.23 pop up 4"
         },
         {
             "id": "3.5 pop-up 2.1",
@@ -523,6 +530,7 @@
             "id": "4.1",
             "character": "Father",
             "text": "You’re right, generalizing is unfair. I know not everyone’s the same. It just gets frustrating when it feels like the few bad examples are the ones you always see. Maybe I’m letting that cloud my view.",
+            "audio": "Father 4.1",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -559,6 +567,7 @@
             "id": "4.2",
             "character": "Father",
             "text": "It depends; back then, the need was obvious. I’m not against helping people now either, but sometimes it’s hard to tell who really needs support and who isn’t even trying to show basic respect.",
+            "audio": "Father 4.2",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -595,6 +604,7 @@
             "id": "4.3",
             "character": "Father",
             "text": "I don’t know, maybe there’s some truth to that, and I also know that not all locals do everything right either. Sure, some contribute, but do they take far more?",
+            "audio": "Father 4.3",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -631,6 +641,7 @@
             "id": "4.4",
             "character": "Father",
             "text": "I kind of see your point. Fairness isn't just about treating everyone the same, but helping those that are in need of it. But there needs to be a balance.",
+            "audio": "Father 4.4",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -711,7 +722,8 @@
             "id": "4.5",
             "character": "Father",
             "text": "Oh, sure, just open the borders and let everyone in. Who cares if we can barely take care of our own? Finding loopholes doesn't mean they belong here. If their country's a mess, they should fix it instead of running here expecting handouts. This isn't a charity.",
-            "nextId": "4.5 pop-up 1 choice"
+            "nextId": "4.5 pop-up 1 choice",
+            "audio": "Father 4.5"
         },
         {
             "id": "4.2 pop-up 1",
@@ -724,7 +736,8 @@
             "id": "4.2 pop-up 2",
             "character": "Sibling",
             "text": "What are you doing now, working for the European Commission?",
-            "nextId": "5.2"
+            "nextId": "5.2",
+            "audio": "Sibling 4.2 pop up 2"
         },
         {
             "id": "4.14 pop-up 2.1",
@@ -751,7 +764,8 @@
             "id": "4.3 pop-up 2.2",
             "character": "Sibling",
             "text": "Really?",
-            "nextId": "5.3"
+            "nextId": "5.3",
+            "audio": "Sibling 4.3 pop up 2.2"
         },
         {
             "id": "4.5 pop-up 3",
@@ -764,6 +778,7 @@
             "id": "5.1",
             "character": "Father",
             "text": "Alright, I hear you, not everyone’s here to take advantage; I’ll give you that. But I still think we need to be careful. Good intentions don’t mean there aren’t real problems we can’t ignore.",
+            "audio": "Father 5.1",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -799,6 +814,7 @@
             "id": "5.2",
             "character": "Father",
             "text": "Alright, maybe I’ve been too focused on the worst cases. I can see that some people really do put in the effort, going through all the paperwork, working, trying to fit in. I just worry sometimes that the system isn’t built to handle all of it fairly. But yeah... I’ll admit, it’s not all black and white.",
+            "audio": "Father 5.2",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -871,7 +887,8 @@
             "id": "5.3",
             "character": "Father",
             "text": "Well, there might be something to it. I'm not saying they're all bad, but the world is not as simple as you think. It's good to help, but you can't expect everyone to start making as much effort as we do. People are different, and not everyone wants to change.",
-            "nextId": "5.3 pop-up choice"
+            "nextId": "5.3 pop-up choice",
+            "audio": "Father 5.3"
         },
         {
             "id": "5.4 pop-up choice",
@@ -914,12 +931,14 @@
             "id": "5.4",
             "character": "Father",
             "text": "Oh, come on. You always have some excuse for them. Look, I’m just saying what’s obvious. If they really put in the work, they wouldn’t struggle as much as you say, would they? Everyone has their problems; you don’t see us running away from ours, do you?",
-            "nextId": "5.4 pop-up choice"
+            "nextId": "5.4 pop-up choice",
+            "audio": "Father 5.4"
         },
         {
             "id": "5.5",
             "character": "Father",
             "text": "Yes, I understand, but you know it's not quite the same. The history of our family is one thing, but now there are new conditions, new challenges.",
+            "audio": "Father 5.5",
             "choices": [
                 {
                     "responseType": "Counter with humor",
@@ -974,158 +993,211 @@
         },
         {
             "id": "end1",
+            "character": "Father",
+            "text": "You’re probably right. And I’m thankful you talked to me about it,  really. I’ve been looking at things a certain way for a long time, and maybe I’ve been too quick to judge. I’m not saying I’ve changed my mind completely, but you’ve definitely made me think differently. I might not have all the answers, but I appreciate that you care enough to challenge me on it. That matters more than you probably realize.",
+            "nextId": "end1 feedback",
+            "audio": "Father end1"
+        },
+        {
+            "id": "end1 feedback",
             "character": "Feedback",
             "text": "The main factor of success here is recognizing the complexity of the topic and being grateful for the dialog. You avoided direct accusations, showed respect for your father and his experiences, and recognized that not everything is black and white. This created an atmosphere of cooperation rather than confrontation. As a result, your father opened up to change and thanked you for making him think.",
-            "nextId": "end1 2"
+            "nextId": "end1 2",
+            "audio": "Narrator end1 feedback"
         },
         {
             "id": "end1 2",
             "character": "Feedback",
             "text": "What worked: Respect for the father (thanking him for the conversation, acknowledging that changing views is difficult). Shared values (showing that you both value fairness and empathy). Calm tone + non-pressure argumentation - you didn't force a change of mind, but invited him to think. No judgment ('you're wrong') - instead: 'the situation is complicated', 'you need more understanding'.",
-            "nextId": "end1 3"
+            "nextId": "end1 3",
+            "audio": "Narrator end1 2 feedback"
         },
         {
             "id": "end1 3",
             "character": "Feedback",
-            "text": "What emotions you evoked: You evoked your father's pride in you (you understand the complexity of life) And a sense of security (he is not being judged for his old views)",
-            "nextId": "end1 4"
+            "text": "What emotions you evoked: You evoked your father's pride in you (you understand the complexity of life) And a sense of security (he is not being judged for his old views).",
+            "nextId": "end1 4",
+            "audio": "Narrator end1 3 feedback"
         },
         {
             "id": "end1 4",
             "character": "Feedback",
             "text": "How he interpreted your actions: 'My child is not attacking me - she is worried.' 'I can think and reconsider my views without losing face.'",
-            "nextId": "end1 5"
+            "nextId": "end1 5",
+            "audio": "Narrator end1 4 feedback"
         },
         {
             "id": "end1 5",
             "character": "Feedback",
             "text": "Why he answered that way: There was a sense of a common goal - not a competition of 'who is right,' but a search for truth together.",
-            "nextId": "end1 6"
+            "nextId": "end1 6",
+            "audio": "Narrator end1 5 feedback"
         },
         {
             "id": "end1 6",
             "character": "Feedback",
             "text": "Result: a real movement towards change.",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Narrator end1 6 feedback"
         },
         {
             "id": "end2",
+            "character": "Father",
+            "text": "I’ll think about it, but I can’t promise anything. You know I’ve had these views for a long time, and it’s not easy to just flip a switch. But I do hear what you’re saying, and I can tell it is an important topic to you. Maybe I haven’t been as open as I should’ve been. I’m not saying I suddenly agree with everything, but… I’ll sit with it.",
+            "nextId": "end2 feedback",
+            "audio": "Father end2"
+        },
+        {
+            "id": "end2 feedback",
             "character": "Feedback",
             "text": "Here you still made strong arguments (personal examples, a little humor), but there was a subtle element of direct confrontation. This did not cause your father's rejection, but it did not give him a complete breakthrough. He partially recognized your arguments, but remained cautious. You changed his perspective partially, but not completely.",
-            "nextId": "end2 2"
+            "nextId": "end2 2",
+            "audio": "Narrator end2 1 feedback"
         },
         {
             "id": "end2 2",
             "character": "Feedback",
-            "text": "What worked: Personal stories and connections to family (example of grandfather). A little humor eased the tension. Not losing empathy even in direct confrontation",
-            "nextId": "end2 3"
+            "text": "What worked: Personal stories and connections to family (example of grandfather). A little humor eased the tension. Not losing empathy even in direct confrontation.",
+            "nextId": "end2 3",
+            "audio": "Narrator end2 2 feedback"
         },
         {
             "id": "end2 3",
             "character": "Feedback",
             "text": "What didn't work and held back the result a bit: You hurt your father's ego in some responses (wording like: 'You always do that...'). The tone felt a bit instructive or disapproving (even if you were right) it sounded like you were lecturing him.",
-            "nextId": "end2 4"
+            "nextId": "end2 4",
+            "audio": "Narrator end2 3 feedback"
         },
         {
             "id": "end2 4",
             "character": "Feedback",
             "text": "What emotions did it evoke: Guilt ('maybe I'm biased'). A defensive reaction ('but I'm not that bad!')",
-            "nextId": "end2 5"
+            "nextId": "end2 5",
+            "audio": "Narrator end2 4 feedback"
         },
         {
             "id": "end2 5",
             "character": "Feedback",
             "text": "How he interpreted your actions: 'I was partially understood, but also partially accused.' 'Maybe I need to think about it, but I'm not ready to openly admit it right away.'",
-            "nextId": "end2 6"
+            "nextId": "end2 6",
+            "audio": "Narrator end2 5 feedback"
         },
         {
             "id": "end2 6",
             "character": "Feedback",
             "text": "Why he answered this way: He felt pressured to change, but also felt judged, so he chose to be cautious 'I'll think about it' with no promises.",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Narrator end2 6 feedback"
         },
         {
             "id": "end3",
+            "character": "Father",
+            "text": "I get that not everyone’s trying to cheat the system, and I see that some people really are just doing their best. But I still believe the world’s never going to be fair for everyone. That’s just how life works, some people struggle more, some get ahead, and a lot of it has nothing to do with effort. I’m not saying we shouldn’t try to make it better, but I also think we need to be realistic",
+            "nextId": "end3 feedback",
+            "audio": "Father end3"
+        },
+        {
+            "id": "end3 feedback",
             "character": "Feedback",
             "text": "Here, you used logical arguments and examples, but put a little more pressure on the fairness and wrongness of your father's thinking. The result: your father recognized some facts, but his general view of the world (“life is unfair, you can't change everything”) remained. He heard you, but remained a realistic skeptic.",
-            "nextId": "end3 2"
+            "nextId": "end3 2",
+            "audio": "Narrator end3 1 feedback"
         },
         {
             "id": "end3 2",
             "character": "Feedback",
             "text": "What worked: You used strong facts, logical arguments, and real examples to make your point clear to the father. You showed that you were well-informed.",
-            "nextId": "end3 3"
+            "nextId": "end3 3",
+            "audio": "Narrator end3 2 feedback"
         },
         {
             "id": "end3 3",
             "character": "Feedback",
             "text": "What didn't work: Emotional detachment: you talked more about the correctness of the system than about the father's experiences. There was no bridge to his experience - the arguments sounded like a lecture or political discussion, not a family conversation.",
-            "nextId": "end3 4"
+            "nextId": "end3 4",
+            "audio": "Narrator end3 3 feedback"
         },
         {
             "id": "end3 4",
             "character": "Feedback",
             "text": "What emotions he evoked: Rational respect ('my arguments are partially disproved') but also fatigue ('it's all too idealistic, and life is different')",
-            "nextId": "end3 5"
+            "nextId": "end3 5",
+            "audio": "Narrator end3 4 feedback"
         },
         {
             "id": "end3 5",
             "character": "Feedback",
             "text": "How he interpreted your actions: 'My daughter is smart, but does not fully understand reality.' 'I'm going to stick to my opinion, because the real world is not that simple.'",
-            "nextId": "end3 6"
+            "nextId": "end3 6",
+            "audio": "Narrator end3 5 feedback"
         },
         {
             "id": "end3 6",
             "character": "Feedback",
             "text": "Why he answered this way: He agreed with some of the facts, but did not feel an emotional connection. Result: Minimal change in mindset.",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Narrator end3 6 feedback"
         },
         {
             "id": "end4",
+            "character": "Father",
+            "text": "You’ve said your piece, and I’ve listened. But my opinion hasn’t changed. I’ve seen enough to know how people are, most just look out for themselves, and that’s not going to change no matter how many rules or systems you put in place. That’s just how the world works. You try to do the right thing, and you end up getting used. I’m not going to pretend I believe in some perfect version of fairness , I don’t. You’re free to think what you want, and I won’t stop you. But don’t expect me to see the world the same way.",
+            "nextId": "end4 feedback",
+            "audio": "Father end4"
+        },
+        {
+            "id": "end4 feedback",
             "character": "Feedback",
             "text": "In these cases, your tone was either mocking or too harsh and confrontational. Even if the arguments were valid, the way you presented them triggered a defensive reaction in your father. He shut down, consolidated his position, and said he was not going to change his mind. Here we can see that it was not the ideas themselves, but the style of communication that influenced the negative outcome.",
-            "nextId": "end4 2"
+            "nextId": "end4 2",
+            "audio": "Narrator end4 1 feedback"
         },
         {
             "id": "end4 2",
             "character": "Feedback",
             "text": "What worked (minimally): You stood by your principles and were honest.",
-            "nextId": "end4 3"
+            "nextId": "end4 3",
+            "audio": "Narrator end4 2 feedback"
         },
         {
             "id": "end4 3",
             "character": "Feedback",
             "text": "What didn't work at all: Aggressive tone ('you just don't want to understand'). Sarcasm and belittling (even in a humorous way). Polarization ('I'm right, you're wrong'). Instead of engaging in a dialogue, it exacerbated the gap.",
-            "nextId": "end4 4"
+            "nextId": "end4 4",
+            "audio": "Narrator end4 3 feedback"
         },
         {
             "id": "end4 4",
             "character": "Feedback",
             "text": "What emotions it caused: Defensiveness ('I'm being attacked'). Feeling of loss of authority ('I'm not respected'). Need to defend old beliefs even more.",
-            "nextId": "end4 5"
+            "nextId": "end4 5",
+            "audio": "Narrator end4 4 feedback"
         },
         {
             "id": "end4 5",
             "character": "Feedback",
             "text": "How he interpreted your actions: I am being humiliated. I won't change my mind just because of my pride.'",
-            "nextId": "end4 6"
+            "nextId": "end4 6",
+            "audio": "Narrator end4 5 feedback"
         },
         {
             "id": "end4 6",
             "character": "Feedback",
             "text": "Why he answered this way: A defensive psychological reaction: instead of changing, he reinforced his old beliefs because of the emotional trauma of the dialogue.",
-            "nextId": "end4 7"
+            "nextId": "end4 7",
+            "audio": "Narrator end4 6 feedback"
         },
         {
             "id": "end4 7",
             "character": "Feedback",
             "text": "Result: locking in one's position.",
-            "nextId": "end"
+            "nextId": "end",
+            "audio": "Narrator end4 7 feedback"
         },
         {
             "id": "end",
             "character": "Credits",
-            "text": "                                                          Team leader: Łukasz Glück.                             Programming: Łukasz Glück, Olivier Cardoen.                                                  Writing: Anhelina Borodai, Zainab Askari.                               Music: Łukasz Glück.                                        Making of movie: Saba Amirhesari. ",
+            "text": "\n\nTeam leader: Łukasz Glück.\nProgramming: Łukasz Glück, Olivier Cardoen.\nWriting: Anhelina Borodai, Zainab Askari.\nMusic: Łukasz Glück.\nMaking of movie: Saba Amirhesari. Sibling's voice: Zainab Askari",
             "nextId": "exit"
         }
     ]
