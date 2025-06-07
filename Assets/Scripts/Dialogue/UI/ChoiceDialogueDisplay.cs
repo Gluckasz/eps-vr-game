@@ -66,16 +66,7 @@ public class ChoiceDialogueDisplay : MonoBehaviour, DialogueDisplay
 
         for (int i = 0; i < choiceButtons_.Count && i < dialogueNode_.choices.Count; i++)
         {
-            bool hasItem = dialogueNode_.choices[i].item != null;
-            bool isDiscovered =
-                !hasItem
-                || ItemDiscoveryManager.instance.HasDiscovered(dialogueNode_.choices[i].item);
-
-            Debug.Log(
-                $"Button {i}: Item='{dialogueNode_.choices[i].item}', HasItem={hasItem}, IsDiscovered={isDiscovered}"
-            );
-
-            if (i >= dialogueNode_.choices.Count || (hasItem && !isDiscovered))
+            if (i >= dialogueNode_.choices.Count)
             {
                 choiceButtons_[i].gameObject.SetActive(false);
                 continue;
