@@ -1,18 +1,15 @@
 using System.Collections;
-using System.IO;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SceneFlowManager : MonoBehaviour
 {
-    private AudioSource audioSource;
-
     private DialogueReader choiceDialogueReader;
     private DialogueReader basicDialogueReader;
 
     private const string sceneScriptFileName = "Scene1Dialogue.json";
     private const string introScriptFileName = "Scene1Intro.json";
     private const string introReminderScriptFileName = "NarratorIntroReminder.json";
+    private const string dialogueInquiryScriptFileName = "DialogueInquiry.json";
     private const string entryId = "entry";
 
     public bool SceneDialougePlaying { get; private set; } = false;
@@ -30,8 +27,6 @@ public class SceneFlowManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        audioSource = GetComponent<AudioSource>();
         choiceDialogueReader = ChoiceDialogueReader.Instance;
         basicDialogueReader = BasicDialogueReader.Instance;
     }
@@ -62,6 +57,34 @@ public class SceneFlowManager : MonoBehaviour
             BasicDialogueNextNode(dialogueDisplay);
             StartCoroutine(ShowIntroReminder());
         }
+    }
+
+    public IEnumerator ShowSceneDialogue()
+    {
+        SceneDialougePlaying = true;
+        PlayIdleAnimation("Father");
+        PlayIdleAnimation("Mother");
+        PlayIdleAnimation("Sibling");
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        LocomotionDisabler locomotionDisablerScript = player.GetComponent<LocomotionDisabler>();
+        locomotionDisablerScript.enableMovement = false;
+        player.transform.position = new Vector3(-3.5f, 0.1f, -4.3f);
+        player.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        yield return new WaitForEndOfFrame();
+        BackgroundMusic.Instance.PlayDialogueMusic();
+
+        DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
+        Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);
+        DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
+            sceneScript.dialogue[0].character
+        );
+
+        DialogueIterator sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
+        dialogueDisplay.SetDialogueIterator(sceneDialogueIterator);
+
+        StartCoroutine(ChoiceDialogueNextNode(dialogueDisplay, entryId));
     }
 
     public void PlayTalkAnimation(string characterTag)
@@ -186,34 +209,6 @@ public class SceneFlowManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ShowSceneDialogue()
-    {
-        SceneDialougePlaying = true;
-        PlayIdleAnimation("Father");
-        PlayIdleAnimation("Mother");
-        PlayIdleAnimation("Sibling");
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        LocomotionDisabler locomotionDisablerScript = player.GetComponent<LocomotionDisabler>();
-        locomotionDisablerScript.enableMovement = false;
-        player.transform.position = new Vector3(-3.5f, 0.1f, -4.3f);
-        player.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-        yield return new WaitForEndOfFrame();
-        BackgroundMusic.Instance.PlayDialogueMusic();
-
-        DialogueData sceneScript = choiceDialogueReader.ReadJsonDialogueData(sceneScriptFileName);
-        Dialogue sceneDialogue = new ChoiceDialogue(sceneScript.dialogue);
-        DialogueDisplay dialogueDisplay = choiceDialogueReader.CreateDialogueDisplay(
-            sceneScript.dialogue[0].character
-        );
-
-        DialogueIterator sceneDialogueIterator = sceneDialogue.CreateDialogueIterator();
-        dialogueDisplay.SetDialogueIterator(sceneDialogueIterator);
-
-        StartCoroutine(ChoiceDialogueNextNode(dialogueDisplay, entryId));
-    }
-
     public void ShowIntroDialogue()
     {
         DialogueData introScript = basicDialogueReader.ReadJsonDialogueData(introScriptFileName);
@@ -232,6 +227,23 @@ public class SceneFlowManager : MonoBehaviour
     public void ShowCharacterIntroDialogue(string scriptFileName)
     {
         DialogueData script = basicDialogueReader.ReadJsonDialogueData(scriptFileName);
+        Dialogue dialogue = new BasicDialogue(script.dialogue);
+        DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
+            script.dialogue[0].character
+        );
+
+        DialogueIterator dialogueIterator = dialogue.CreateDialogueIterator();
+        dialogueIterator.SetId(entryId);
+        dialogueDisplay.SetDialogueIterator(dialogueIterator);
+
+        BasicDialogueNextNode(dialogueDisplay);
+    }
+
+    public void ShowDialogueInquiry()
+    {
+        DialogueData script = basicDialogueReader.ReadJsonDialogueData(
+            dialogueInquiryScriptFileName
+        );
         Dialogue dialogue = new BasicDialogue(script.dialogue);
         DialogueDisplay dialogueDisplay = basicDialogueReader.CreateDialogueDisplay(
             script.dialogue[0].character

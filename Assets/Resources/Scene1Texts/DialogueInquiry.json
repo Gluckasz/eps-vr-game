@@ -1,0 +1,11 @@
+{
+    "dialogue": [
+        {
+            "id": "entry",
+            "character": "Dinner",
+            "text": "Click the button below, if you want to start the dinner.",
+            "nextId": "dinner start",
+            "audio": "Narrator dinner start"
+        }
+    ]
+}

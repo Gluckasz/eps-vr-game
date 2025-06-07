@@ -20,6 +20,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
         { "Sibling", new(0, 1.3f, 0.4f) },
         { "Narrator", new(0, 1.3f, 0) },
         { "Player", new(0, 1f, 1.5f) },
+        { "Dinner", new(0, 0, 0) },
     };
 
     private readonly List<string> characterTags = new()
@@ -30,6 +31,7 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
         "Father",
         "Feedback",
         "Narrator",
+        "Dinner",
     };
 
     public TMP_Text dialogueText;
@@ -116,8 +118,18 @@ public class BasicDialogueDisplay : MonoBehaviour, DialogueDisplay
 
     public void OnNextButtonPressed()
     {
-        SceneFlowManager.Instance.PlayIdleAnimation(dialogueNode_.character);
-        SceneFlowManager.Instance.BasicDialogueNextNode(this);
+        if (dialogueNode_.nextId == "dinner start")
+        {
+            ToggleDisplay(false);
+
+            Debug.Log("Starting the dinner");
+            StartCoroutine(SceneFlowManager.Instance.ShowSceneDialogue());
+        }
+        else
+        {
+            SceneFlowManager.Instance.PlayIdleAnimation(dialogueNode_.character);
+            SceneFlowManager.Instance.BasicDialogueNextNode(this);
+        }
     }
 
     public void SetDialogueIterator(DialogueIterator dialogueIterator)
