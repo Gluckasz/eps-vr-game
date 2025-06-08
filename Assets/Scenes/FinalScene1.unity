@@ -10455,7 +10455,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 9992b3dc7295cb346abc1e064bf88c15, type: 3}
   m_Resource: {fileID: 8300000, guid: 9992b3dc7295cb346abc1e064bf88c15, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.231
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -20274,6 +20274,10 @@ PrefabInstance:
     - target: {fileID: 588152512779320429, guid: 9b5aa1f4722f1de4bac68abda6d0e2a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004766618869537129, guid: 9b5aa1f4722f1de4bac68abda6d0e2a2, type: 3}
+      propertyPath: m_Volume
+      value: 0.075
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36205,6 +36209,10 @@ PrefabInstance:
     - target: {fileID: 891430471003885054, guid: cc2dc0dd4fe4e6c4f952b10c4c56dfc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818584214376376899, guid: cc2dc0dd4fe4e6c4f952b10c4c56dfc7, type: 3}
+      propertyPath: m_Volume
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 4267320775191943800, guid: cc2dc0dd4fe4e6c4f952b10c4c56dfc7, type: 3}
       propertyPath: m_StaticEditorFlags
