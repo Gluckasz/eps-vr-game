@@ -19,6 +19,10 @@ The primary goal of this game is to provide a safe and interactive environment f
 
 ## Gameplay
 
+Watch the gameplay on YouTube: [Breaking The Silence gameplay video](https://youtu.be/Wspm9pFDeZ0)
+
+## Gameplay
+
 The game is divided into two main phases: the Pre-Dinner Gameplay (VR Exploration Phase) and the Core Dialogue Interaction.
 
 ### Pre-Dinner Gameplay (VR Exploration Phase)
