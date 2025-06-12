@@ -3,6 +3,9 @@
 ## Table of Contents
 
 *   [Project Information](#project-information)
+*   [Installation](#installation)
+*   [Controls](#controls)
+*   [Build Steps (General)](#build-steps)
 *   [Game Overview](#game-overview)
 *   [Purpose & Learning Objectives](#purpose--learning-objectives)
 *   [Gameplay video](#gameplay-video)
@@ -11,8 +14,6 @@
     *   [Core Dialogue Interaction](#core-dialogue-interaction)
 *   [Target Audience](#target-audience)
 *   [Technology](#technology)
-*   [Installation](#installation)
-*   [Controls](#controls)
 *   [Credits](#credits)
 
 ## Project Information
@@ -27,7 +28,7 @@ To build and run "Breaking The Silence," you will need the following:
 *   **Unity Build Support:** Android Build Support module installed in your Unity Editor.
 *   **VR Hardware:** The game has been tested on Meta Quest 3. Other Android-based VR headsets might be compatible but are not tested
 
-**Build Steps (General):**
+**Build Steps
 
 1.  Clone or download the repository.
 2.  Open the project in Unity Hub, ensuring you select the correct Unity version (6000.x).
