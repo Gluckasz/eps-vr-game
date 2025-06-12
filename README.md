@@ -1,5 +1,20 @@
 # Breaking The Silence
 
+## Table of Contents
+
+*   [Project Information](#project-information)
+*   [Game Overview](#game-overview)
+*   [Purpose & Learning Objectives](#purpose--learning-objectives)
+*   [Gameplay video](#gameplay-video)
+*   [Gameplay](#gameplay)
+    *   [Pre-Dinner Gameplay (VR Exploration Phase)](#pre-dinner-gameplay-vr-exploration-phase)
+    *   [Core Dialogue Interaction](#core-dialogue-interaction)
+*   [Target Audience](#target-audience)
+*   [Technology](#technology)
+*   [Installation](#installation)
+*   [Controls](#controls)
+*   [Credits](#credits)
+
 ## Project Information
 
 This VR game, "Breaking The Silence," was created as part of the European Project Semester at FH St. Pölten. The dialogue and music featured in the game are original creations by the project team.
