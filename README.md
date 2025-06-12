@@ -94,8 +94,6 @@ Following the pre-dinner phase, the player will engage in a dynamic conversation
 
 ## Credits
 
-"Breaking The Silence" was developed by a dedicated team as part of the European Project Semester at FH St. Pölten.
-
 *   **Team Leader:** Łukasz Glück
 *   **Game Programmers:** Łukasz Glück, Olivier Cardoen
 *   **Script Writing:** Anhelina Borodai, Zainab Askari
