@@ -106,5 +106,5 @@ Social work students and professionals looking to enhance their skills in managi
 *   **Game Programmers:** Łukasz Glück, Olivier Cardoen
 *   **Script Writing:** Anhelina Borodai, Zainab Askari
 *   **Video Production:** Saba Amirhesari
-*   **Voice Acting:**
-    *   Sibling's Voice: Zainab Askari
+*   **Voice Acting:** Sibling's Voice: Zainab Askari
+*   **Music:** Łukasz Glück
