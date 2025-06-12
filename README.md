@@ -17,9 +17,9 @@ The primary goal of this game is to provide a safe and interactive environment f
 *   Build empathy and perspective-taking abilities.
 *   Gain confidence in addressing sensitive topics constructively.
 
-## Gameplay
+## Gameplay video
 
-Watch the gameplay on YouTube: [Breaking The Silence gameplay video](https://youtu.be/Wspm9pFDeZ0)
+Watch the gameplay video on YouTube: [Breaking The Silence gameplay video](https://youtu.be/Wspm9pFDeZ0)
 
 ## Gameplay
 
