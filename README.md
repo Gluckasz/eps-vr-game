@@ -99,6 +99,7 @@ Following the pre-dinner phase, the player will engage in a dynamic conversation
 *   **Team Leader:** Łukasz Glück
 *   **Game Programmers:** Łukasz Glück, Olivier Cardoen
 *   **Script Writing:** Anhelina Borodai, Zainab Askari
-*   **Video Production:** Saba Amirhesari
+*   **Making-of Video Production:** Saba Amirhesari
+*   **Gameplay Video Production:** Olivier Cardoen
 *   **Voice Acting:** Sibling's Voice: Zainab Askari
-*   **Music:** Łukasz Glück
+*   **Music Production:** Łukasz Glück
