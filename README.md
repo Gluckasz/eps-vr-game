@@ -69,7 +69,7 @@ Before the main dialogue with the father begins, the player will have the opport
 **Player Actions & Interactions:**
 
 *   **Setting the Table:**
-    *   The player will collect plates, glasses, from the kitchen.
+    *   The player will collect plates and glasses from the kitchen and set the table.
 
 *   **Helping with Dinner:**
     *   The mother might make light conversation, giving hints about family dynamics (She might reminisce about past family dinners, mention how the father has been watching certain news channels lately, or subtly express concern about potential disagreements at the table).
@@ -81,7 +81,7 @@ Before the main dialogue with the father begins, the player will have the opport
 
 *   **Collecting Dialogue Items:**
     *   Certain objects found around the house can be used later in conversation.
-    *   These might include news articles, newspapers, or personal items that can support the player’s arguments or understanding of other characters' perspectives.
+    *   These might include articles, newspapers, or personal items that can support the player’s arguments or understanding of other characters' perspectives.
 
 *   **Triggering the Dinner Scene:**
     *   Once the table is set and preparations are complete, the family gathers for dinner.
