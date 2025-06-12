@@ -4,6 +4,29 @@
 
 This VR game, "Breaking The Silence," was created as part of the European Project Semester at FH St. Pölten. The dialogue and music featured in the game are original creations by the project team.
 
+## Installation
+
+To build and run "Breaking The Silence," you will need the following:
+
+*   **Unity Version:** Unity 6000.x (ensure you have this specific version or a compatible one)
+*   **Unity Build Support:** Android Build Support module installed in your Unity Editor.
+*   **VR Hardware:** The game has been tested on Meta Quest 3. Other Android-based VR headsets might be compatible but are not tested
+
+**Build Steps (General):**
+
+1.  Clone or download the repository.
+2.  Open the project in Unity Hub, ensuring you select the correct Unity version (6000.x).
+3.  Ensure the Android Build Support module is installed for your Unity Editor. You can add modules via Unity Hub.
+4.  In Unity, go to `File > Build Settings`.
+5.  Select `Android` as the platform.
+6.  Configure your build settings as needed (e.g., Texture Compression, Target SDK versions).
+7.  Connect your Meta Quest 3 (or other target Android VR device) to your computer.
+8.  Click `Build And Run`. Unity will build the .apk file and attempt to deploy it to your connected device.
+
+## Controls
+
+The in-game controls can be viewed by looking down at your virtual controllers while in the game. This will display a map or guide of the button actions.
+
 ## Game Overview
 
 This immersive VR experience is designed to simulate a common family dinner scenario that escalates into a difficult conversation. Players take on the role of a family member and navigate the pre-dinner preparations before engaging in a challenging dialogue, often involving sensitive topics like racism.
@@ -59,6 +82,13 @@ Following the pre-dinner phase, the player will engage in a dynamic conversation
 
 Social work students and professionals looking to enhance their skills in managing difficult interpersonal conversations in non-professional contexts.
 
-## Technology
+## Credits
 
-Developed for Virtual Reality (VR) platforms to provide an immersive and engaging learning experience.
+"Breaking The Silence" was developed by a dedicated team as part of the European Project Semester at FH St. Pölten.
+
+*   **Team Leader:** Łukasz Glück
+*   **Game Programmers:** Łukasz Glück, Olivier Cardoen
+*   **Script Writing:** Anhelina Borodai, Zainab Askari
+*   **Video Production:** Saba Amirhesari
+*   **Voice Acting:**
+    *   Sibling's Voice: Zainab Askari
