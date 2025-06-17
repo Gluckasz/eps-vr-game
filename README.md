@@ -1,5 +1,7 @@
 # Breaking The Silence
 
+![Poster](https://github.com/user-attachments/assets/d8759588-9c1e-424b-b38b-4d2c5febe30c)
+
 ## Table of Contents
 
 *   [Project Information](#project-information)
@@ -97,7 +99,12 @@ Following the pre-dinner phase, the player will engage in a dynamic conversation
 *   **Team Leader:** Łukasz Glück
 *   **Game Programmers:** Łukasz Glück, Olivier Cardoen
 *   **Script Writing:** Anhelina Borodai, Zainab Askari
+*   **Voice Acting:**
+    *   **Sibling's Voice:** Zainab Askari
+    *   **AI Voice Acting (Replica):** Zainab Askari, Anhelina Borodai
+*   **Voice Acting & Script Integration:** Łukasz Glück
+*   **Music Production:** Łukasz Glück
+*   **SoundFX Design:** Olivier Cardoen, Łukasz Glück
+*   **Logo & Poster Design:** Zainab Askari
 *   **Making-of Video Production:** Saba Amirhesari
 *   **Gameplay Video Production:** Olivier Cardoen
-*   **Voice Acting:** Sibling's Voice: Zainab Askari
-*   **Music Production:** Łukasz Glück
